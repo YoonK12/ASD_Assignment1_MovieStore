@@ -25,6 +25,10 @@ public class Customer {
         this.gender = gender;
         this.active = active;
     }
+
+    public Customer(String cEmail, String password, String cusName, String DOB, int gender, boolean active) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     //Getters and Setters
     public String getcEmail() {
