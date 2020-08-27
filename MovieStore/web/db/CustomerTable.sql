@@ -23,3 +23,4 @@ INSERT INTO Customers(cEmail,password,cusName,DOB,gender,active)
 ,('jim.carry@uts.edu.au','BA99342bob','Jim Carry','25/08/2000',0,false)
 ,('steve.miller@uts.edu.au','BA99342bob','Steve Miller','03/11/1999',0,false)
 ,('john.smith@uts.edu.au','BA99342bob','John Smith','10/06/1988',0,false);
+
