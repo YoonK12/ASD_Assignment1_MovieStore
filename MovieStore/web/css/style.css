@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+body {
+    background-color: whitesmoke;
+    font-family: 'Oswald', sans-serif;
+    margin: 0px;
+}
+
+/*Home Page: Banner + Welcome Text + Login + Sign Up*/
+.headbanner {
+    background-image: url("../img/headerBG.jpg");
+    color: whitesmoke;
+    padding: 40px;
+    width: 100%;
+    height: calc(100vh-100px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.intro {
+    margin: 20px;
+    display: inline-block flex;
+    flex-direction: column;
+}
+.register {
+    float:right;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.loginframe {
+    margin: 0px;
+    padding: 30px 30px 0px 30px;
+    width: 20%;
+    background-color: rgb(104, 130, 158, 0.3);
+    border: none;
+    border-radius: 5px;
+}
+
+.text {
+    width: 50%;
+    color: rgb(44, 64, 90)
+}
+
+h1 {font-size: 40px;}
+h6 {
+    font-size: 12px;
+    color:rgb(44, 64, 90)
+}
+
+
+/* Information Sections */
+.features {
+    background: whitesmoke;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    margin: 0px;
+}
+.platform {
+    background: rgb(44, 64, 90);
+    width: 100%;
+    color: whitesmoke;
+    text-align: center;
+    padding: 30px;
+    margin: 0px;
+}
+.termsandconditions {
+    background: whitesmoke;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    margin: 0px;
+}
+
+/* Footer */
+footer {
+    background: rgb(44, 64, 90);
+    width: 100%;
+    color: whitesmoke;
+    padding: 30px 30px 30px 40px;
+}
