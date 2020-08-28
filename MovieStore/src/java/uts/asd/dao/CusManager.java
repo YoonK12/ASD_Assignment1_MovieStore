@@ -64,3 +64,4 @@ public class CusManager {
         st.execute("INSERT INTO MS.CUSTOMERS VALUES ('"+cemail+"', '"+password+"','"+cusname+"','"+dob+"',"+gender+",'"+active+"'");   
 
     }
+}
