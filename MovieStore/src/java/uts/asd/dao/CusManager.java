@@ -5,7 +5,7 @@
  */
 package uts.asd.dao;
 
-import uts.asd.model.Customer;
+import uts.asd.model.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -71,11 +71,11 @@ public class CusManager {
     }
     
     // view all access logs for a user
-    public LinkedList<AccessLog> viewLogs(String email) throws SQLException {
+    public LinkedList<AccessLog> viewLogs(String cemail) throws SQLException {
         LinkedList<AccessLog> logs = new LinkedList<AccessLog>();
         
         // get all access logs using email
-        String fetch = String.format("select * from ISDUSER.ACCESSLOGS where \"%s\"='"+email+"'", "email");
+        String fetch = String.format("select * from MS.ACCESSLOGS where \"%s\"='"+cemail+"'", "cemail");
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
@@ -88,18 +88,18 @@ public class CusManager {
     }
 
 //    update a user details in the database   
-    public void updateUser(String email, String name, String password, String phone, String address, String gender, String type) throws SQLException {       
-        String fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+name+"' where \"%s\"='"+email+"'", "name", "email");
+    public void updateUser(String cemail, String name, String password, String phone, String address, String gender, String type) throws SQLException {       
+        String fetch = String.format("UPDATE MS.CUSTOMERS SET \"%s\"='"+name+"' where \"%s\"='"+email+"'", "name", "email");
         st.execute(fetch);
-        fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+password+"' where \"%s\"='"+email+"'", "password", "email");
+        fetch = String.format("UPDATE MS.CUSTOMERS SET \"%s\"='"+password+"' where \"%s\"='"+email+"'", "password", "email");
         st.execute(fetch);
-        fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+phone+"' where \"%s\"='"+email+"'", "phone", "email");
+        fetch = String.format("UPDATE MS.CUSTOMERS SET \"%s\"='"+phone+"' where \"%s\"='"+email+"'", "phone", "email");
         st.execute(fetch);
-        fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+address+"' where \"%s\"='"+email+"'", "address", "email");
+        fetch = String.format("UPDATE MS.CUSTOMERS SET \"%s\"='"+address+"' where \"%s\"='"+email+"'", "address", "email");
         st.execute(fetch);
-        fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+gender+"' where \"%s\"='"+email+"'", "gender", "email");
+        fetch = String.format("UPDATE MS.CUSTOMERS SET \"%s\"='"+gender+"' where \"%s\"='"+email+"'", "gender", "email");
         st.execute(fetch);
-        fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+type+"' where \"%s\"='"+email+"'", "type", "email");
+        fetch = String.format("UPDATE MS.CUSTOMERS SET \"%s\"='"+type+"' where \"%s\"='"+email+"'", "type", "email");
         st.execute(fetch);        
     }
     
