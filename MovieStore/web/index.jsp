@@ -9,29 +9,36 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <title>Home Page</title>
-        <link rel="stylesheet" href="css/style.css" type="text/css"/>
+        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
+        <title>Movie Store | Welcome to Movie Store</title>
+        <link rel="stylesheet" href="./css/style.css" type="text/css"/>
     </head>
-
-        <section class="headbanner">
-            <h1 class="display-3">Online Movie Store</h1>
-                        <div class ="backImage">
-                            <div class="register">
+    <body>
+        <div class="container bg-image">
+            <header class="header">
+                <h1><a href="./index.jsp" class="logo">Movie Store</a></h1>
+            </header>
+            <main class="main-content">
+                <section class="">
+                        <div class ="group group1">
+                            <div class="login-form">
                                 <form action="<%=request.getContextPath()%>/LoginServlet" method="post">
-                                    <h3 style ="color: black;">Login</h3>
-                                    <fieldset class="loginframe">
-                                        <input type="text" name="name" placeholder="Enter the email" size="30"> </br></br>
-                                        <input type="password" name="password" placeholder= "Enter password" size="30"> </br></br>
-                                        <button type="submit" value="Submit" class="submit">Submit</button></br></br>
+                                    <h3 class="login-heading">Welcome to Movie Store</h3>
+                                    <fieldset border=0>
+                                        <input type="text" name="name" placeholder="Enter the email" size="30">
+                                        <input type="password" name="password" placeholder= "Enter password" size="30">
+                                        <input type="submit" value="Submit" class="btn-login">
 
                                     </fieldset>
-                                    <p>No account? Click <a href="register.jsp">here</a> to register</p>
+                                    <p class="goto-register">No account? Click <a href="register.jsp" class="btn-link">here</a> to register</p>
                                 </form>
                             </div>
                         </div>
-        </section>
-
+                </section>
+            </main>
+            <footer class="footer">
+                
+            </footer>
         <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>
