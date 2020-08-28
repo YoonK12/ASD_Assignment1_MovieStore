@@ -13,5 +13,10 @@
     </head>
     <body>
         <h1>Online Movie Store</h1>
+          <a href="login.jsp">Login as Customer</a>
+          <a href="login.jsp">Login as Staff</a>
+          <a href="register.jsp">Register</a>
+          <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>
+
