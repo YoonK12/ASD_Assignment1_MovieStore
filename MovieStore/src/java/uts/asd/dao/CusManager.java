@@ -20,20 +20,20 @@ import java.util.LinkedList;
 public class CusManager {
     private Statement st;
     private Connection conn;
-    
-    
+
+
      public CusManager(Connection conn) throws SQLException{
         st = conn.createStatement();
         this.conn = conn;
-    
+
     }
- 
-    // find user by email and password in the database   
-    public Customer loginCustomer(String cemail, String password) throws SQLException {       
+
+    // find user by email and password in the database
+    public Customer loginCustomer(String cemail, String password) throws SQLException {
        String fetch = String.format("select * from MS.CUSTOMERS where \"%s\"='"+cemail+"' and \"%s\"='"+password+"'", "cemail", "password");
-       
+
        ResultSet rs = st.executeQuery(fetch);
-       
+
        while (rs.next()) {
            if (rs.getString(1).equals(cemail) && rs.getString(2).equals(password)) {
                return new Customer(rs.getString(1), rs.getString(2), rs.getString(3),
@@ -42,13 +42,13 @@ public class CusManager {
        }
        return null;
     }
-    
-    
+
+
     // find user by email
     public Customer findCustomer(String cemail) throws SQLException {
         String fetch = String.format("select * from MS.CUSTOMERS where \"%s\"='"+cemail+"'", "cemail");
         ResultSet rs = st.executeQuery(fetch);
-        
+
         while (rs.next()) {
             if (rs.getString(1).equals(cemail)) {
                 return new Customer(rs.getString(1), rs.getString(2), rs.getString(3),
@@ -58,10 +58,11 @@ public class CusManager {
         return null;
     }
 
-    //Add user to the database   
+    //Add user to the database
     public void addCustomer(String cemail, String password, String cusname, String dob,
-            int gender, boolean active) throws SQLException {     
-        st.execute("INSERT INTO MS.CUSTOMERS VALUES ('"+cemail+"', '"+password+"','"+cusname+"','"+dob+"',"+gender+",'"+active+"'");   
+            int gender, boolean active) throws SQLException {
+        st.execute("INSERT INTO MS.CUSTOMERS VALUES ('"+cemail+"', '"+password+"','"+cusname+"','"+dob+"',"+gender+",'"+active+"'");
 
     }
+
 }
