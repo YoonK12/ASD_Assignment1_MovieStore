@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : index
     Created on : Aug 28, 2020, 11:18:00 AM
     Author     : campf
@@ -13,7 +13,7 @@
         <title>Home Page</title>
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
     </head>
-    <body>
+
         <section class="headbanner">
             <h1 class="display-3">Online Movie Store</h1>
                         <div class ="backImage">
@@ -24,14 +24,14 @@
                                         <input type="text" name="name" placeholder="Enter the email" size="30"> </br></br>
                                         <input type="password" name="password" placeholder= "Enter password" size="30"> </br></br>
                                         <button type="submit" value="Submit" class="submit">Submit</button></br></br>
-                                        
+
                                     </fieldset>
                                     <p>No account? Click <a href="register.jsp">here</a> to register</p>
                                 </form>
                             </div>
                         </div>
         </section>
-        
+
         <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>
