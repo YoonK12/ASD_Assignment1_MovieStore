@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.LinkedList;
 /**
  *
  * @author yoonkoo
@@ -25,95 +27,112 @@ public class CusManager {
         this.conn = conn;
     
     }
-    
-//Customers(cEmail,password,cusName,DOB,gender,active)
-//Read - find a customer by email and password
-  public Customer findCustomer(String cEmail, String password) throws SQLException{
-        
-      Customer customer = null;
-        String query = "SELECT * FROM Customers WHERE CEMAIL= '"+cEmail+"' AND PASSWORD= '"+password+"'";
-        ResultSet rs = st.executeQuery(query);
-    
-        
-        if(rs!=null){
-          //HttpSession sesion = request.getSession(true);
-            while(rs.next()){
-            String userEmail = rs.getString("email"); 
-            String userPass = rs.getString("password"); 
-            
-            if(userEmail.equals(cEmail) && userPass.equals(password)){
-                
-                    String cusName= rs.getString("cusName");
-                    String DOB= rs.getString("DOB");
-                    int gender = rs.getInt("gender");
-                    boolean active = rs.getBoolean("active");
-                    
-                    customer = new Customer(cEmail,password,cusName,DOB,gender,active);
-                    return customer;
-            }
-            //if email or password incorrect
-            else 
-            {
-                return customer;
-            }
-            
-        }
-        
-    }
-        return customer;
-  }
-  //find customer by email
-  public Customer findCusByEmail(String cEmail) throws SQLException{
-        Customer user = null;
-        String query = "SELECT * FROM Customers WHERE CEMAIL= '"+cEmail+"'";
-        ResultSet rs = st.executeQuery(query);
-         if(rs!=null){
-          //HttpSession sesion = request.getSession(true);
-            while(rs.next()){
-            String email = rs.getString("cEmail");
-            String password = rs.getString("password");
-            String cusName= rs.getString("cusName");
-            String DOB= rs.getString("DOB");
-            int gender = rs.getInt("gender");
-            boolean active = rs.getBoolean("active");
-                    
-            user = new Customer(email,password,cusName,DOB,gender,active);
-            return user;
-            }
-        
-        
-    }return user;
- }
-  // add Customer
-    public void addCustomer(String cEmail,String password,String cusName,String DOB,int gender) throws SQLException{
+ 
+    // find user by email and password in the database   
+    public Customer loginCustomer(String cemail, String password) throws SQLException {       
+       String fetch = String.format("select * from MS.CUSTOMERS where \"%s\"='"+cemail+"' and \"%s\"='"+password+"'", "cemail", "password");
        
-      
-        boolean active = false;
-        String query = "INSERT INTO Customers(cEmail,password,cusName,DOB,gender,active) VALUES (?,?,?,?,?,?)";
-        PreparedStatement ps = conn.prepareStatement(query);
-        ps.setString(1,cEmail);
-        ps.setString(2,password);
-        ps.setString(3,cusName);
-        ps.setString(4,DOB);
-        ps.setInt(5,gender);
-        ps.setBoolean(6,active);
+       ResultSet rs = st.executeQuery(fetch);
+       
+       while (rs.next()) {
+           if (rs.getString(1).equals(cemail) && rs.getString(2).equals(password)) {
+               return new Customer(rs.getString(1), rs.getString(2), rs.getString(3),
+                rs.getString(4),rs.getInt(5), rs.getBoolean(6));
+           }
+       }
+       return null;
+    }
     
-        ps.executeUpdate();
-         
-      
-  
-       //ResultSet rs = st.executeQuery(query);
+    
+    // find user by email
+    public Customer findCustomer(String cemail) throws SQLException {
+        String fetch = String.format("select * from MS.CUSTOMERS where \"%s\"='"+cemail+"'", "cemail");
+        ResultSet rs = st.executeQuery(fetch);
+        
+        while (rs.next()) {
+            if (rs.getString(1).equals(cemail)) {
+                return new Customer(rs.getString(1), rs.getString(2), rs.getString(3),
+                rs.getString(4),rs.getInt(5), rs.getBoolean(6));
+            }
+        }
+        return null;
+    }
+
+    //Add user to the database   
+    public void addCustomer(String cemail, String password, String cusname, String dob,
+            int gender, boolean active) throws SQLException {     
+        st.execute("INSERT INTO MS.CUSTOMERS VALUES ('"+cemail+"', '"+password+"','"+cusname+"','"+dob+"',"+gender+",'"+active+"'");   
 
     }
-    //Delete Customer 
-    public void deleteCusByEmail(String email) throws SQLException{
+    
+    // add an access log
+    public void addLog(String email) throws SQLException {    
+        st.execute(String.format("INSERT INTO MS.CUSTOMERS (\"%s\", \"%s\") VALUES('"+email+"', CURRENT_TIMESTAMP)", "email", "dateTime")); 
+    }
+    
+    // view all access logs for a user
+    public LinkedList<AccessLog> viewLogs(String email) throws SQLException {
+        LinkedList<AccessLog> logs = new LinkedList<AccessLog>();
         
-        String query = "DELETE FROM Customers WHERE cEmail=?";
-        PreparedStatement ps = conn.prepareStatement(query);
-        ps.setString(1,email);
-        ps.executeQuery();
-        
-        
-        
+        // get all access logs using email
+        String fetch = String.format("select * from ISDUSER.ACCESSLOGS where \"%s\"='"+email+"'", "email");
+        ResultSet rs = st.executeQuery(fetch);
+
+        while (rs.next()) {
+            // add the logs to the list
+            logs.add(new AccessLog(rs.getString(1), rs.getString(2), rs.getString(3)));
+        }
+
+        // return the list
+        return logs;
+    }
+
+//    update a user details in the database   
+    public void updateUser(String email, String name, String password, String phone, String address, String gender, String type) throws SQLException {       
+        String fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+name+"' where \"%s\"='"+email+"'", "name", "email");
+        st.execute(fetch);
+        fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+password+"' where \"%s\"='"+email+"'", "password", "email");
+        st.execute(fetch);
+        fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+phone+"' where \"%s\"='"+email+"'", "phone", "email");
+        st.execute(fetch);
+        fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+address+"' where \"%s\"='"+email+"'", "address", "email");
+        st.execute(fetch);
+        fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+gender+"' where \"%s\"='"+email+"'", "gender", "email");
+        st.execute(fetch);
+        fetch = String.format("UPDATE ISDUSER.USERS SET \"%s\"='"+type+"' where \"%s\"='"+email+"'", "type", "email");
+        st.execute(fetch);        
+    }
+    
+    public void deleteUser(String email) throws SQLException {
+        st.execute(String.format("DELETE FROM ISDUSER.USERS WHERE \"%s\"='"+email+"'", "email"));
+    }
+    
+    public void deleteStaffUser(String email) throws SQLException {
+        st.execute("DELETE FROM ISDUSER.USERS WHERE EMAIL = '"+email+"'");
+    }
+
+
+
+   //user list - Austin
+   public ArrayList<User> searchUser(String searchParam)throws SQLException{
+        String cond  = "";
+        if(searchParam.equals("")){
+            cond = "true";
+        }
+        else cond = "EMAIL LIKE '%"+searchParam+"%' OR NAME LIKE '%"+searchParam+"%' OR PHONE LIKE '%"+searchParam+"%' OR ADDRESS LIKE '%"+searchParam+"%'";
+        String fetch = "SELECT * FROM ISDUSER.USERS WHERE " + cond;
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<User> temp = new ArrayList<User>();
+            while (rs.next()){
+                String email = rs.getString(1);
+                String name = rs.getString(2);
+                String password = rs.getString(3);
+                String gender = rs.getString(4);
+                String phone = rs.getString(5);
+                String address = rs.getString(6);
+                String type = rs.getString(7);
+                temp.add(new User(email, name, password, gender, phone, address, type));
+            }
+        return temp;
     }
 }
