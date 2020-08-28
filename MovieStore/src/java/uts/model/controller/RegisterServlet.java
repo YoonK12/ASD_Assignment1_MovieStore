@@ -71,10 +71,10 @@ public class RegisterServlet extends HttpServlet {
         } else {
         
             try {
-                if (cusManager.findCustomer(cemail) == null) {
-                    cusManager.addUser(email, name, password, gender, phone, address, type);
-                    User user = new User(email, name, password, gender, phone, address, type);
-                    session.setAttribute("customer, customer);
+                if (cusManager.findCustomer(cEmail) == null) {
+                    cusManager.addCustomer(cEmail, password, name, DOB, gender, active);
+                    Customer customer = new Customer(cEmail, name, password, gender, active);
+                    session.setAttribute("customer", customer);
 
                     // redirect to the next page
                     String redirectURL = "welcome.jsp";
