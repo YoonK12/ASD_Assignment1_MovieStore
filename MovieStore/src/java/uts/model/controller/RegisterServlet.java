@@ -30,13 +30,12 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {       
         HttpSession session = request.getSession();
         
-        String email = request.getParameter("email");
-        String name = request.getParameter("name");
+        String cEmail = request.getParameter("cEmail");
         String password = request.getParameter("password");
-        String gender = request.getParameter("gender");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        String type = request.getParameter("type");
+        String name = request.getParameter("name");
+        String DOB = request.getParameter("DOB");
+        int gender = request.getInt(gender);
+        boolean active = request.getBoolean(active);
         
         
         CusManager cusManager = (CusManager) session.getAttribute("manager");
@@ -69,22 +68,13 @@ public class RegisterServlet extends HttpServlet {
             // redirect user back to the login.jsp          
             request.getRequestDispatcher("register.jsp").include(request, response);
         
-        // validate phone number
-        } else if (phone.matches("[0-9]+") == false) {
-            
-            // set incorrect phone error to the session           
-            session.setAttribute("errMsg", "Error: phone number format incorrect");
-            
-            // redirect user back to the login.jsp          
-            request.getRequestDispatcher("register.jsp").include(request, response);
-            
         } else {
         
             try {
-                if (manager.findUser(email) == null) {
-                    manager.addUser(email, name, password, gender, phone, address, type);
+                if (cusManager.findCustomer(cemail) == null) {
+                    cusManager.addUser(email, name, password, gender, phone, address, type);
                     User user = new User(email, name, password, gender, phone, address, type);
-                    session.setAttribute("user", user);
+                    session.setAttribute("customer, customer);
 
                     // redirect to the next page
                     String redirectURL = "welcome.jsp";
