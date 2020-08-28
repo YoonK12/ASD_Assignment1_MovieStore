@@ -65,35 +65,15 @@ public class LoginServlet extends HttpServlet {
         } else {
             try {
                 // find user by email and password
-                user = manager.loginUser(email, password);
+                customer = cusManager.loginCustomer(email, password);
 
-                if (user != null) {
-                    session.setAttribute("user", user);
+                if (customer != null) {
+                    session.setAttribute("customer", customer);
                     // add access log
-                    manager.addLog(email);
+                    //manager.addLog(email);
 
                     // redirect user to the correct page
-                    String type = manager.getType(email);
-                    if (type.equals("customer")) {
-
-                        ArrayList<Product> display = productManager.fectProduct();
-
-                        request.setAttribute("display", display);
-                        request.getRequestDispatcher("main.jsp").include(request, response);
-//                        request.getRequestDispatcher("main.jsp").include(request, response);
-                    } else if (type.equals("staff")) {
-
-                        ArrayList<Product> display = productManager.fectProduct();
-
-                        request.setAttribute("display", display);
-                        request.getRequestDispatcher("staffMain.jsp").include(request, response);
-
-                    } else {
-//                        request.setAttribute("display", display);
-                        request.getRequestDispatcher("systemAdminMain.jsp").include(request, response);
-//                        String redirectURL = "/systemAdminMain.jsp";
-//                        response.sendRedirect(redirectURL);
-                    }
+                    request.getRequestDispatcher("main.jsp").include(request, response);
 
                 } else {
                     session.setAttribute("existErr", "Error: user does not exist!");
