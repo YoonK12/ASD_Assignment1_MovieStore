@@ -27,7 +27,7 @@
                                     <fieldset border=0>
                                         <input type="text" name="name" placeholder="Enter the email" size="30">
                                         <input type="password" name="password" placeholder= "Enter password" size="30">
-                                        <input type="submit" value="Submit" class="btn-login">
+                                        <input type="submit" value="Submit" class="btn-login" href="./main.jsp">
 
                                     </fieldset>
                                     <p class="goto-register">No account? Click <a href="register.jsp" class="btn-link">here</a> to register</p>
