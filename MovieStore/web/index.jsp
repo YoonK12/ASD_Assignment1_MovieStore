@@ -2,6 +2,11 @@
     Document   : index
     Created on : Aug 28, 2020, 11:18:00 AM
     Author     : campf
+
+Things to do or not done yet
+#0 example of index.jsp ( showing available movie list and login,register at the top)
+#1 The design/style of layout, button should be changed later
+#2 Movie images should be inserted
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,21 +20,24 @@
     </head>
 
         <section class="headbanner">
-            <h1 class="display-3">Online Movie Store</h1>
-                        <div class ="backImage">
-                            <div class="register">
-                                <form action="<%=request.getContextPath()%>/LoginServlet" method="post">
-                                    <h3 style ="color: black;">Login</h3>
-                                    <fieldset class="loginframe">
-                                        <input type="text" name="name" placeholder="Enter the email" size="30"> </br></br>
-                                        <input type="password" name="password" placeholder= "Enter password" size="30"> </br></br>
-                                        <button type="submit" value="Submit" class="submit">Submit</button></br></br>
-
-                                    </fieldset>
-                                    <p>No account? Click <a href="register.jsp">here</a> to register</p>
-                                </form>
-                            </div>
-                        </div>
+            <h1 class="display-3" align="center">Online Movie Store</h1>
+            <div align="right">
+                <a href ="login.jsp"> Login </a>
+   
+                <a href ="register.jsp"> Register </a>
+            </div>
+            
+             <div class ="backImage">
+                 <div class="card" style="width:33%;height:300px;background-color: gray;float:left;margin:2px">Movie 1</div>
+                 <div class="card" style="width:33%;height:300px;background-color: gray;float:left;margin:2px">Movie 2</div>        
+                 <div class="card" style="width:33%;height:300px;background-color: gray;float:left;margin:2px">Movie 3</div>        
+                 <div class="card" style="width:33%;height:300px;background-color: gray;float:left;margin:2px">Movie 4</div>        
+                 <div class="card" style="width:33%;height:300px;background-color: gray;float:left;margin:2px">Movie 5</div>        
+                 <div class="card" style="width:33%;height:300px;background-color: gray;float:left;margin:2px">Movie 6</div>        
+                 <div class="card" style="width:33%;height:300px;background-color: gray;float:left;margin:2px">Movie 7</div>        
+                 <div class="card" style="width:33%;height:300px;background-color: gray;float:left;margin:2px">Movie 8</div>        
+                 <div class="card" style="width:33%;height:300px;background-color: gray;float:left;margin:2px">Movie 9</div>        
+             </div>
         </section>
 
         <jsp:include page="/ConnServlet" flush="true" />
