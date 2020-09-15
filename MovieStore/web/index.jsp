@@ -1,6 +1,6 @@
 <%-- 
-    Document   : main
-    Created on : Aug 28, 2020, 1:43:33 PM
+    Document   : index
+    Created on : Sep 14, 2020, 1:43:33 PM
     Author     : Heeseong Jeon
 --%>
 
@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
         <title>Movie Store | Welcome to Movie Store</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css" type="text/css"/>
     </head>
     <body>
@@ -33,7 +34,7 @@
                             <legend class="readable-hidden">Searching movies</legend>
                             <p>
                                 <label for="input-movie-title" class="readable-hidden">Search:</label>
-                                <input type="text" name="Title" id="input-movie-title" class="input-movie-title" placeholder="Enter movie title"/>
+                                <input type="text" name="Title" id="input-movie-title" class="input-movie-title" placeholder="What MOVIE are you looking for?"/>
                             
                                 <input type="submit" value="Search" class="btn-search" onclick="alert('go search.');return false;"/>
                             </p>
@@ -55,7 +56,7 @@
                     <ul>
                         <li><a href="./login.jsp">Login</a></li>
                         <li><a href="./register.jsp">Register</a></li>
-                        <li><button type="button" class="btn-go-cart" onclick="alert('please login in/register first');return false">Cart</button></li>
+                        <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>
                     </ul>
                     
                 </div>
