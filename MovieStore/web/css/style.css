@@ -1,3 +1,8 @@
+/*
+    Document   : style.css
+    Created on : Sep 14, 2020, 11:18:00 AM
+    Author     : Heeseong Jeon
+*/
 
 /* reset*/
 fieldset{
@@ -6,7 +11,7 @@ fieldset{
 ul{
     list-style: none;
 }
-
+form
 *, *::after, *::before{
     margin:0;
     padding:0;
@@ -44,40 +49,45 @@ a:link, a:visited{
     position: relative;
 }
 
-/* particular login page css */
-.login-container{
+/* particular form page css */
+.form-container{
     display: flex;
     flex-direction: column;
-    transform: translateY(40%);
+    transform: translateY(27%);
 }
-.login-container .main-content{
+.form-container .main-content{
     display: flex;
     justify-content: center;
 }
-.header.login-header{
+.header.form-header{
     margin-bottom: 10px;
     text-align: center;
 }
-.header.login-header .logo{
-    color: #fff;
+.header.form-header .logo{
+    font-family: 'Playfair Display SC', serif;
+    color: #900;
+    font-weight: 900;
+    font-size: 3rem;
+    text-shadow: 1px 1px 1px #fff;
 }
 
 .header.main-header{
     /*padding: 4rem;*/
     min-height: 10rem;
-    background-color:#fff;
+    /*background-color:#fff;*/
 }
 .header .logo-heading{
     position: absolute;
-    top: 2.2rem;
-    left:3rem;
+    top: 1.6rem;
+    left: 2rem;
     z-index: 10;
 }
 .header .logo{
-
+    font-family: 'Playfair Display SC', serif;
     font-size: 2.5rem;
-    /*color:#fff;*/
-    text-transform: uppercase;
+    color: #900;
+    font-weight: 900;
+    text-shadow: 1px 1px 1px #fff;
 }
 
 .header nav{
@@ -135,6 +145,7 @@ a:link, a:visited{
     border: 0;
     border-radius: 2px;
     color: #fff;
+    cursor: pointer;
 }
 .input-movie-title, .btn-search{
     vertical-align: middle;
@@ -144,7 +155,7 @@ a:link, a:visited{
 /* header - member -login/register/cart */
 .member{
     position: absolute;
-    top: 2.2rem;
+    top: 2rem;
     right: 2rem;
 }
 .member ul{
@@ -152,41 +163,56 @@ a:link, a:visited{
 
 }
 .member ul li{
+    font-family: 'Playfair Display SC', serif;
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
     height: 3rem;
-    margin-left: 1rem;
+    margin-left: 1.2rem;
 }
 .member ul li a{
+    position: relative;
     display: inline-block;
     /*padding-left: 1rem;*/
-    color: #181818;
+    color: #fff;
     line-height: 3rem;
+    text-shadow: 1px 1px 1px #181818;
 }
-.member ul li a:hover,
+.member ul li a:hover::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height:1px;
+    background-color: #fff;
+}
+/*.member ul li a:hover,
 .member ul li a:focus{
     color: #900;
-}
+}*/
 
 .btn-go-cart{
-    font-size: 1rem;
-    background-color: transparent;
-    color: #900;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 1.2rem;
+/*    text-shadow: 1px 1px 1px #181818;
+    background-color: #fff;*/
+    color: #181818;
     border: 0;
     border-radius: 2px;
-    border: 1px solid #900;
+    border: 1px solid #fff;
     padding: 0 1.2rem;
     height: 3rem;
+    /*line-height: 3rem;*/
     /*margin-left: 1rem;*/
     cursor: pointer;
-    transition: background .3s ease-in-out;
+    transition: transform .2s ease-in-out;
 }
 .btn-go-cart:active, .btn-go-cart:focus, .btn-go-cart:hover{
-    background-color: #900;
-    color:#fff;
+    transform: scale(1.05);
 }
 .main-movie{
-    background-color: #fff;
+    /*background-color: #fff;*/
     padding: 2rem;
     min-height: 80rem;
 }
@@ -203,7 +229,7 @@ a:link, a:visited{
     padding: 1rem 1rem 0;
 }
 .movie-item{
-    /*background-color: pink;*/
+    background-color: #fff;
     width: 24%;
     margin-bottom: 1rem; 
     /*padding: 1rem;*/
@@ -269,45 +295,71 @@ a:link, a:visited{
     background-color: #680404;
 }
 
-/* login box of index.jsp*/
-.login-form{
+/* form box of index.jsp*/
+.form{
     padding: 2rem;
     margin-top: 6rem 0 0;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.5);
     width: 30rem;
     height: 30rem;
     display: flex;
     justify-content:space-between;
     align-items: center;
 }
-.login-form .login-heading{
-    font-size: 2rem;
+.form .form-heading{
+    font-family: 'Playfair Display SC', serif;
+    font-size: 1.8rem;
     color: #181818;
     text-align: center;
     margin-bottom: 1.5rem;
 }
-.login-form input{
+.form input{
     width: 100%;
     height: 3rem;
     padding: 5px 8px;
     margin-bottom: 1.5rem;
     font-size: 1.3rem;
 }
-.login-form .btn-login{
+.form .btn-login, .form .btn-register{
     width: 40%;
     border: none;
     outline: none;
     color: #fff;
     background-color: #900;
-        
 }
-.login-form .goto-register{
+.form .goto-register{
     font-size:1.5rem;
     color: #181818;
+    text-align: center;
+    margin-top: 1rem;
 }
-.login-form .btn-link{
+.form .btn-link{
     color:blue;
     font-weight: bold;
     font-size:1.8rem;
     
+}
+.required{
+
+    font-size: 1.2rem;
+    text-align: right;
+    font-weight: bold;
+}
+.form .btn-go-back{
+    display: inline-block;
+    width: 30%;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    margin-right: 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    color: #181818;
+    border-bottom: 1px solid  #181818;
+    transition: background .2s ease-in-out;
+
+}
+.form .btn-go-back:hover,.form .btn-go-back:focus{
+    background-color: #181818;
+    color:#fff;
 }
