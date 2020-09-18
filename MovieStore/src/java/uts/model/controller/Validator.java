@@ -25,7 +25,7 @@ public class Validator implements Serializable {
    // online-user-access-specific management patterns
    private String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";
    private String namePattern = "([A-Z][a-z]+[\\s])+[A-Z][a-z]*";
-   private String passwordPattern = "[a-z0-9]{4,}";
+   private String passwordPattern = "^(?=.*\\d)(?=.*[a-zA-Z])(?!.*[\\W_\\x7B-\\xFF]).{6,15}$"; 
    private String phonePattern = "0([0-9]+)";
 
    private String productNamePattern = "^[a-zA-Z0-9 ]*$";
