@@ -51,7 +51,8 @@ public class LoginServlet extends HttpServlet{
           
             //if user found
             if(user != null ){
-                   
+                //if logged in user is a customer
+                if(user.getUsertype().equals("Customer")){
                 session.setAttribute("user",user);           
                 // user's active
                 user.setActive(true);
@@ -59,14 +60,19 @@ public class LoginServlet extends HttpServlet{
                 //String usertype = user.getUsertype();
                 manager.addUserLog(userId, "Login");
                 request.getRequestDispatcher("index.jsp").include(request,response);
-                
-                /*if(usertype.equals("Staff")){
-                   request.getRequestDispatcher("main-admin.jsp").forward(request,response);
                 }
-                if(usertype.equals("Customer")){
-                    request.getRequestDispatcher("welcome.jsp").forward(request,response);
-                }*/
-                  
+                //if staff
+                else if (user.getUsertype().equals("Staff")) {
+                session.setAttribute("staff",user);           
+                // user's active
+                user.setActive(true);
+                int userId = user.getId();
+                //String usertype = user.getUsertype();
+                manager.addUserLog(userId, "Login");
+                request.getRequestDispatcher("index.jsp").include(request,response);
+                
+                }
+            
                 } else {
                     // if user not found
                    session.setAttribute("existErr","User does not exist in the Database !");

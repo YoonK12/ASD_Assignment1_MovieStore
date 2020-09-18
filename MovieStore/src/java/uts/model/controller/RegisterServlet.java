@@ -1,91 +1,87 @@
-///*
-// * To change this license header, choose License Headers in Project Properties.
-// * To change this template file, choose Tools | Templates
-// * and open the template in the editor.
-// */
-//
-//package uts.model.controller;
-//
-//import java.io.IOException;
-//import java.sql.SQLException;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
-//import javax.servlet.ServletException;
-//import javax.servlet.http.HttpServlet;
-//import javax.servlet.http.HttpServletRequest;
-//import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
-//
-//import uts.asd.dao.*;
-//import uts.asd.model.*;
-//
-///**
-// *
-// * @author campf
-// */
-//public class RegisterServlet extends HttpServlet {
-//   
-//
-//    @Override   
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {       
-//        HttpSession session = request.getSession();
-//        
-//        String cEmail = request.getParameter("cEmail");
-//        String password = request.getParameter("password");
-//        String name = request.getParameter("name");
-//        String DOB = request.getParameter("DOB");
-//        int gender = request.getInt(gender);
-//        boolean active = request.getBoolean(active);
-//        
-//        
-//        CusManager cusManager = (CusManager) session.getAttribute("manager");
-//        Validator validator = new Validator();
-//        
-//        // validate email
-//        if (!validator.validateEmail(email)) {           
-//
-//            // set incorrect email error to the session   
-//            session.setAttribute("errMsg", "Error: email format incorrect");
-//
-//            // redirect user back to the login.jsp
-//            request.getRequestDispatcher("register.jsp").include(request, response);
-//            
-//        // validate password
-//        } else if (password instanceof String == false) {                  
-//            
-//            // set incorrect password error to the session           
-//            session.setAttribute("errMsg", "Error: password format incorrect");
-//            
-//            // redirect user back to the login.jsp          
-//            request.getRequestDispatcher("register.jsp").include(request, response);
-//        
-//        // validate name  
-//        } else if (name.contains("[0-9]+") == true) {
-//            
-//            // set incorrect name error to the session           
-//            session.setAttribute("errMsg", "Error: name format incorrect");
-//            
-//            // redirect user back to the login.jsp          
-//            request.getRequestDispatcher("register.jsp").include(request, response);
-//        
-//        } else {
-//        
-//            try {
-//                if (cusManager.findCustomer(cEmail) == null) {
-//                    cusManager.addCustomer(cEmail, password, name, DOB, gender, active);
-//                    Customer customer = new Customer(cEmail, name, password, gender, active);
-//                    session.setAttribute("customer", customer);
-//
-//                    // redirect to the next page
-//                    String redirectURL = "welcome.jsp";
-//                    response.sendRedirect(redirectURL);
-//                } else {
-//                    session.setAttribute("errMsg", "Error: email is already used");
-//                    response.sendRedirect("register.jsp");
-//                }
-//            } catch (SQLException ex) {
-//                Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//    }
-//}
+package uts.model.controller;
+
+import java.io.IOException;
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import uts.asd.model.User;
+import uts.asd.dao.UserManager;
+
+public class RegisterServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ 
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        //current session
+        HttpSession session = request.getSession();
+        UserManager manager = (UserManager)session.getAttribute("manager");
+        //Validator class
+        Validator validator = new Validator();
+        //fields  
+        String fName = request.getParameter("fName");
+        String lName = request.getParameter("lName");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String mobileNum = request.getParameter("mobileNum");
+          
+        User user = null;
+        // clear validator
+        validator.clear(session);
+        
+   
+      if (!validator.validateEmail(email)) {
+            // set incorrect email error to the session 
+            session.setAttribute("emailErr", "Error: Email format incorrect");
+            // redirect user back to the login.jsp     
+            request.getRequestDispatcher("register.jsp").include(request, response);
+        } 
+        else if (!validator.validatePassword(password)) {
+            // set incorrect password error to the session 
+            session.setAttribute("passErr", "Requires at least 6 characters including upper or lower alpha and digit");
+            // redirect user back to the login.jsp 
+            request.getRequestDispatcher("register.jsp").include(request, response);
+        } 
+     
+        else {
+            
+             try {
+                 //find user by email
+                 user = manager.findUserByEmail(email);
+                // if user not found (same email does not exist in the database)
+                 if(user == null){
+                // add User     
+                manager.addUser(fName, lName, password, email, mobileNum,"Customer",false);
+                session.setAttribute("registerSuccess", "Successfully registered, Welcome "+fName);
+                
+                
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+                 }
+                 // if there is a same email exist in the database
+                 else
+                 {
+                     session.setAttribute("exceptionErr", "User already existed");
+                     request.getRequestDispatcher("register.jsp").include(request, response);
+                 }
+            } catch (SQLException ex) {
+                // exception message if adding customer fails
+                session.setAttribute("exceptionErr", "Registration failed");
+                request.getRequestDispatcher("register.jsp").include(request, response);
+            }
+             
+             
+           
+       }
+            
+    }
+}
