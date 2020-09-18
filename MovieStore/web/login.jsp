@@ -20,6 +20,7 @@
         String existErr = (String) session.getAttribute("existErr");
         String emailErr = (String) session.getAttribute("emailErr");
         String passErr = (String) session.getAttribute("passErr");
+        String registerSuccess = (String)session.getAttribute("registerSuccess");
         %>
         <div class="container form-container">
             <header class="header form-header">
@@ -29,6 +30,9 @@
                 <section class="">
                         <div class ="group group1">
                             <div class="form">
+                                <p sytle= "color:red;"><span><%=(registerSuccess != null? registerSuccess:"")%></span></p>
+                                <p sytle= "color:red;"><span><%=(existErr != null? existErr: "")%></span></p>
+                                
                                 <form action="<%=request.getContextPath()%>/LoginServlet" method="post">
                                     <h3 class="form-heading">Welcome to Movie Store</h3>
                                     <fieldset border=0>
@@ -38,7 +42,7 @@
                                             <a href="./index.jsp" class="btn-go-back">Back</a>
                                             <input type="submit" value="Submit" class="btn-login" href="./main.jsp" >
                                         </div>
-                                        <span><%=(existErr != null? existErr: "")%></span>
+                                        
                                     </fieldset>
                                     <p class="goto-register">No account? Click <a href="register.jsp" class="btn-link">here</a> to register</p>
                                 </form>

@@ -17,14 +17,11 @@
     </head>
     <body>
 <!--        <div class="container bg-image">-->
-        <% 
-        User user = (User)session.getAttribute("user");
-        
-        %>
+     
         <div class="container">
             <header class="header main-header">
                 <h1 class="logo-heading"><a href="./index.jsp" class="logo">Movie Store</a></h1>
-                <h4> ${user.getfName()}</h4>
+                
                 <nav>
                     <ul class="nav-category">
                         <li><a href="#">Top 10</a></li>
@@ -59,10 +56,21 @@
                     -->
                     
                     <!-- if user hasn't registered -->
+                    
                     <ul>
+                        <%
+                        User user= (User) session.getAttribute("user");                     
+                        if (user == null) {
+                        %>
                         <li><a href="./login.jsp">Login</a></li>
                         <li><a href="./register.jsp">Register</a></li>
+                        <% } else {
+                        %>
+                        
+                        <li><a href="./profile,jsp">Profile</a></li>
+                        <li><a href="./logout.jsp">Logout</a></li>
                         <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>
+                        <% }%>
                     </ul>
                     
                 </div>

@@ -14,7 +14,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css" type="text/css"/>
     </head>
-    <body>
+      <body onload="startTime()">
+        <div><span class="time" id="time"></span></div>
+
+        <%
+            String emailErr = (String) session.getAttribute("emailErr");
+            String passErr = (String) session.getAttribute("passErr");
+            String exceptionErr = (String) session.getAttribute("exceptionErr");
+        %>
         <div class="container form-container">
             <header class="header form-header">
                 <h1><a href="./index.jsp" class="logo">Movie Store</a></h1>
@@ -23,18 +30,22 @@
                 <section class="">
                         <div class ="group group1">
                             <div class="form">
-                                <form action="" method="post">
+                                <form action="<%=request.getContextPath()%>/RegisterServlet" method="post">
                                     <h3 class="form-heading">Register</h3>
+                                    
                                     <fieldset border=0>
                                         <p class="required">*All required</p>
-                                        <input type="text" name="username" placeholder="Fullname" size="30" required>
-                                        <input type="email" name="useremail" placeholder="Email" size="30" required>
-                                        <input type="password" name="password" placeholder= "Password" size="30" required>
-                                        <input type="text" name="contact" placeholder="Contact Number without(-) e.g 04101234567" size="30" required>
-                                        <input type="text" name="address" placeholder="Full Address" size="30" required>
+                                        
+                                        <input type="text" name="fName" placeholder="First Name" size="30" required>
+                                        <input type="text" name="lName" placeholder="Last Name" size="30" required>
+                                        <input type="email" name="email" placeholder="<%=(emailErr != null ? emailErr : "Email")%>" size="30" required>
+                                        <input type="password" name="password" placeholder="<%=(passErr != null ? passErr : "Password")%>" size="30" required>
+                                        <input type="text" name="mobileNum" placeholder="Contact Number without(-) e.g 04101234567" size="30" required>
+                                        <p><%=(exceptionErr != null ? exceptionErr : "")%></p>
                                         <div style="text-align: center;">
                                             <a href="./index.jsp" class="btn-go-back">Back</a>
-                                            <input type="submit" value="Submit" class="btn-register" href="./main.jsp" >
+                                            
+                                            <input type="submit" value="Submit">
                                         </div>
                                     </fieldset>
                                     
@@ -46,6 +57,6 @@
             <footer class="footer">
                 
             </footer>
-        <jsp:include page="/ConnServlet" flush="true" />
+        <!--jsp:include page="/ConnServlet" flush="true" /-->
     </body>
 </html>
