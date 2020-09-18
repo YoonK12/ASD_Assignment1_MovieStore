@@ -4,6 +4,7 @@
     Author     : Heeseong Jeon
 --%>
 
+<%@page import="uts.asd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,9 +17,14 @@
     </head>
     <body>
 <!--        <div class="container bg-image">-->
+        <% 
+        User user = (User)session.getAttribute("user");
+        
+        %>
         <div class="container">
             <header class="header main-header">
                 <h1 class="logo-heading"><a href="./index.jsp" class="logo">Movie Store</a></h1>
+                <h4> ${user.getfName()}</h4>
                 <nav>
                     <ul class="nav-category">
                         <li><a href="#">Top 10</a></li>
@@ -198,6 +204,6 @@
                     </div>
                 </div>
             </div>
-        <%--<jsp:include page="/ConnServlet" flush="true" />--%>
+        <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>
