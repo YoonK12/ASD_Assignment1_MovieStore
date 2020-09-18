@@ -44,6 +44,8 @@ public class User implements Serializable {
         //this.userID = createUserID();
     }
 
+   
+
     public boolean isActive() {
         return active;
     }

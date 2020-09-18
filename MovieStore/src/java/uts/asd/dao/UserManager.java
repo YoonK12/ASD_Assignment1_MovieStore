@@ -24,18 +24,13 @@ public class UserManager {
 
      private Statement st;
      private Connection conn;
-    private DBConnector connector;
-    
-    private UserManager manager;
+
 
     public UserManager(Connection conn) throws SQLException {
         st = conn.createStatement();
+        this.conn = conn;
     }
-     public UserManager() throws SQLException, ClassNotFoundException {
-        connector = new DBConnector();
-        conn = connector.openConnection();
-        st = conn.createStatement();
-    }
+ 
    
     //Read - find a user by email and password
     public User findUser(String email, String password) throws SQLException {
@@ -69,7 +64,7 @@ public class UserManager {
         return null;
     }
 //find user by email
-    public User findEmail(String email) throws SQLException {
+    public User findUserByEmail(String email) throws SQLException {
         User user = null;
         String query = "SELECT * FROM MS.USERS WHERE EMAIL= '" + email + "'";
         ResultSet rs = st.executeQuery(query);
@@ -92,21 +87,13 @@ public class UserManager {
         return user;
     }
 // Add user (registration)
-    public void addUser(String fName, String lName, String password, String email, String mobileNum) throws SQLException {
+    public void addUser(String fName, String lName, String password, String email, String mobileNum, String usertype, boolean active) throws SQLException {
 
-        String usertype = "Customer";
-        boolean active = false;
-        String query = "INSERT INTO MS.USERS(fName,lName,password,email,mobileNum,usertype,active) VALUES (?,?,?,?,?,?,?)";
-        PreparedStatement ps = conn.prepareStatement(query);
-        ps.setString(1, fName);
-        ps.setString(2, lName);
-        ps.setString(3, password);
-        ps.setString(4, email);
-        ps.setString(5, mobileNum);
-        ps.setString(6, usertype);
-        ps.setBoolean(7, active);
+        String query = "INSERT INTO USERS (fName,lName,password,email,mobileNum,usertype,active) VALUES " +
+                "('" + fName + "', '" + lName+ "', '" + password
+                + "', '" + email + "', '" + mobileNum+ "', '" + usertype + "', '" + active + "')";
+        st.execute(query); 
 
-        ps.executeUpdate();
     }
 
     public ArrayList<User> fetchAll() throws SQLException {
@@ -153,11 +140,10 @@ public class UserManager {
     }
 //update User's info
     public void updateUser(int id, String fName, String lName, String password, String email, String mobileNum, String address) throws SQLException {
-        User user = null;
-        boolean active = false;
+        
         String query = "UPDATE USERS SET fName=?, lName=?, password=?, email=?,"
                 + "mobileNum=? WHERE id=?";
-        /*
+        
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1, fName);
         ps.setString(2, lName);
@@ -166,7 +152,7 @@ public class UserManager {
         ps.setString(5, mobileNum);
         ps.setInt(6, id);
 
-        ps.executeUpdate();*/
+        ps.executeUpdate();
 
     }
 //delete User by id
@@ -180,16 +166,16 @@ public class UserManager {
     }
 // add user activity log
     public void addUserLog(int userId, String description) throws SQLException {
-       
-        String query = "INSERT INTO MS.LOGS (userid, timestamp, description) VALUES (?,?,?)";
-        
+      
+        String query = "INSERT INTO LOGS (userid, timestamp, description) VALUES (?,?,?)";
         Timestamp timestamp = new Timestamp(new java.util.Date().getTime());
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setInt(1, userId);
         ps.setTimestamp(2, timestamp);
         ps.setString(3, description);
 
-        ps.executeUpdate();
+        ps.executeUpdate();         
     }
+  
     
 }
