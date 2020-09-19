@@ -20,6 +20,10 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>uts.model.controller.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserRecordsServlet</servlet-name>
+        <servlet-class>uts.model.controller.UserRecordsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserRecordsServlet</servlet-name>
+        <url-pattern>/UserRecordsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

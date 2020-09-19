@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import uts.asd.model.User;
+import uts.asd.model.UserRecords;
 
 /**
  *
@@ -229,6 +230,56 @@ public class UserManager {
 
         ps.executeUpdate();         
     }
-  
+  public ArrayList<UserRecords> findUserLogs(int userid) throws SQLException {
+        String query = "SELECT * FROM MS.LOGS WHERE userId=?";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setInt(1, userid);
+        
+        ResultSet rs = ps.executeQuery();
+        ArrayList<UserRecords> logs = new ArrayList<UserRecords>();
+       
+        while (rs.next()) {
+            int logId = rs.getInt("logId");
+            int userId = rs.getInt("userId");
+            Timestamp timestamp = rs.getTimestamp("timestamp");
+            String description = rs.getString("description");
+            logs.add(new UserRecords(logId, userId, timestamp, description));
+        }
+
+        if (logs.isEmpty()) {
+            throw new SQLException("No logs exists");
+        }
+        else{
+        return logs;
+        }
+        
+    }
+
+    public ArrayList<UserRecords> findUserLogs(Timestamp start, Timestamp end, int userid) throws SQLException {
+
+        String query = "SELECT * FROM MS.LOGS WHERE TIMESTAMP >= ? AND TIMESTAMP <= ? AND USERID = ?";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setTimestamp(1, start);
+        ps.setTimestamp(2, end);
+        ps.setInt(3, userid);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<UserRecords> logs = new ArrayList<UserRecords>();
+        
+        // public UserRecords(int logId, int userId, Timestamp timestamp, String description
+        while (rs.next()) {
+            int logId = rs.getInt(1);
+            int userId = rs.getInt(2);  
+            Timestamp timestamp = rs.getTimestamp(3);
+            String description = rs.getString(4);
+            logs.add(new UserRecords(logId, userId, timestamp, description));
+        }
+
+        if (logs.isEmpty()) {
+            throw new SQLException("No logs exists");
+        }
+        else {
+            return logs;
+        }
+    }
     
 }
