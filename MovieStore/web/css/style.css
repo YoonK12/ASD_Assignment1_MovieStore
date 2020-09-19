@@ -17,6 +17,13 @@ form
     padding:0;
     box-sizing: border-box;
 }
+form1{
+    width: 500px;
+    margin: auto;
+    background-color: white;
+    border: 1px solid red;
+    
+}
 html{
   background: url(../image/bg-main.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -40,7 +47,7 @@ a:link, a:visited{
     height:0;
 }
 .container{
-    /*background-color: #181818;*/
+    background-color: #181818;
 }
 
 .header, .main-content, .footer{
@@ -362,4 +369,35 @@ a:link, a:visited{
 .form .btn-go-back:hover,.form .btn-go-back:focus{
     background-color: #181818;
     color:#fff;
+}
+
+table.redTable {
+  border: 2px solid #A40808;
+  background-color: #FFFFFF;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.redTable td, table.redTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.redTable tbody td {
+  font-size: 20px;
+}
+table.redTable tr:nth-child(even) {
+  background: #F5C8BF;
+}
+table.redTable tfoot td {
+  font-size: 13px;
+}
+table.redTable tfoot .links {
+  text-align: right;
+}
+table.redTable tfoot .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #A40808;
+  padding: 2px 8px;
+  border-radius: 5px;
 }

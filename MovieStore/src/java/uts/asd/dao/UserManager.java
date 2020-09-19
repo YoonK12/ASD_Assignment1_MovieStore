@@ -63,7 +63,7 @@ public class UserManager {
         }
         return null;
     }
-//find user by email
+    //find user by email
     public User findUserByEmail(String email) throws SQLException {
         User user = null;
         String query = "SELECT * FROM MS.USERS WHERE EMAIL= '" + email + "'";
@@ -80,6 +80,31 @@ public class UserManager {
                 boolean active = rs.getBoolean("active");
 
                 user = new User(id, fName, lName, password, userEmail, mobileNum,usertype, active);
+                return user;
+            }
+
+        }
+        return user;
+    }
+    //find user by id
+    public User findUserById(int userId) throws SQLException {
+       User user = null;
+        String query = "SELECT * FROM USERS WHERE id= " + userId;
+        ResultSet rs = st.executeQuery(query);
+        if (rs != null) {
+            //HttpSession sesion = request.getSession(true);
+            while (rs.next()) {
+                String userEmail = rs.getString("email");
+                String password = rs.getString("password");
+                int id = rs.getInt("id");
+                String fName = rs.getString("fName");
+                String lName = rs.getString("lName");
+                String mobileNum = rs.getString("mobileNum");
+                
+                String usertype = rs.getString("usertype");
+                boolean active = rs.getBoolean("active");
+
+                user = new User(id, fName, lName, password, userEmail, mobileNum, usertype, active);
                 return user;
             }
 
@@ -139,7 +164,7 @@ public class UserManager {
         return user;
     }
 //update User's info
-    public void updateUser(int id, String fName, String lName, String password, String email, String mobileNum, String address) throws SQLException {
+    public void updateUser(int id, String fName, String lName, String password, String email, String mobileNum) throws SQLException {
         
         String query = "UPDATE USERS SET fName=?, lName=?, password=?, email=?,"
                 + "mobileNum=? WHERE id=?";
@@ -155,6 +180,34 @@ public class UserManager {
         ps.executeUpdate();
 
     }
+    
+    //update User's info (first Name, Last Name, mobile Num)
+     public void updateUser(int id, String fName, String lName, String mobileNum) throws SQLException {
+        
+        String query = "UPDATE USERS SET fName=?, lName=?, mobileNum=? WHERE id=?";
+        
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1, fName);
+        ps.setString(2, lName);
+        ps.setString(3, mobileNum);
+        ps.setInt(4, id);
+
+        ps.executeUpdate();
+
+    }
+     //Update User Password
+      public void changeUserPW(int id, String password) throws SQLException {
+        
+        String query = "UPDATE USERS SET PASSWORD=? WHERE ID=?";
+        
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1, password);
+        ps.setInt(2, id);
+
+        ps.executeUpdate();
+
+    }
+     
 //delete User by id
     public void deleteUserById(int id) throws SQLException {
      st.executeUpdate("DELETE FROM MS.USERS WHERE id='"+ id +"'");
