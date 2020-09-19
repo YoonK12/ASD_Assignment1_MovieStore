@@ -45,18 +45,6 @@
                     </form>
                 </div>
                 <div class="member">
-                    <!-- if user logged in -->
-                    
-                    <!--
-                    <ul>
-                        <li><a href="#">Account</a></li>
-                        <li><a href="#">Logout</a></li>
-                        <li><button type="button">Cart</button></li>
-                    </ul>
-                    -->
-                    
-                    <!-- if user hasn't registered -->
-                    
                     <ul>
                         <%
                         User user= (User) session.getAttribute("user");                     
@@ -67,8 +55,8 @@
                         <% } else {
                         %>
                         
-                        <li><a href="./profile,jsp">Profile</a></li>
-                        <li><a href="./logout.jsp">Logout</a></li>
+                        <li><a href="./profile.jsp">Account</a></li>
+                        <li><a href="LogoutServlet">Logout</a></li>
                         <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>
                         <% }%>
                     </ul>

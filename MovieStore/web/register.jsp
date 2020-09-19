@@ -31,7 +31,7 @@
                         <div class ="group group1">
                             <div class="form">
                                 <form action="<%=request.getContextPath()%>/RegisterServlet" method="post">
-                                    <h3 class="form-heading">Register</h3>
+                                    <br><h3 class="form-heading">Register</h3>
                                     
                                     <fieldset border=0>
                                         <p class="required">*All required</p>
@@ -54,6 +54,7 @@
                         </div>
                 </section>
             </main>
+        </div>
             <footer class="footer">
                 
             </footer>
