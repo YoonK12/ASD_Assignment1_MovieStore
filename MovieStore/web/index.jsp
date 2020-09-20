@@ -19,50 +19,9 @@
 <!--        <div class="container bg-image">-->
      
         <div class="container">
-            <header class="header main-header">
-                <h1 class="logo-heading"><a href="./index.jsp" class="logo">Movie Store</a></h1>
-                
-                <nav>
-                    <ul class="nav-category">
-                        <li><a href="#">Top 10</a></li>
-                        <li><a href="#">Romantic/Comedy</a></li>
-                        <li><a href="#">Horror</a></li>
-                        <li><a href="#">SF/Mistery</a></li>
-                        <li><a href="#">Animations</a></li>
-                    </ul>
-                </nav>
-                <div class="search-bar">
-                    <form action="action" method="get" class="search-form">
-                        <fieldset>
-                            <legend class="readable-hidden">Searching movies</legend>
-                            <p>
-                                <label for="input-movie-title" class="readable-hidden">Search:</label>
-                                <input type="text" name="Title" id="input-movie-title" class="input-movie-title" placeholder="What MOVIE are you looking for?"/>
-                            
-                                <input type="submit" value="Search" class="btn-search" onclick="alert('go search.');return false;"/>
-                            </p>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="member">
-                    <ul>
-                        <%
-                        User user= (User) session.getAttribute("user");                     
-                        if (user == null) {
-                        %>
-                        <li><a href="./login.jsp">Login</a></li>
-                        <li><a href="./register.jsp">Register</a></li>
-                        <% } else {
-                        %>
-                        
-                        <li><a href="./profile.jsp">Account</a></li>
-                        <li><a href="LogoutServlet">Logout</a></li>
-                        <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>
-                        <% }%>
-                    </ul>
-                    
-                </div>
-            </header>
+            
+            <jsp:directive.include file="./inc/header.jsp" />
+            
             <main class="main-content main-movie">
                 <section class="movie-list">
                     
@@ -77,9 +36,7 @@
                                     show off its dominance by defeating Joseon's national consciousness.
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">Digimomn Adventure</h3>
@@ -92,9 +49,7 @@
                                     but with his future still undecided.
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">Becky</h3>
@@ -106,9 +61,7 @@
                                     to a weekend getaway at a lake house by her father Jeff (Joel McHale) in an effort to try to reconnect. 
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             
                             <div class="movie-item">
@@ -120,9 +73,7 @@
                                     Get Ready to zoom back to Barkingburg with the pups in this all-new movie! 
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">AFTER WE COLLIDED</h3>
@@ -134,9 +85,7 @@
                                     thoughtful guy Tessa fell madly in love with—
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">An American Pickle</h3>
@@ -148,9 +97,7 @@
                                     preserved for 100 years and wakes up in modern day Brooklyn.
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">Astro Kid</h3>
@@ -163,9 +110,7 @@
                                     parents while traveling through the galaxy. 
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">Plural blood clot</h3>
@@ -178,28 +123,14 @@
                                     Inhye, who runs a bakery, and his brother Jun-seok, who is his brother. 
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                         </div>
                 </section>
             </main>
-            <footer class="footer">
-                
-            </footer>
-            <div class="modal-wrapper">
-                <div class="modal-info">
-                    <h4>Thank you!</h4>
-                    <p class="info-img">
-                        <img src="" alt=""/>
-                    </p>
-                    <p>Added this item in your cart.</p>
-                    <div class="btns">
-                        <button type="button">confirm</button>
-                    </div>
-                </div>
-            </div>
-        <jsp:include page="/ConnServlet" flush="true" />
+            
+            <jsp:directive.include file="./inc/footer.jsp" />
+            
+            <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>

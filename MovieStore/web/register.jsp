@@ -45,7 +45,7 @@
                                         <div style="text-align: center;">
                                             <a href="./index.jsp" class="btn-go-back">Back</a>
                                             
-                                            <input type="submit" value="Submit">
+                                            <input type="submit" value="Submit" class="btn-register">
                                         </div>
                                     </fieldset>
                                     
