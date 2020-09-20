@@ -420,7 +420,7 @@ table.redTable tfoot .links a{
     left: 3rem;
     font-family: 'Playfair Display SC', serif;
     font-size: 1.5rem;
-    color: #900;
+    color: darkgray;
     font-weight: 900;
     text-shadow: 1px 1px 1px #fff;
 }
@@ -465,4 +465,61 @@ table.redTable tfoot .links a{
     color: #fff;
     font-size: 1rem;
     text-align: center;
+}
+
+/* admin */
+.admin-heading{
+    color: #fff;
+    font-size: 3rem;
+    font-family: 'Playfair Display SC', serif;
+    text-shadow: 2px 2px 2px #900;
+}
+.admin-member{
+    position: absolute;
+    top: 4rem;
+    right: 1rem;
+    /*width: 1280px;*/
+    font-family: 'Playfair Display SC', serif;
+    text-align: right;
+    color: #fff;
+    font-size: 1.5rem;
+
+}
+.admin-member a{
+    color: red;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #fff;
+}
+.admin-member a:hover, .admin-member a:focus{
+    text-decoration: underline;
+}
+.admin-content{
+    width: 1280px;
+    background-color: #fff;
+
+    padding: 1.5rem;
+}
+.admin-content section{
+    position: relative;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 2rem;
+
+}
+
+.admin-content section h2, .admin-content section h3{
+    padding: 1rem 0 .5rem;
+}
+.admin-content section a{
+    color: blue;
+}
+
+.admin-content section a:hover,
+.admin-content section a:focus{
+    text-decoration: underline;
+
+}
+.admin-content section > div{
+    padding-top:.5rem;
 }
