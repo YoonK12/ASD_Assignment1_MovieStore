@@ -18,10 +18,5 @@ import java.util.*;
  * @author campf
  */
 public class DBCategory {
-    
-    private Statement st;
-    
-    public DBCategory(Connection conn) throws SQLException {
-        
-    }
+
 }
