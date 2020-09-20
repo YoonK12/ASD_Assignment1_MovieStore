@@ -5,6 +5,10 @@
 --%>
 <%@page import="uts.asd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<footer class="footer">
-
-</footer>
+<div class="footer-bg">
+   <footer class="footer">
+        <h2 class="footer-heading">Movie Store</h2>
+        <p>COPYRIGHT&copy;ASD Movie Store 2020</p>
+        <p>Designed by HEE SEONG JEON</p>
+    </footer> 
+</div>

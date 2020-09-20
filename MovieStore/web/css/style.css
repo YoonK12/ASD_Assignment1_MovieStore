@@ -4,19 +4,22 @@
     Author     : Heeseong Jeon
 */
 
+
 /* reset*/
+
+*, *::after, *::before{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
 fieldset{
     border:0;
 }
 ul{
     list-style: none;
 }
-form
-*, *::after, *::before{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-}
+
 form1{
     width: 500px;
     margin: auto;
@@ -221,7 +224,7 @@ a:link, a:visited{
 .main-movie{
     /*background-color: #fff;*/
     padding: 2rem;
-    min-height: 80rem;
+    min-height: 70rem;
 }
 
 .group{
@@ -277,11 +280,14 @@ a:link, a:visited{
     order:4;
     font-size: 1rem;
     font-weight:bold;
-    color: #181818;
+    color: #900;
     text-align: right;
     margin: 5px 0;
 }
-.more:hover, .more:focus{
+.more a{
+    color: #900;
+}
+.more:hover a, .more:focus a{
     color: #900;
     text-decoration: underline;
 }
@@ -400,4 +406,28 @@ table.redTable tfoot .links a{
   color: #A40808;
   padding: 2px 8px;
   border-radius: 5px;
+}
+
+.footer-bg{
+    background-color: rgba(0,0,0,0.5);
+}
+.footer{
+    padding:1.5rem 0;
+}
+.footer .footer-heading{
+    position: absolute;
+    top: 1rem;
+    left: 3rem;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 1.5rem;
+    color: #900;
+    font-weight: 900;
+    text-shadow: 1px 1px 1px #fff;
+}
+.footer p{
+    padding:0;
+    margin:0;
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
 }
