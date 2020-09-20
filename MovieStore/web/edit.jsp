@@ -25,7 +25,7 @@
         
         <h3> Edit Profile</h3>
         <a href="./index.jsp">Go Back</a>
-        <a href="./logout.jsp">Logout</a>
+        <a href="LogoutServlet">Logout</a>
         <p sytle= "color:red;"><span><%=(exceptionErr!= null? exceptionErr:"")%></span></p>
       
         

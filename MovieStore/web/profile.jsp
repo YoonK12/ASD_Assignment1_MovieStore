@@ -33,7 +33,7 @@
            
                     <ul>
                         <li><a href="./index.jsp">Go Back</a></li>
-                        <li><a href="./logout.jsp">Logout</a></li>
+                        <li><a href="LogoutServlet">Logout</a></li>
                         <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>            
                     </ul>
                     
@@ -74,9 +74,11 @@
                          <tr>
                              <td>
                                <a href="./edit.jsp">Edit my profile</a> 
+                               
                              </td>
                              <td>
-                               
+                               <a href="UserRecordsServlet?userId=<%=user.getId()%>">See my logs history</a></td>
+                           
                              </td>
                          </tr>
                         </tbody>
