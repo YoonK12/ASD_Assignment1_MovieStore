@@ -77,9 +77,7 @@
                                     show off its dominance by defeating Joseon's national consciousness.
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">Digimomn Adventure</h3>
@@ -92,9 +90,7 @@
                                     but with his future still undecided.
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">Becky</h3>
@@ -106,9 +102,7 @@
                                     to a weekend getaway at a lake house by her father Jeff (Joel McHale) in an effort to try to reconnect. 
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             
                             <div class="movie-item">
@@ -120,9 +114,7 @@
                                     Get Ready to zoom back to Barkingburg with the pups in this all-new movie! 
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">AFTER WE COLLIDED</h3>
@@ -134,9 +126,7 @@
                                     thoughtful guy Tessa fell madly in love with—
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">An American Pickle</h3>
@@ -148,9 +138,7 @@
                                     preserved for 100 years and wakes up in modern day Brooklyn.
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">Astro Kid</h3>
@@ -163,9 +151,7 @@
                                     parents while traveling through the galaxy. 
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                             <div class="movie-item">
                                 <h3 class="movie-heading">Plural blood clot</h3>
@@ -178,9 +164,7 @@
                                     Inhye, who runs a bakery, and his brother Jun-seok, who is his brother. 
                                 </p>
                                 <p class="more"><a href="#">See more..</a></p>
-                                <div class="add-item">
-                                    <button type="submit">Add to Cart</button>
-                                </div>
+                                
                             </div>
                         </div>
                 </section>
