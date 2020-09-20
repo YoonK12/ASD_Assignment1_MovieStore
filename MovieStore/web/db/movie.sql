@@ -5,7 +5,7 @@ CREATE TABLE MOVIE (
   description varchar(800) NOT NULL,
   image blob NOT NULL,
   price varchar(40) NOT NULL,
-  released_date date NOT NULL,
+  released_date varchar(50) NOT NULL,
   categoryID INT,
   PRIMARY KEY (movieID),
   CONSTRAINT FK_movieCategory FOREIGN KEY (categoryID) 
