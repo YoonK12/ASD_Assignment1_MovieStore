@@ -47,7 +47,7 @@ a:link, a:visited{
     height:0;
 }
 .container{
-    background-color: #181818;
+    /*background-color: #181818;*/
 }
 
 .header, .main-content, .footer{
