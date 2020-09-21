@@ -57,7 +57,7 @@
                                                         <th>USER ID</th>
                                                         <td><%=user.getId()%></td>
                                                     </tr>
-                                                     <tr>
+                                                    <tr>
                                                         <th>EMAIL</td>
                                                         <td><%=user.getEmail()%></td>
                                                     </tr>
@@ -93,6 +93,7 @@
                       </div>
                  </section>
             </main>
+            <jsp:directive.include file="./inc/footer.jsp" />
         </div>
     </body>
 </html>

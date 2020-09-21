@@ -458,7 +458,8 @@ a:link, a:visited{
 .right-cont-detail table tr td.padd{
     padding: 0 1rem;
 }
-.right-cont-detail table tr td input[type="text"]{
+.right-cont-detail table tr td input[type="text"],
+.right-cont-detail table tr td input[type="password"]{
     display: inline-block;
     width: 10rem;
     height: 2rem;
@@ -478,6 +479,7 @@ a:link, a:visited{
     border: 1px solid #e6c201;
     border-radius: 2px;
     transition: box-shadow .2s ease-in;
+    cursor: pointer;
 
 }
 .right-cont-detail table tr th:last-child input, 
