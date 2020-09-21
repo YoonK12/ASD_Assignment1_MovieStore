@@ -28,6 +28,10 @@
         <servlet-name>AdminHomeServelt</servlet-name>
         <servlet-class>uts.asd.controller.admin.AdminHomeServelt</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addMovieServlet</servlet-name>
+        <servlet-class>uts.model.controller.addMovieServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>AdminHomeServelt</servlet-name>
         <url-pattern>/AdminHomeServelt</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addMovieServlet</servlet-name>
+        <url-pattern>/addMovieServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
