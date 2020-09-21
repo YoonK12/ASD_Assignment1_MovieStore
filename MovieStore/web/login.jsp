@@ -50,7 +50,6 @@
                         </div>
                 </section>
             </main>
-        <jsp:directive.include file="./inc/footer.jsp" />
         <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>
