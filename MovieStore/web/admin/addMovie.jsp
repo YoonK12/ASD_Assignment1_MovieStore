@@ -23,13 +23,14 @@
                 <div class="form-group">
                     <label for="movieTitle">Movie Title:</label>
                     <input class="form-control" type="text" placeholder="Enter Movie title" name="title">
-                    </div>
+                </div>
                 <div class="form-group">
                     <label for="type">Director</label>
                     <input class="form-control" type="text" placeholder="Enter Director" name="director">
                 </div>
+            </div>
                 <div class="form-group">
-                    <label for="description">Product Description:</label>
+                    <label for="description">Movie Description:</label>
                     <textarea class="form-control" name="description" placeholder="Enter Description" rows="10" cols="30"></textarea>
                     <%--<td><input type="text" placeholder="<%=(productDescriptionErr != null ? productDescriptionErr :  "Enter Description")%>" name="description"></td>--%>
                 </div>
@@ -47,7 +48,6 @@
                 </div>
                 <input class="btn btn-secondary" type="submit" value="Submit">
                 <a class="btn btn-secondary" href="ViewStaffMainServlet" role="button">Cancel</a>
-            </div>
             </div>
         </form>
     </body>
