@@ -232,6 +232,12 @@ a:link, a:visited{
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+.group2{
+    background-color: #fff;
+    min-height: 40rem;
+    padding: 2rem;
+}
 /* main.jsp */
 .movie-list{
     font-size: 1.2rem;
@@ -377,37 +383,99 @@ a:link, a:visited{
     color:#fff;
 }
 
-table.redTable {
-  border: 2px solid #A40808;
-  background-color: #FFFFFF;
-  width: 100%;
-  text-align: center;
-  border-collapse: collapse;
+
+/* sub page style */
+.sub-content{
+    display: block;
+    /*background: gold;*/
+    width: 100%;
 }
-table.redTable td, table.redTable th {
-  border: 1px solid #AAAAAA;
-  padding: 3px 2px;
-}
-table.redTable tbody td {
-  font-size: 20px;
-}
-table.redTable tr:nth-child(even) {
-  background: #F5C8BF;
-}
-table.redTable tfoot td {
-  font-size: 13px;
-}
-table.redTable tfoot .links {
-  text-align: right;
-}
-table.redTable tfoot .links a{
-  display: inline-block;
-  background: #FFFFFF;
-  color: #A40808;
-  padding: 2px 8px;
-  border-radius: 5px;
+.sub-content .subpage-heading{
+    font-size: 2rem;
+    border-bottom: 2px solid #aaa;
+    padding-bottom: .5rem;
 }
 
+/* layout 2 columns*/
+.layout-2col{
+    display: flex;
+    justify-content: space-between;
+}
+.left-menu{
+    width: 20rem;
+    min-height: 38rem;
+    /*background-color: pink;*/
+    border-right: 1px solid #aaa;
+    padding: 1rem 0;
+}
+.left-menu nav ul li{
+    /*background-color: gold;*/
+    text-align: center;
+    
+}
+.left-menu nav ul li a{
+    display: inline-block;
+    width: 80%;
+    background-color: #F5C8BF;
+    height: 3rem;
+    line-height: 3rem;
+    margin-top: 1rem;
+    
+}
+.right-cont{
+    width: calc(100vw - 20rem);
+    min-height: 38rem;
+    /*background-color: pink;*/
+    padding: 1rem;
+}
+.right-cont .right-cont-detail{
+    padding: 1rem;
+    /*background-color: gold;*/
+}
+.right-cont-detail table{
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+}
+.right-cont-detail table tr th{
+    width: 15rem;
+    font-size: 1rem;
+    padding: .8rem;
+    text-align: right;
+    border-right: 1px solid #aaa;
+    background-color: #ddd;
+}
+.right-cont-detail table tr th:last-child{
+    background-color: #fff;
+    height: 4rem;
+    text-align:center;
+}
+.right-cont-detail table tr td{
+    padding:1rem;
+    font-size: 1.3rem;
+    width: 45rem;
+}
+.right-cont-detail table tr th, .right-cont-detail table tr td{
+    border-bottom: 1px dashed #aaa;
+}
+.right-cont-detail table tr th:last-child a:link,
+.right-cont-detail table tr th:last-child a:visited{
+    display: inline-block;
+    padding: 1rem;
+    line-height: 1.3;
+    background-color: gold;
+    border: 1px solid #e6c201;
+    border-radius: 2px;
+    transition: box-shadow .2s ease-in;
+}
+.right-cont-detail table tr th:last-child a:hover,
+.right-cont-detail table tr th:last-child a:focus{
+    /*background-color: #f3cd00;*/
+    box-shadow: 2px 2px 2px #aaa;
+}
+
+.right-cont-detail table tr th:last-child a:first-child{
+    margin-right: 1rem;
+}
 .footer-bg{
     background-color: rgba(0,0,0,0.5);
 }
