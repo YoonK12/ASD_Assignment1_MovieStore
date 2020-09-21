@@ -50,9 +50,9 @@
                                     <div class="left-menu">
                                         <nav>
                                             <ul>
-                                                <li><a href="#mydetails">My details</a></li>
+                                                <li><a href="./profile.jsp">My details</a></li>
+                                                <li><a href="./edit.jsp">Edit profile</a></li>
                                                 <li><a href="#myorder">My order</a></li>
-
                                             </ul>
 
                                         </nav>
@@ -62,9 +62,13 @@
                                             <table>
                                                 <tbody>
                                                 <tr>
-                                                    <th>ID </th>
+                                                    <th>USER ID</th>
                                                     <td><%=user.getId()%></td>
-                                                 </tr>
+                                                </tr>
+                                                <tr>
+                                                    <th>EMAIL</th>
+                                                    <td><%=user.getEmail()%></td>
+                                                </tr>
                                                 <tr>
                                                     <th>FIRST NAME</th>
                                                     <td><%=user.getfName()%></td>
@@ -72,10 +76,6 @@
                                                  <tr>
                                                      <th>LAST NAME</th>
                                                      <td><%=user.getlName()%></td>
-                                                 </tr>
-                                                 <tr>
-                                                     <th>EMAIL</th>
-                                                     <td><%=user.getEmail()%></td>
                                                  </tr>
                                                  <tr>
                                                      <th>CONTACT</th>
