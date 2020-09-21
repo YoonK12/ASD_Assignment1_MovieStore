@@ -26,8 +26,7 @@ import uts.asd.dao.*;
 public class ConnServlet extends HttpServlet {
 
     private DBConnector db;
-    private CusManager cusManager;
-    private StaffManager staffManager;
+ 
     private UserManager manager;
     private Connection conn;
 
@@ -47,8 +46,7 @@ public class ConnServlet extends HttpServlet {
         HttpSession session = request.getSession();
         conn = db.openConnection();
         try {
-            cusManager = new CusManager(conn);
-            staffManager = new StaffManager(conn);
+            
             manager = new UserManager(conn);
 
         } catch (SQLException ex) {
@@ -56,8 +54,7 @@ public class ConnServlet extends HttpServlet {
         }
 
         //export the DB manager to the view-session (JSPs)
-        session.setAttribute("cusManager", cusManager);
-        session.setAttribute("staffManager", staffManager);
+        
         session.setAttribute("manager", manager);
     }
 

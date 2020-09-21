@@ -4,19 +4,22 @@
     Author     : Heeseong Jeon
 */
 
+
 /* reset*/
+
+*, *::after, *::before{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
 fieldset{
     border:0;
 }
 ul{
     list-style: none;
 }
-form
-*, *::after, *::before{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-}
+
 form1{
     width: 500px;
     margin: auto;
@@ -47,7 +50,7 @@ a:link, a:visited{
     height:0;
 }
 .container{
-    background-color: #181818;
+    /*background-color: #181818;*/
 }
 
 .header, .main-content, .footer{
@@ -221,13 +224,19 @@ a:link, a:visited{
 .main-movie{
     /*background-color: #fff;*/
     padding: 2rem;
-    min-height: 80rem;
+    min-height: 70rem;
 }
 
 .group{
     display:flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.group2{
+    background-color: #fff;
+    min-height: 40rem;
+    padding: 2rem;
 }
 /* main.jsp */
 .movie-list{
@@ -277,11 +286,14 @@ a:link, a:visited{
     order:4;
     font-size: 1rem;
     font-weight:bold;
-    color: #181818;
+    color: #900;
     text-align: right;
     margin: 5px 0;
 }
-.more:hover, .more:focus{
+.more a{
+    color: #900;
+}
+.more:hover a, .more:focus a{
     color: #900;
     text-decoration: underline;
 }
@@ -371,33 +383,211 @@ a:link, a:visited{
     color:#fff;
 }
 
-table.redTable {
-  border: 2px solid #A40808;
-  background-color: #FFFFFF;
-  width: 100%;
-  text-align: center;
-  border-collapse: collapse;
+
+/* sub page style */
+.sub-content{
+    display: block;
+    /*background: gold;*/
+    width: 100%;
 }
-table.redTable td, table.redTable th {
-  border: 1px solid #AAAAAA;
-  padding: 3px 2px;
+.sub-content .subpage-heading{
+    font-size: 2rem;
+    border-bottom: 2px solid #aaa;
+    padding-bottom: .5rem;
 }
-table.redTable tbody td {
-  font-size: 20px;
+
+/* layout 2 columns*/
+.layout-2col{
+    display: flex;
+    justify-content: space-between;
 }
-table.redTable tr:nth-child(even) {
-  background: #F5C8BF;
+.left-menu{
+    width: 20rem;
+    min-height: 38rem;
+    /*background-color: pink;*/
+    border-right: 1px solid #aaa;
+    padding: 1rem 0;
 }
-table.redTable tfoot td {
-  font-size: 13px;
+.left-menu nav ul li{
+    /*background-color: gold;*/
+    text-align: center;
+    
 }
-table.redTable tfoot .links {
-  text-align: right;
+.left-menu nav ul li a{
+    display: inline-block;
+    width: 80%;
+    background-color: #F5C8BF;
+    height: 3rem;
+    line-height: 3rem;
+    margin-top: 1rem;
+    
 }
-table.redTable tfoot .links a{
-  display: inline-block;
-  background: #FFFFFF;
-  color: #A40808;
-  padding: 2px 8px;
-  border-radius: 5px;
+.right-cont{
+    width: calc(100vw - 20rem);
+    min-height: 38rem;
+    /*background-color: pink;*/
+    padding: 1rem;
+}
+.right-cont .right-cont-detail{
+    padding: 1rem;
+    /*background-color: gold;*/
+}
+.right-cont-detail table{
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+}
+.right-cont-detail table tr th{
+    width: 15rem;
+    font-size: 1rem;
+    padding: .8rem;
+    text-align: right;
+    border-right: 1px solid #aaa;
+    background-color: #ddd;
+}
+.right-cont-detail table tr th:last-child{
+    background-color: #fff;
+    height: 4rem;
+    text-align:center;
+}
+.right-cont-detail table tr td{
+    padding:1rem;
+    font-size: 1.3rem;
+    width: 45rem;
+}
+.right-cont-detail table tr th, .right-cont-detail table tr td{
+    border-bottom: 1px dashed #aaa;
+}
+.right-cont-detail table tr th:last-child a:link,
+.right-cont-detail table tr th:last-child a:visited{
+    display: inline-block;
+    padding: 1rem;
+    line-height: 1.3;
+    background-color: gold;
+    border: 1px solid #e6c201;
+    border-radius: 2px;
+    transition: box-shadow .2s ease-in;
+}
+.right-cont-detail table tr th:last-child a:hover,
+.right-cont-detail table tr th:last-child a:focus{
+    /*background-color: #f3cd00;*/
+    box-shadow: 2px 2px 2px #aaa;
+}
+
+.right-cont-detail table tr th:last-child a:first-child{
+    margin-right: 1rem;
+}
+.footer-bg{
+    background-color: rgba(0,0,0,0.5);
+}
+.footer{
+    padding:1.5rem 0;
+}
+.footer .footer-heading{
+    position: absolute;
+    top: 1rem;
+    left: 3rem;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 1.5rem;
+    color: darkgray;
+    font-weight: 900;
+    text-shadow: 1px 1px 1px #fff;
+}
+.footer-navi{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.footer-navi ul{
+    font-size: 0;
+}
+.footer-navi ul li{
+    display: inline-block;
+    margin-right: .5rem;
+    padding-right:.5rem;
+    position: relative;
+}
+.footer-navi ul li::after{
+    content:"";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width:1px;
+    height: 50%;
+    transform: translateY(50%);
+    background-color: #cdcdcd;
+}
+.footer-navi ul li:last-child::after{
+    height:0;
+}
+.footer-navi ul li a{
+    display:inline-block;
+    font-size: 1.2rem;
+    color: #cdcdcd;
+}
+.footer-navi ul li a:hover, .footer-navi ul li a:focus{
+    text-decoration: underline;
+    color: #900;
+}
+.footer p{
+    padding:0;
+    margin:0;
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* admin */
+.admin-heading{
+    color: #fff;
+    font-size: 3rem;
+    font-family: 'Playfair Display SC', serif;
+    text-shadow: 2px 2px 2px #900;
+}
+.admin-member{
+    position: absolute;
+    top: 4rem;
+    right: 1rem;
+    /*width: 1280px;*/
+    font-family: 'Playfair Display SC', serif;
+    text-align: right;
+    color: #fff;
+    font-size: 1.5rem;
+
+}
+.admin-member a{
+    color: red;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #fff;
+}
+.admin-member a:hover, .admin-member a:focus{
+    text-decoration: underline;
+}
+.admin-content{
+    width: 1280px;
+    background-color: #fff;
+
+    padding: 1.5rem;
+}
+.admin-content section{
+    position: relative;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 2rem;
+
+}
+
+.admin-content section h2, .admin-content section h3{
+    padding: 1rem 0 .5rem;
+}
+.admin-content section a{
+    color: blue;
+}
+
+.admin-content section a:hover,
+.admin-content section a:focus{
+    text-decoration: underline;
+
+}
+.admin-content section > div{
+    padding-top:.5rem;
 }
