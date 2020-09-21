@@ -23,13 +23,22 @@
         <div class="container">
             <header class="header main-header">
                 <h1 class="logo-heading"><a href="./index.jsp" class="logo">Movie Store</a></h1>
-                    <div class="member">
-                        <ul>
-                            <li><a href="./index.jsp">Go Back</a></li>
-                            <li><a href="LogoutServlet">Logout</a></li>
-                            <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>            
-                        </ul>
-                    </div>
+                <nav>
+                    <ul class="nav-category">
+                        <li><a href="#">Top 10</a></li>
+                        <li><a href="#">Romantic/Comedy</a></li>
+                        <li><a href="#">Horror</a></li>
+                        <li><a href="#">SF/Mistery</a></li>
+                        <li><a href="#">Animations</a></li>
+                    </ul>
+                </nav>
+                <div class="member">
+                    <ul>
+                        <li><a href="./index.jsp">Go Back</a></li>
+                        <li><a href="LogoutServlet">Logout</a></li>
+                        <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>            
+                    </ul>
+                </div>
             </header>
             <main class="main-content">
                  <section class="movie-list">

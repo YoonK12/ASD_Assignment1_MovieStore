@@ -345,6 +345,7 @@ a:link, a:visited{
     outline: none;
     color: #fff;
     background-color: #900;
+    cursor: pointer;
 }
 .form .goto-register{
     font-size:1.5rem;
