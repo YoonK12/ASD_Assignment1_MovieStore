@@ -30,13 +30,22 @@
         <div class="container">
             <header class="header main-header">
                 <h1 class="logo-heading"><a href="./index.jsp" class="logo">Movie Store</a></h1>
-                    <div class="member">
-                        <ul>
-                            <li><a href="./index.jsp">Go Back</a></li>
-                            <li><a href="LogoutServlet">Logout</a></li>
-                            <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>            
-                        </ul>
-                    </div>
+                <nav>
+                    <ul class="nav-category">
+                        <li><a href="#">Top 10</a></li>
+                        <li><a href="#">Romantic/Comedy</a></li>
+                        <li><a href="#">Horror</a></li>
+                        <li><a href="#">SF/Mistery</a></li>
+                        <li><a href="#">Animations</a></li>
+                    </ul>
+                </nav>
+                <div class="member">
+                    <ul>
+                        <li><a href="./index.jsp">Go Back</a></li>
+                        <li><a href="LogoutServlet">Logout</a></li>
+                        <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>            
+                    </ul>
+                </div>
             </header>
             <main class="main-content">
                  <section class="movie-list">
@@ -50,9 +59,9 @@
                                     <div class="left-menu">
                                         <nav>
                                             <ul>
-                                                <li><a href="#mydetails">My details</a></li>
+                                                <li><a href="./profile.jsp">My details</a></li>
+                                                <li><a href="./edit.jsp">Edit profile</a></li>
                                                 <li><a href="#myorder">My order</a></li>
-
                                             </ul>
 
                                         </nav>
@@ -62,9 +71,13 @@
                                             <table>
                                                 <tbody>
                                                 <tr>
-                                                    <th>ID </th>
+                                                    <th>USER ID</th>
                                                     <td><%=user.getId()%></td>
-                                                 </tr>
+                                                </tr>
+                                                <tr>
+                                                    <th>EMAIL</th>
+                                                    <td><%=user.getEmail()%></td>
+                                                </tr>
                                                 <tr>
                                                     <th>FIRST NAME</th>
                                                     <td><%=user.getfName()%></td>
@@ -72,10 +85,6 @@
                                                  <tr>
                                                      <th>LAST NAME</th>
                                                      <td><%=user.getlName()%></td>
-                                                 </tr>
-                                                 <tr>
-                                                     <th>EMAIL</th>
-                                                     <td><%=user.getEmail()%></td>
                                                  </tr>
                                                  <tr>
                                                      <th>CONTACT</th>

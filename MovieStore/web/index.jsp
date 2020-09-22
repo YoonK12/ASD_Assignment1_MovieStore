@@ -35,7 +35,7 @@
                                     Japanese colonial era In Japan, the Korean National Convention is held to 
                                     show off its dominance by defeating Joseon's national consciousness.
                                 </p>
-                                <p class="more"><a href="#">See more..</a></p>
+                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
                                 
                             </div>
                             <div class="movie-item">
@@ -48,7 +48,7 @@
                                     working hard at school, and working every day, 
                                     but with his future still undecided.
                                 </p>
-                                <p class="more"><a href="#">See more..</a></p>
+                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
                                 
                             </div>
                             <div class="movie-item">
@@ -60,7 +60,7 @@
                                     Spunky and rebellious, Becky (Lulu Wilson) is brought 
                                     to a weekend getaway at a lake house by her father Jeff (Joel McHale) in an effort to try to reconnect. 
                                 </p>
-                                <p class="more"><a href="#">See more..</a></p>
+                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
                                 
                             </div>
                             
@@ -72,7 +72,7 @@
                                 <p class="movie-desc">
                                     Get Ready to zoom back to Barkingburg with the pups in this all-new movie! 
                                 </p>
-                                <p class="more"><a href="#">See more..</a></p>
+                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
                                 
                             </div>
                             <div class="movie-item">
@@ -84,7 +84,7 @@
                                     Hardin will always be… Hardin. But is he really the deep, 
                                     thoughtful guy Tessa fell madly in love with—
                                 </p>
-                                <p class="more"><a href="#">See more..</a></p>
+                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
                                 
                             </div>
                             <div class="movie-item">
@@ -96,7 +96,7 @@
                                     An immigrant worker at a pickle factory is accidentally 
                                     preserved for 100 years and wakes up in modern day Brooklyn.
                                 </p>
-                                <p class="more"><a href="#">See more..</a></p>
+                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
                                 
                             </div>
                             <div class="movie-item">
@@ -109,7 +109,7 @@
                                     ten-year-old William gets separated from his 
                                     parents while traveling through the galaxy. 
                                 </p>
-                                <p class="more"><a href="#">See more..</a></p>
+                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
                                 
                             </div>
                             <div class="movie-item">
@@ -122,7 +122,7 @@
                                     is a young man who lives in good health with 
                                     Inhye, who runs a bakery, and his brother Jun-seok, who is his brother. 
                                 </p>
-                                <p class="more"><a href="#">See more..</a></p>
+                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
                                 
                             </div>
                         </div>

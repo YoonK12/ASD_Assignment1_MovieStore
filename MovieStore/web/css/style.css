@@ -345,6 +345,7 @@ a:link, a:visited{
     outline: none;
     color: #fff;
     background-color: #900;
+    cursor: pointer;
 }
 .form .goto-register{
     font-size:1.5rem;
@@ -453,12 +454,25 @@ a:link, a:visited{
     padding:1rem;
     font-size: 1.3rem;
     width: 45rem;
+    height: 58px;
+}
+.right-cont-detail table tr td.padd{
+    padding: 0 1rem;
+}
+.right-cont-detail table tr td input[type="text"],
+.right-cont-detail table tr td input[type="password"]{
+    display: inline-block;
+    width: 10rem;
+    height: 2rem;
+    padding: 3px 5px;
+    font-size: 1.1rem;
 }
 .right-cont-detail table tr th, .right-cont-detail table tr td{
     border-bottom: 1px dashed #aaa;
 }
 .right-cont-detail table tr th:last-child a:link,
-.right-cont-detail table tr th:last-child a:visited{
+.right-cont-detail table tr th:last-child a:visited,
+.right-cont-detail table tr th:last-child input{
     display: inline-block;
     padding: 1rem;
     line-height: 1.3;
@@ -466,9 +480,25 @@ a:link, a:visited{
     border: 1px solid #e6c201;
     border-radius: 2px;
     transition: box-shadow .2s ease-in;
+    cursor: pointer;
+
+}
+.right-cont-detail table tr th:last-child input, 
+.right-cont-detail table tr th:last-child a{
+    vertical-align: middle;
+}
+.right-cont-detail table tr th:last-child input.btn-update{
+    display:inline-block;
+    line-height: 1.3;
+    font-size:1rem;
+    background-color: #900;
+    color: #fff;
+    border: 1px solid #909;
 }
 .right-cont-detail table tr th:last-child a:hover,
-.right-cont-detail table tr th:last-child a:focus{
+.right-cont-detail table tr th:last-child a:focus,
+.right-cont-detail table tr th:last-child input:hover,
+.right-cont-detail table tr th:last-child input:focus{
     /*background-color: #f3cd00;*/
     box-shadow: 2px 2px 2px #aaa;
 }
