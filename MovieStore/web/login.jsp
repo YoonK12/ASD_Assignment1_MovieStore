@@ -30,8 +30,8 @@
                 <section class="">
                         <div class ="group group1">
                             <div class="form">
-                                <p sytle= "color:red;"><span><%=(registerSuccess != null? registerSuccess:"")%></span></p>
-                                <p sytle= "color:red;"><span><%=(existErr != null? existErr: "")%></span></p>
+                                <p sytle= "color:red;"><%=(registerSuccess != null? registerSuccess:"")%></p>
+                                <p sytle= "color:red;"><%=(existErr != null? existErr: "")%></p>
                                 
                                 <form action="<%=request.getContextPath()%>/LoginServlet" method="post">
                                     <h3 class="form-heading">Welcome to Movie Store</h3>
@@ -50,9 +50,6 @@
                         </div>
                 </section>
             </main>
-            <footer class="footer">
-                
-            </footer>
         <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>

@@ -23,6 +23,7 @@
         
     %>
     <body onload="startTime()">
+        
         <div><span class="time" id="time"></span></div>
         
         <p>User ID: <%=userId%></p>

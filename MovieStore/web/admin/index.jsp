@@ -25,7 +25,7 @@
                 <h3>Quick Action:</h3>
                 <hr>
                 <div>
-                    <a href="create_movie">New Movie</a> | 
+                    <a href="addMovie.jsp">New Movie</a> | 
                     <a href="create_user">New User</a> | 
                     <a href="create_category">New Category</a> | 
                     <a href="create_customer">New Customer</a>

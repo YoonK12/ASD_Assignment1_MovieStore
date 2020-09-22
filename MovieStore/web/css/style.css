@@ -232,6 +232,12 @@ a:link, a:visited{
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+.group2{
+    background-color: #fff;
+    min-height: 40rem;
+    padding: 2rem;
+}
 /* main.jsp */
 .movie-list{
     font-size: 1.2rem;
@@ -339,6 +345,7 @@ a:link, a:visited{
     outline: none;
     color: #fff;
     background-color: #900;
+    cursor: pointer;
 }
 .form .goto-register{
     font-size:1.5rem;
@@ -377,37 +384,128 @@ a:link, a:visited{
     color:#fff;
 }
 
-table.redTable {
-  border: 2px solid #A40808;
-  background-color: #FFFFFF;
-  width: 100%;
-  text-align: center;
-  border-collapse: collapse;
+
+/* sub page style */
+.sub-content{
+    display: block;
+    /*background: gold;*/
+    width: 100%;
 }
-table.redTable td, table.redTable th {
-  border: 1px solid #AAAAAA;
-  padding: 3px 2px;
-}
-table.redTable tbody td {
-  font-size: 20px;
-}
-table.redTable tr:nth-child(even) {
-  background: #F5C8BF;
-}
-table.redTable tfoot td {
-  font-size: 13px;
-}
-table.redTable tfoot .links {
-  text-align: right;
-}
-table.redTable tfoot .links a{
-  display: inline-block;
-  background: #FFFFFF;
-  color: #A40808;
-  padding: 2px 8px;
-  border-radius: 5px;
+.sub-content .subpage-heading{
+    font-size: 2rem;
+    border-bottom: 2px solid #aaa;
+    padding-bottom: .5rem;
 }
 
+/* layout 2 columns*/
+.layout-2col{
+    display: flex;
+    justify-content: space-between;
+}
+.left-menu{
+    width: 20rem;
+    min-height: 38rem;
+    /*background-color: pink;*/
+    border-right: 1px solid #aaa;
+    padding: 1rem 0;
+}
+.left-menu nav ul li{
+    /*background-color: gold;*/
+    text-align: center;
+    
+}
+.left-menu nav ul li a{
+    display: inline-block;
+    width: 80%;
+    background-color: #F5C8BF;
+    height: 3rem;
+    line-height: 3rem;
+    margin-top: 1rem;
+    
+}
+.right-cont{
+    width: calc(100vw - 20rem);
+    min-height: 38rem;
+    /*background-color: pink;*/
+    padding: 1rem;
+}
+.right-cont .right-cont-detail{
+    padding: 1rem;
+    /*background-color: gold;*/
+}
+.right-cont-detail table{
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+}
+.right-cont-detail table tr th{
+    width: 15rem;
+    font-size: 1rem;
+    padding: .8rem;
+    text-align: right;
+    border-right: 1px solid #aaa;
+    background-color: #ddd;
+}
+.right-cont-detail table tr th:last-child{
+    background-color: #fff;
+    height: 4rem;
+    text-align:center;
+}
+.right-cont-detail table tr td{
+    padding:1rem;
+    font-size: 1.3rem;
+    width: 45rem;
+    height: 58px;
+}
+.right-cont-detail table tr td.padd{
+    padding: 0 1rem;
+}
+.right-cont-detail table tr td input[type="text"],
+.right-cont-detail table tr td input[type="password"]{
+    display: inline-block;
+    width: 10rem;
+    height: 2rem;
+    padding: 3px 5px;
+    font-size: 1.1rem;
+}
+.right-cont-detail table tr th, .right-cont-detail table tr td{
+    border-bottom: 1px dashed #aaa;
+}
+.right-cont-detail table tr th:last-child a:link,
+.right-cont-detail table tr th:last-child a:visited,
+.right-cont-detail table tr th:last-child input{
+    display: inline-block;
+    padding: 1rem;
+    line-height: 1.3;
+    background-color: gold;
+    border: 1px solid #e6c201;
+    border-radius: 2px;
+    transition: box-shadow .2s ease-in;
+    cursor: pointer;
+
+}
+.right-cont-detail table tr th:last-child input, 
+.right-cont-detail table tr th:last-child a{
+    vertical-align: middle;
+}
+.right-cont-detail table tr th:last-child input.btn-update{
+    display:inline-block;
+    line-height: 1.3;
+    font-size:1rem;
+    background-color: #900;
+    color: #fff;
+    border: 1px solid #909;
+}
+.right-cont-detail table tr th:last-child a:hover,
+.right-cont-detail table tr th:last-child a:focus,
+.right-cont-detail table tr th:last-child input:hover,
+.right-cont-detail table tr th:last-child input:focus{
+    /*background-color: #f3cd00;*/
+    box-shadow: 2px 2px 2px #aaa;
+}
+
+.right-cont-detail table tr th:last-child a:first-child{
+    margin-right: 1rem;
+}
 .footer-bg{
     background-color: rgba(0,0,0,0.5);
 }
@@ -507,7 +605,9 @@ table.redTable tfoot .links a{
     padding-bottom: 2rem;
 
 }
-
+.admin-content section .message{
+    color: red;
+}
 .admin-content section h2, .admin-content section h3{
     padding: 1rem 0 .5rem;
 }
@@ -522,4 +622,63 @@ table.redTable tfoot .links a{
 }
 .admin-content section > div{
     padding-top:.5rem;
+}
+.admin-content .admin-section{
+    position: relative;
+}
+.admin-form{
+    background-color: #f7f7f7;
+    width: 800px;
+    margin: .5rem auto 0;
+    padding: 1.5rem;
+    border: 1px dashed #aaa;
+    border-radius: 8px;
+}
+.admin-form div{
+    margin-top: 1rem;
+
+    
+}
+.admin-form label{
+    display: inline-block;
+    width: 30%;
+    height: 2rem;
+    line-height: 1.6;
+    /*background-color: pink;*/
+    font-size: 1em;
+    text-transform: uppercase;
+    text-align:right;
+    padding-right:1rem;
+    margin-right: 1rem;
+    
+    
+}
+.admin-form input, .admin-form textarea{
+    width: 50%;
+}
+.admin-form input{
+    height: 2rem;
+    line-height: 1.6;
+    font-size: 1.2rem;
+    padding: 3px 5px;
+}
+.admin-form input, .admin-form label{
+    vertical-align: middle;
+}
+.admin-form label, .admin-form textarea{
+    vertical-align:top;
+}
+.admin-form textarea{
+    font-size: 1.3rem;
+    padding: 3px 5px;
+    font-family: sans-serif;
+    resize: none;
+}
+.admin-form div:last-child{
+    padding: 1.5rem 0 0;
+}
+.admin-form div:last-child input[type="submit"]{
+    display: inline-block;
+    width: auto;
+    margin-right: 1.5rem;
 }
