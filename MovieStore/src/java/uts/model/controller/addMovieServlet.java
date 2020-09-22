@@ -60,10 +60,10 @@ public class addMovieServlet extends HttpServlet {
             
             if (returCode == 0){
                 request.setAttribute("Message", "Error inserting file");
-                getServletContext().getRequestDispatcher("/addMovie.jsp").forward(request, response);
+                getServletContext().getRequestDispatcher("/admin/addMovie.jsp").forward(request, response);
             } else {
                 request.setAttribute("Message", "Your record inserted successfully");
-                getServletContext().getRequestDispatcher("/addMovie.jsp").forward(request, response);
+                getServletContext().getRequestDispatcher("/admin/addMovie.jsp").forward(request, response);
             }
         }catch(Exception exe){
             exe.printStackTrace();
