@@ -16,19 +16,19 @@
         <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
         <title>Add New Movie | Movie Store Admin</title>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="css/style.css" type="text/css"/>
     </head>
     <body>
         <%
             String Message = (String) session.getAttribute("Message");
         %>
-        <jsp:directive.include file="./header.jsp" />
+        <jsp:directive.include file="admin/header.jsp" />
         <main class="main-content admin-content">
 
             <section class="movie-list admin-section">
                 <h2>Add New Movie</h2>
                 <p><span class="message"> <%=(Message != null ? Message : "")%></span></p> 
-                <form method="post" action="addMovieServlet" class="admin-form">
+                <form method="post" action="addMovieServlet" enctype="multipart/form-data" class="admin-form">
                     <div>
                         <label for="movieTitle">Movie Title</label>
                         <input type="text" placeholder="Enter Movie title" name="title">
@@ -67,6 +67,6 @@
             </section>
 >>>>>>> Stashed changes
         </main>
-        <jsp:directive.include file="./footer.jsp" />
+        <jsp:directive.include file="admin/footer.jsp" />
     </body>
 </html>
