@@ -10,4 +10,4 @@ CREATE TABLE MOVIE (
   PRIMARY KEY (movieID),
   CONSTRAINT FK_movieCategory FOREIGN KEY (categoryID) 
 REFERENCES Category(categoryID)
-) 
+)
