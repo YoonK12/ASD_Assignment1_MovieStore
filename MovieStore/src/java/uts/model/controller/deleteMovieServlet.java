@@ -8,6 +8,8 @@ package uts.model.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +40,7 @@ public class deleteMovieServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        Validator validator = new Validator();
         int movieID = Integer.parseInt(request.getParameter("movieID"));
         System.out.println("movieID =" + movieID);
         String title = request.getParameter("title");
@@ -47,6 +50,27 @@ public class deleteMovieServlet extends HttpServlet {
         String released_date = request.getParameter("released_date");
         String category = request.getParameter("category");
         DBMovie movieManager = (DBMovie) session.getAttribute("movieManager");
+    
+        Movie movie = null;
+        validator.clear(session);
+        try {
+            Movie exist = movieManager.findMovieID(movieID);
+            
+            if (exist != null) {
+                movieManager.deleteMovie(movieID);
+                session.setAttribute("existMovieErr", "Movie has been deleted!");
+            } else {
+                session.setAttribute("existMovieErr", "No movie is in database");
+            }
+            
+            ArrayList<Movie> display = movieManager.fetchMovie();
+            
+            request.setAttribute("display", display);
+            request.getRequestDispatcher("staffMain.jsp").include(request, response);
+            
+        } catch (SQLException | NullPointerException ex) {
+            ex.printStackTrace();
+        }
     }
 
 

@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 2020. 9. 20, 오후 7:18:41
-    Author     : heeseong
+    Author     : campf
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="./css/style.css" type="text/css"/>
     </head>
     <body>
-        <jsp:directive.include file="./header.jsp" />
+        <jsp:directive.include file="admin/header.jsp" />
         <main class="main-content admin-content">
             <section>
                 <h2>Administrator Dashboard</h2>
