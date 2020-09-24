@@ -40,6 +40,10 @@
         <servlet-name>ViewMovieServlet</servlet-name>
         <servlet-class>uts.model.controller.ViewMovieServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewMainServlet</servlet-name>
+        <servlet-class>uts.model.controller.ViewMainServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>ViewMovieServlet</servlet-name>
         <url-pattern>/ViewMovieServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewMainServlet</servlet-name>
+        <url-pattern>/ViewMainServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

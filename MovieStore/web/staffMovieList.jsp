@@ -32,16 +32,14 @@
             <table align="center">
                 <c:forEach var="display" items="${display}">
                     <tr>
-                        <td><img src="data:image/jpeg;base64,${display.image}"></td>
-                    </tr>
-                    <tr>
+                        <td><img src="data:image/jpeg;base64,${display.image}" width="50" height="50"></td>
                         <td>${display.title}</td>
-                    </tr>
-                    <tr>
                         <td>${display.director}</td>
-                    </tr>
-                    <tr>
                         <td>${display.description}</td>
+                        <td>
+                            <a class="btn btn-info" role="button" href="EditMovieServlet?movieID=<c:out value='${display.movieID}' />">Edit</a>
+                            <a class="btn btn-danger" role="button" href="deleteMovieServlet?movieID=<c:out vlaue='diaply.movieID' />">Delete</a>
+                        </td>
                     </tr>
                 </c:forEach>}
             </table>
