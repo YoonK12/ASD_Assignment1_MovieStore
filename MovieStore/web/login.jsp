@@ -31,10 +31,11 @@
                         <div class ="group group1">
                             <div class="form">
                                 <p sytle= "color:red;"><%=(registerSuccess != null? registerSuccess:"")%></p>
-                                <p sytle= "color:red;"><%=(existErr != null? existErr: "")%></p>
+                                
                                 
                                 <form action="<%=request.getContextPath()%>/LoginServlet" method="post">
                                     <h3 class="form-heading">Welcome to Movie Store</h3>
+                                    <p class="info-error"><%=(existErr != null? existErr: "")%></p>
                                     <fieldset border=0>
                                         <input type="text" placeholder="<%=(emailErr != null ? emailErr:"Enter the email") %>" name="email" size="30" required >
                                         <input type="password" placeholder="<%=(passErr != null ? passErr:"Enter the password") %>" name="password" size="30" required>

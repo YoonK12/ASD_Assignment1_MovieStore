@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet{
                 } else {
                     // if user not found
                    session.setAttribute("existErr","User does not exist in the Database !");
-                    request.getRequestDispatcher("login.jsp").include(request,response);
+//                    request.getRequestDispatcher("login.jsp").include(request,response);
                 }
               
             } catch(NullPointerException ex){
