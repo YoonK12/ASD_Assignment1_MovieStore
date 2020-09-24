@@ -36,6 +36,10 @@
         <servlet-name>deleteMovieServlet</servlet-name>
         <servlet-class>uts.model.controller.deleteMovieServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewMovieServlet</servlet-name>
+        <servlet-class>uts.model.controller.ViewMovieServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>deleteMovieServlet</servlet-name>
         <url-pattern>/deleteMovieServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewMovieServlet</servlet-name>
+        <url-pattern>/ViewMovieServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
