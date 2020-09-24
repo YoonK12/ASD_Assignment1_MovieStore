@@ -1,14 +1,19 @@
 package uts.model.controller;
 
+//Logger
 import java.io.IOException;
-
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+//Servlet Lib
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.asd.model.User;
-import uts.asd.dao.UserManager;
+//Database
+import uts.asd.model.*;
+import uts.asd.dao.*;
 
 /**
  *
@@ -40,6 +45,19 @@ public class CheckoutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Create the checkout order 
+         //Get session
+         HttpSession session = request.getSession();
+         
+         //Get Form data 
+         
+         
+         // 
+         try{
+             
+         } catch(NullPointerException ex){
+             
+         } catch (SQLException ex){
+             Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
+         }
     }
 }
