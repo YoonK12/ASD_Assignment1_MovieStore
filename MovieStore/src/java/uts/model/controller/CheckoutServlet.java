@@ -31,7 +31,8 @@ public class CheckoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Get the list of orders of the current session user
+        //Get List of orders here
+        
     }
 
     /**
@@ -47,17 +48,48 @@ public class CheckoutServlet extends HttpServlet {
             throws ServletException, IOException {
          //Get session
          HttpSession session = request.getSession();
-         
-         //Get Form data 
-         
-         
-         // 
+         //get User ID
+         User user = (User)session.getAttribute("user");
+         user.getId();
+         System.out.println(user.getId());
+        //Get form data
+         String fname = request.getParameter("fname");
+         String lname = request.getParameter("lname");
+         String address = request.getParameter("address");
+         String country = request.getParameter("country");
+         String city = request.getParameter("city");
+         String zip = request.getParameter("zip");
+         String mobile = request.getParameter("fname");
+         String payMethod = request.getParameter("pay-method");
+         String cardNumber = request.getParameter("card-number");
+         String expMonth = request.getParameter("expMonth");
+         String expYear = request.getParameter("expYear");
+         String cvv = request.getParameter("cvv");
+         //Validate form data 
+            //Check mobile number
+                // check for 10 numbers
+                
+             if (!mobile.matches("[0-9]+") && mobile.length() != 10) {
+                 session.setAttribute("mobileErr", "*Phone number must contain 10 digits");
+             }
+        //Declare and Define order details 
+            String name = request.getParameter("fname") +" " + request.getParameter("lname");
+            String fullAddress = request.getParameter("address") + "," +request.getParameter("country") + "," + request.getParameter("city") +","+ request.getParameter("zip");
+            
+            
+            //TODO: delete these debugging outputs
+           System.out.println("[DEBUG]: name " + name);
+           System.out.println("[DEBUG]: address " + fullAddress );
+           System.out.println("[DEBUG]: mobile " + mobile);
+           System.out.println("[DEBUG]: payment method " + payMethod);
+           
+           //go to index.jsp for now 
+           request.getRequestDispatcher("checkout.jsp").include(request,response);
          try{
-             
+             //Get Order
+             // Put details into user order 
          } catch(NullPointerException ex){
              
-         } catch (SQLException ex){
-             Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
          }
     }
 }

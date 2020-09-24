@@ -3,7 +3,7 @@
     Created on : 20/09/2020, 2:41:33 PM
     Author     : jackw
 --%>
-
+<%@page import="uts.asd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,19 +16,24 @@
     </head>
     <body>
         <%
-        
+            User user = (User)session.getAttribute("user");
+            String postalErr = (String) session.getAttribute("postalErr");
+            String mobileErr = (String) session.getAttribute("mobileErr");
+            String cardErr = (String) session.getAttribute("cardErr");
+            String monthErr = (String) session.getAttribute("monthErr");
+            String yearErr =  (String) session.getAttribute("yearErr");
+            String cvvErr =  (String) session.getAttribute("cvvErr");
         %>
         <div class="container">
             <h1>Checkout</h1>
             <div class ="main-content">
-                <div class ="checkout-container">
+                <div class="checkout-container">
                     <form action="<%=request.getContextPath()%>/CheckoutServlet" method="post">
                         <div class="checkout-form">
                               <div class="billing-information">
                                 <h2> Billing information </h2>
-                                <label> First name </label> <span> error </span>
+                                <label> First name  <span>*User is wrong</span></label>
                                 <input type="text" name="fname" placeholder="First Name" required/>
-                                
                                 <label> Last name </label>
                                 <input type="text" name = "lname" placeholder="Last Name" required/>
                                 
@@ -40,13 +45,14 @@
                                 <input name="city" placeholder="e.g. Sydney" type="text"/>
                                 <label> Zip or postal code </label>
                                 <input name="zip" placeholder="e.g. 2220"type="text"/>
-                                <label> Phone number</label> <input name="phone number" placeholder="e.g. +61411960864" type="text"/>
+                                <label> Phone number <span><%=(mobileErr!= null? mobileErr:"")%></span></label>
+                                <input name="mobile" placeholder="e.g. 0411960864" type="text"/>
                             </div>
                             <div class="payment-information">
                                 <h2> Payment Information </h2>
                                 <label>Payment Method</label>
-                                <select name="cards">
-                                    <option class="icon-container" value="visa">Visa</option>
+                                <select name="pay-method">
+                                    <option value="visa">Visa</option>
                                     <option value="master-card">Mastercard</option>
                                     <option value="american-exp">American Express</option>
                                 </select>
@@ -69,8 +75,22 @@
             
                 <div class="cart-container">
                     <h2>In your cart</h2>
-                    <h3> Products</h3>
-                    <p> Total </total>
+                    <div class="checkout-list">
+                        <div class="checkout-item">
+                            <p class="name">Movie</p><p class="price">Price</p>
+                        </div>
+                        <hr>
+                        <div class="checkout-item">
+                            <p class="name">The Greatest Showman</p><p class="price">$51.00</p>
+                        </div>
+                        <div class="checkout-item">
+                            <p class="name">Sonic</p><p class="price">$29.00</p>
+                        </div>
+                    </div>
+                    <hr> 
+                    <div class="total">
+                        <p class="total-label"> Total </p> <p class="price">$100</p>
+                    </div>
                 </div>
         </div>
             </div>
