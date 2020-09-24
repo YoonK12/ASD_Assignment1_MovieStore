@@ -12,6 +12,7 @@
         <title>Checkout | Movie Store</title>
          <link rel="stylesheet" href="./css/style.css" type="text/css"/>
          <link rel="stylesheet" href="./css/checkout.css" type="text/css"/>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div class="container">
@@ -24,21 +25,26 @@
                                 <h2> Billing information </h2>
                                 <label> First name </label> <input type="text"/>
                                 <label> Last name </label> <input type="text"/>
+                                
                                 <label> Billing address </label><input type="text"/>
-                                BIlling <input type="text"/>
-                                Country <input type="text"/>
-                                City <input type="text"/>
-                                Zip or postal code <input type="text"/>
-                                Phone number <input type="text"/>
+                                <label> Country </label><input type="text"/>
+                                <label> City </label><input type="text"/>
+                                <label> Zip or postal code </label><input type="text"/>
+                                <label> Phone number</label> <input type="text"/>
                             </div>
                             <div class="payment-information">
                                 <h2> Payment Information </h2>
-                                <div class="payment-methods">
-                                    <p>Accepted Cards: </p>
-                                </div>
+                                <label>Payment Method</label>
+                                <select name="cards">
+                                    <option class="icon-container" value="visa"><i class="fa fa-cc-visa" style="color:navy;"></i> Visa</option>
+                                    <option value="master-card">Mastercard</option>
+                                    <option value="american-exp">American Express</option>
+                                </select>
                                 <label>Card Number</label> <input type="text"/>
-                                <label>Expiration Month</label> <input type="text"/>
-                                <label>Expiration Year</label> <input type="text"/>
+                                <div class="exp-date">
+                                    <label>Expiration Month</label> <input type="text"/>
+                                    <label>Expiration Year</label> <input type="text"/>
+                                </div
                                 <label>CVV</label> <input type="text"/>
                             </div>
                         </div>
