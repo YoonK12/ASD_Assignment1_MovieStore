@@ -69,14 +69,14 @@ public class LoginServlet extends HttpServlet{
                 int userId = user.getId();
                 //String usertype = user.getUsertype();
                 manager.addUserLog(userId, "Login");
-                request.getRequestDispatcher("./admin/index.jsp").include(request,response);
+                request.getRequestDispatcher("staffMain.jsp").include(request,response);
                 
                 }
             
                 } else {
                     // if user not found
                    session.setAttribute("existErr","User does not exist in the Database !");
-                    request.getRequestDispatcher("login.jsp").include(request,response);
+//                    request.getRequestDispatcher("login.jsp").include(request,response);
                 }
               
             } catch(NullPointerException ex){

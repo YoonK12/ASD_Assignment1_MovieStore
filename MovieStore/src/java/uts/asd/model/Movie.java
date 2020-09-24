@@ -18,9 +18,9 @@ public class Movie {
     private byte[] image;
     private String price;
     private String released_date;
-    private int categoryID;
+    private String category;
 
-    public Movie(int movieID, String title, String director, String description, byte[] image, String price, String released_date, int categoryID) {
+    public Movie(int movieID, String title, String director, String description, byte[] image, String price, String released_date, String category) {
         this.movieID = movieID;
         this.title = title;
         this.director = director;
@@ -28,7 +28,7 @@ public class Movie {
         this.image = image;
         this.price = price;
         this.released_date = released_date;
-        this.categoryID = categoryID;
+        this.category = category;
     }
 
     public int getMovieID() {
@@ -87,12 +87,12 @@ public class Movie {
         this.released_date = released_date;
     }
 
-    public int getCategoryID() {
-        return categoryID;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoryID(int categoryID) {
-        this.categoryID = categoryID;
+    public void setCategoryID(String category) {
+        this.category = category;
     }
     
     
