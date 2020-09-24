@@ -69,7 +69,7 @@ public class LoginServlet extends HttpServlet{
                 int userId = user.getId();
                 //String usertype = user.getUsertype();
                 manager.addUserLog(userId, "Login");
-                request.getRequestDispatcher("index.jsp").include(request,response);
+                request.getRequestDispatcher("./admin/index.jsp").include(request,response);
                 
                 }
             

@@ -9,7 +9,7 @@
  */
 
 CREATE TABLE USERS (
-id              INTEGER NOT NULL PRIMARY KEY
+userId              INTEGER NOT NULL PRIMARY KEY
                     GENERATED ALWAYS AS IDENTITY
                     (START WITH 1, INCREMENT BY 1), 
 fName           VARCHAR(10),

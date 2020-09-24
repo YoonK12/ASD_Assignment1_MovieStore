@@ -41,7 +41,7 @@ public class DBMovie {
                 byte[] searchMovieImage = rs.getBytes(5);
                 String searchMoviePrice = rs.getString(6);
                 String searchMovieReleased_Date = rs.getString(7);
-                int searchCategoryID = rs.getInt(8);
+                String category = rs.getString(8);
             }
         }
         return null;
@@ -61,13 +61,11 @@ public class DBMovie {
                byte[] searchMovieImage = rs.getBytes(5);
                String searchMoviePrice = rs.getString(6);
                String searchMovieReleased_Date = rs.getString(7);
-               int searchCategoryID = rs.getInt(8);
+               String searchCategory = rs.getString(8);
             }
         }
         return null;
     }
     
-    public void addMovie(String title, String director, String description, byte[] image, String price, String released_date, int categoryID){
-        
-    }
+  
 }

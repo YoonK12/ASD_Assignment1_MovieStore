@@ -12,7 +12,7 @@
         <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
         <title>Movie Store Admin</title>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="./css/style.css" type="text/css"/>
     </head>
     <body>
         <jsp:directive.include file="./header.jsp" />
@@ -25,7 +25,7 @@
                 <h3>Quick Action:</h3>
                 <hr>
                 <div>
-                    <a href="create_movie">New Movie</a> | 
+                    <a href="addMovie.jsp">New Movie</a> | 
                     <a href="create_user">New User</a> | 
                     <a href="create_category">New Category</a> | 
                     <a href="create_customer">New Customer</a>

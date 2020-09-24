@@ -73,14 +73,14 @@ public class UserManager {
             while (rs.next()) {
                 String userEmail = rs.getString("email");
                 String password = rs.getString("password");
-                int id = rs.getInt("id");
+                int userId = rs.getInt("userId");
                 String fName = rs.getString("fName");
                 String lName = rs.getString("lName");
                 String mobileNum = rs.getString("mobileNum");
                 String usertype = rs.getString("usertype");
                 boolean active = rs.getBoolean("active");
 
-                user = new User(id, fName, lName, password, userEmail, mobileNum,usertype, active);
+                user = new User(userId, fName, lName, password, userEmail, mobileNum,usertype, active);
                 return user;
             }
 
@@ -90,14 +90,14 @@ public class UserManager {
     //find user by id
     public User findUserById(int userId) throws SQLException {
        User user = null;
-        String query = "SELECT * FROM USERS WHERE id= " + userId;
+        String query = "SELECT * FROM USERS WHERE userId= " + userId;
         ResultSet rs = st.executeQuery(query);
         if (rs != null) {
             //HttpSession sesion = request.getSession(true);
             while (rs.next()) {
                 String userEmail = rs.getString("email");
                 String password = rs.getString("password");
-                int id = rs.getInt("id");
+                int id = rs.getInt("userId");
                 String fName = rs.getString("fName");
                 String lName = rs.getString("lName");
                 String mobileNum = rs.getString("mobileNum");
@@ -143,14 +143,14 @@ public class UserManager {
 //find user by user id
     public User findId(int userId) throws SQLException {
         User user = null;
-        String query = "SELECT * FROM MS.USERS WHERE id= " + userId;
+        String query = "SELECT * FROM MS.USERS WHERE userId= " + userId;
         ResultSet rs = st.executeQuery(query);
         if (rs != null) {
             //HttpSession sesion = request.getSession(true);
             while (rs.next()) {
                 String userEmail = rs.getString("email");
                 String password = rs.getString("password");
-                int id = rs.getInt("id");
+                int id = rs.getInt("userId");
                 String fName = rs.getString("fName");
                 String lName = rs.getString("lName");
                 String mobileNum = rs.getString("mobileNum");
@@ -168,7 +168,7 @@ public class UserManager {
     public void updateUser(int id, String fName, String lName, String password, String email, String mobileNum) throws SQLException {
         
         String query = "UPDATE USERS SET fName=?, lName=?, password=?, email=?,"
-                + "mobileNum=? WHERE id=?";
+                + "mobileNum=? WHERE userId=?";
         
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1, fName);
@@ -185,7 +185,7 @@ public class UserManager {
     //update User's info (first Name, Last Name, mobile Num)
      public void updateUser(int id, String fName, String lName, String mobileNum) throws SQLException {
         
-        String query = "UPDATE USERS SET fName=?, lName=?, mobileNum=? WHERE id=?";
+        String query = "UPDATE USERS SET fName=?, lName=?, mobileNum=? WHERE userId=?";
         
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1, fName);
@@ -199,7 +199,7 @@ public class UserManager {
      //Update User Password
       public void changeUserPW(int id, String password) throws SQLException {
         
-        String query = "UPDATE USERS SET PASSWORD=? WHERE ID=?";
+        String query = "UPDATE USERS SET PASSWORD=? WHERE userId=?";
         
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1, password);
@@ -211,7 +211,7 @@ public class UserManager {
      
 //delete User by id
     public void deleteUserById(int id) throws SQLException {
-     st.executeUpdate("DELETE FROM MS.USERS WHERE id='"+ id +"'");
+     st.executeUpdate("DELETE FROM MS.USERS WHERE userId='"+ id +"'");
     
     }
 //delete User by email

@@ -605,7 +605,9 @@ a:link, a:visited{
     padding-bottom: 2rem;
 
 }
-
+.admin-content section .message{
+    color: red;
+}
 .admin-content section h2, .admin-content section h3{
     padding: 1rem 0 .5rem;
 }
@@ -620,4 +622,63 @@ a:link, a:visited{
 }
 .admin-content section > div{
     padding-top:.5rem;
+}
+.admin-content .admin-section{
+    position: relative;
+}
+.admin-form{
+    background-color: #f7f7f7;
+    width: 800px;
+    margin: .5rem auto 0;
+    padding: 1.5rem;
+    border: 1px dashed #aaa;
+    border-radius: 8px;
+}
+.admin-form div{
+    margin-top: 1rem;
+
+    
+}
+.admin-form label{
+    display: inline-block;
+    width: 30%;
+    height: 2rem;
+    line-height: 1.6;
+    /*background-color: pink;*/
+    font-size: 1em;
+    text-transform: uppercase;
+    text-align:right;
+    padding-right:1rem;
+    margin-right: 1rem;
+    
+    
+}
+.admin-form input, .admin-form textarea{
+    width: 50%;
+}
+.admin-form input{
+    height: 2rem;
+    line-height: 1.6;
+    font-size: 1.2rem;
+    padding: 3px 5px;
+}
+.admin-form input, .admin-form label{
+    vertical-align: middle;
+}
+.admin-form label, .admin-form textarea{
+    vertical-align:top;
+}
+.admin-form textarea{
+    font-size: 1.3rem;
+    padding: 3px 5px;
+    font-family: sans-serif;
+    resize: none;
+}
+.admin-form div:last-child{
+    padding: 1.5rem 0 0;
+}
+.admin-form div:last-child input[type="submit"]{
+    display: inline-block;
+    width: auto;
+    margin-right: 1.5rem;
 }
