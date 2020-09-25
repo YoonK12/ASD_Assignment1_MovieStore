@@ -742,3 +742,54 @@ a:link, a:visited{
     width: auto;
     margin-right: 1.5rem;
 }
+.admin-content .view-table-form{
+    width: 100%;
+    /*background-color: gold;*/
+    
+}
+.admin-content .view-table-form table{
+    border-collapse: collapse;
+    border: 1px solid #aaa;
+    margin: 0 auto;
+    width: 1080px;
+}
+.admin-content .view-table-form table tr th{
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    height: 2rem;
+    border-bottom: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    background-color: #ddd;
+}
+.admin-content .view-table-form table tr td{
+    font-size: 1.1rem;
+    font-weight: thin;
+    border-right: 1px dashed #aaa;
+    border-bottom: 1px dashed #aaa;
+    padding: 3px 0;
+}
+.admin-content .view-table-form table tr td img{
+    vertical-align: bottom;
+}
+.admin-content .view-table-form table tr td a:link,
+.admin-content .view-table-form table tr td a:visited
+{
+    display: inline-block;
+    height: 1.5rem;
+    padding: 0 .5rem;
+    line-height: 1.5;
+    border-radius: 2px;
+    /*border: 1px solid #181818;*/
+}
+.admin-content .view-table-form table tr td .btn-movie-edit{
+    border: 1px solid #900;
+    color: #900;
+    margin-right: .5rem;
+}
+.admin-content .view-table-form table tr td .btn-movie-delete{
+    background-color: #900;
+    color: #fff;
+}
+.btn-movie-edit, .btn-movie-delete{
+    vertical-align: middle;
+}
