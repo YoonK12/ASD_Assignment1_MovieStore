@@ -3,6 +3,7 @@ package uts.model.controller;
 //Logger
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 //Servlet Lib
@@ -18,6 +19,7 @@ import uts.asd.dao.*;
 /**
  *
  * @author jackw
+ * Fuck lee jong suuuk is sooo hot 
  */
 public class CheckoutServlet extends HttpServlet {
       /**
@@ -50,31 +52,57 @@ public class CheckoutServlet extends HttpServlet {
          HttpSession session = request.getSession();
          //get User ID
          User user = (User)session.getAttribute("user");
+         if (user == null){
+              request.getRequestDispatcher("login.jsp").include(request,response);
+         }
          user.getId();
          System.out.println(user.getId());
-        //Get form data
+         //Get form data
          String fname = request.getParameter("fname");
          String lname = request.getParameter("lname");
          String address = request.getParameter("address");
          String country = request.getParameter("country");
          String city = request.getParameter("city");
          String zip = request.getParameter("zip");
-         String mobile = request.getParameter("fname");
+         String mobile = request.getParameter("mobile");
          String payMethod = request.getParameter("pay-method");
          String cardNumber = request.getParameter("card-number");
-         String expMonth = request.getParameter("expMonth");
-         String expYear = request.getParameter("expYear");
+         String expMonth = request.getParameter("month-exp");
+         String expYear = request.getParameter("year-exp");
          String cvv = request.getParameter("cvv");
          //Validate form data 
-            //Check mobile number
-                // check for 10 numbers
-                
+            //Validate mobile number
              if (!mobile.matches("[0-9]+") && mobile.length() != 10) {
                  session.setAttribute("mobileErr", "*Phone number must contain 10 digits");
+             } else {
+                 session.setAttribute("mobileErr", "");
+             }
+             //Validate card 
+             if (!cardNumber.matches("\\d{16}") ) {
+                 session.setAttribute("cardErr", "*Card number must contain 16 digits" );
+             } else{
+                 session.setAttribute("cardErr", "");
+             }
+             //Validate expire error
+             if(expMonth.matches("^(0?[1-9]|1[012])$")){
+                 session.setAttribute("monthErr", "*Must be an integer between 1 and 12");
+             }else{
+                 session.setAttribute("monthErr", "");
+             }
+             expYear = "2000";
+             if(expYear.matches("\\d{4}")){
+                 session.setAttribute("yearErr", "*Must be an 4 digit number");
+             }else{
+                 session.setAttribute("monthErr", "");
+             }
+             if(cvv.matches("\\d{3}")){
+                 session.setAttribute("cvvErr", "*Must be a 3 digit number");
+             }else{
+                 session.setAttribute("cvvErr", "");
              }
         //Declare and Define order details 
-            String name = request.getParameter("fname") +" " + request.getParameter("lname");
-            String fullAddress = request.getParameter("address") + "," +request.getParameter("country") + "," + request.getParameter("city") +","+ request.getParameter("zip");
+            String name = fname +" " + lname;
+            String fullAddress = address + "," +country + "," + city +","+ zip;
             
             
             //TODO: delete these debugging outputs

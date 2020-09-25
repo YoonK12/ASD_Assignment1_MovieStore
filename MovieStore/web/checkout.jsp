@@ -32,11 +32,10 @@
                         <div class="checkout-form">
                               <div class="billing-information">
                                 <h2> Billing information </h2>
-                                <label> First name  <span>*User is wrong</span></label>
+                                <label> First name </label>
                                 <input type="text" name="fname" placeholder="First Name" required/>
                                 <label> Last name </label>
                                 <input type="text" name = "lname" placeholder="Last Name" required/>
-                                
                                 <label> Billing address </label>
                                 <input type="text" name="address" placeholder="e.g. 21 Donald Street" required/>
                                 <label> Country </label>
@@ -56,15 +55,14 @@
                                     <option value="master-card">Mastercard</option>
                                     <option value="american-exp">American Express</option>
                                 </select>
-                                <label>Card Number</label>
+                                <label>Card Number <span><%=(cardErr!= null? cardErr:"")%></span></label>
                                 <input  type="text" name="card-number" placeholder="1234-1234-1234-1234"/>
-                                <div class="exp-date">
-                                    <label>Expiration Month</label>
-                                    <input name="month-exp" placeholder="1-12" type="text"/>
-                                    <label>Expiration Year</label>
-                                    <input type="text" name="year-exp" placeholder="e.g. 2020" />
-                                </div
-                                <label>CVV</label> <input type="text" name="cvv" placeholder="123"/>
+                                <label>Expiration Month  <span><%=(monthErr!= null? monthErr:"")%></span></label>
+                                <input name="month-exp" placeholder="1-12" type="text"/>
+                                 <label>Expiration Year<span><%=(yearErr!= null? yearErr:"")%></span></label>
+                                 <input type="text" name="year-exp" placeholder="e.g. 2020" />
+                                 <label>CVV<span><%=(cvvErr!= null? cvvErr:"")%></span></label>
+                                 <input type="text" name="cvv" placeholder="123"/>
                             </div>
                         </div>
                         <div> 
@@ -81,10 +79,34 @@
                         </div>
                         <hr>
                         <div class="checkout-item">
-                            <p class="name">The Greatest Showman</p><p class="price">$51.00</p>
+                            <p class="name">Descendents of the Sun</p><p class="price">$51.00</p>
                         </div>
                         <div class="checkout-item">
-                            <p class="name">Sonic</p><p class="price">$29.00</p>
+                            <p class="name">Pinnochio</p><p class="price">$29.00</p>
+                        </div>
+                        <div class="checkout-item">
+                            <p class="name">Goblin</p><p class="price">$29.00</p>
+                        </div>
+                        <div class="checkout-item">
+                            <p class="name">Record of youth</p><p class="price">$29.00</p>
+                        </div>
+                        <div class="checkout-item">
+                            <p class="name">Dr. Stranger</p><p class="price">$29.00</p>
+                        </div>
+                         <div class="checkout-item">
+                            <p class="name">Boku No Pico</p><p class="price">$29.00</p>
+                        </div>
+                         <div class="checkout-item">
+                            <p class="name">Man to Man</p><p class="price">$29.00</p>
+                        </div>
+                        <div class="checkout-item">
+                            <p class="name">Crash Landing on you</p><p class="price">$29.00</p>
+                        </div>
+                            <div class="checkout-item">
+                            <p class="name">Flower of Evil</p><p class="price">$29.00</p>
+                        </div>
+                            <div class="checkout-item">
+                            <p class="name">Love in the Moonlight</p><p class="price">$29.00</p>
                         </div>
                     </div>
                     <hr> 
