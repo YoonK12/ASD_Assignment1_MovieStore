@@ -18,8 +18,8 @@
         <div><span class="time" id="time"></span></div>
 
         <%
-            String emailErr = (String) session.getAttribute("emailErr");
-            String passErr = (String) session.getAttribute("passErr");
+            String emailErr = (String) session.getAttribute("emailError");
+            String passErr = (String) session.getAttribute("passError");
             String exceptionErr = (String) session.getAttribute("exceptionErr");
         %>
         <div class="container form-container">
