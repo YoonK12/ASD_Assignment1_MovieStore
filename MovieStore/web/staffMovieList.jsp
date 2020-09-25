@@ -38,7 +38,7 @@
                         <td>${display.description}</td>
                         <td>
                             <a class="btn btn-info" role="button" href="EditMovieServlet?movieID=<c:out value='${display.movieID}' />">Edit</a>
-                            <a class="btn btn-danger" role="button" href="deleteMovieServlet?movieID=<c:out vlaue='diaply.movieID' />">Delete</a>
+                            <a class="btn btn-danger" role="button" href="deleteMovieServlet?movieID=<c:out value='${display.movieID}' />">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>}
