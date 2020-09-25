@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Movie Store | Change Password</title>
+        <title>Account | Movie Store</title>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css" type="text/css"/>
     </head>

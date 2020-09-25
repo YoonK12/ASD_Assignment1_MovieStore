@@ -9,7 +9,7 @@
     <div class="admin-member">
         Welcome, Admin | <a href="./logout">Logout</a>
     </div>
-    <h1 class="logo-heading admin-heading"><a href="./index.jsp" class="logo">Movie Store</a> - Admin</h1>
+    <h1 class="logo-heading admin-heading"><a href="staffMain.jsp" class="logo">Movie Store</a> - Admin</h1>
     
     <nav>
         <ul class="nav-category">

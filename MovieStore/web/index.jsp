@@ -30,124 +30,26 @@
             <jsp:directive.include file="./inc/header.jsp" />
             
             <main class="main-content main-movie">
-                <%--<section class="movie-list">
-                    
+                <section class="movie-list">
+                    <form action="/ViewMainServlet" method="GET">
                         <div class ="group group1">
-                            <div class="movie-item">
-                                <h3 class="movie-heading">Umbockdong</h3>
-                                <p class="movie-poster">
-                                    <img src="./image/img_1.png" alt="Umbockdong"/>
-                                </p>
-                                <p class="movie-desc">
-                                    Japanese colonial era In Japan, the Korean National Convention is held to 
-                                    show off its dominance by defeating Joseon's national consciousness.
-                                </p>
-                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
-                                
-                            </div>
-                            <div class="movie-item">
-                                <h3 class="movie-heading">Digimomn Adventure</h3>
-                                <p class="movie-poster">
-                                    <img src="./image/img_2.png" alt="Digimomn Adventure"/>
-                                </p>
-                                <p class="movie-desc">
-                                    Tai is now a university student, living alone, 
-                                    working hard at school, and working every day, 
-                                    but with his future still undecided.
-                                </p>
-                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
-                                
-                            </div>
-                            <div class="movie-item">
-                                <h3 class="movie-heading">Becky</h3>
-                                <p class="movie-poster">
-                                    <img src="./image/img_3.png" alt="Becky"/>
-                                </p>
-                                <p class="movie-desc">
-                                    Spunky and rebellious, Becky (Lulu Wilson) is brought 
-                                    to a weekend getaway at a lake house by her father Jeff (Joel McHale) in an effort to try to reconnect. 
-                                </p>
-                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
-                                
-                            </div>
                             
+                                <c:forEach var="display" items="${display}">
                             <div class="movie-item">
-                                <h3 class="movie-heading">Jet to the Rescue</h3>
-                                <p class="movie-poster">
-                                    <img src="./image/img_7.png" alt="Jet to the Rescue"/>
-                                </p>
-                                <p class="movie-desc">
-                                    Get Ready to zoom back to Barkingburg with the pups in this all-new movie! 
-                                </p>
-                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
                                 
-                            </div>
-                            <div class="movie-item">
-                                <h3 class="movie-heading">AFTER WE COLLIDED</h3>
+                                <h3 class="movie-heading">${display.title}</h3>
                                 <p class="movie-poster">
-                                    <img src="./image/img_6.png" alt="AFTER WE COLLIDED"/>
+                                    <img src="data:image/jpeg;base64,${display.image}">
                                 </p>
-                                <p class="movie-desc">
-                                    Hardin will always be… Hardin. But is he really the deep, 
-                                    thoughtful guy Tessa fell madly in love with—
-                                </p>
+                                <p class="movie-desc">$ ${display.price}</p>
                                 <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
-                                
+                                <p class="add-item"><button href="#">Add to Cart</button></p>
                             </div>
-                            <div class="movie-item">
-                                <h3 class="movie-heading">An American Pickle</h3>
-                                <p class="movie-poster">
-                                    <img src="./image/img_5.png" alt="An American Pickle"/>
-                                </p>
-                                <p class="movie-desc">
-                                    An immigrant worker at a pickle factory is accidentally 
-                                    preserved for 100 years and wakes up in modern day Brooklyn.
-                                </p>
-                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
-                                
-                            </div>
-                            <div class="movie-item">
-                                <h3 class="movie-heading">Astro Kid</h3>
-                                <p class="movie-poster">
-                                    <img src="./image/img_4.png" alt="Astro Kid"/>
-                                </p>
-                                <p class="movie-desc">
-                                    Following the destruction of their spaceship, 
-                                    ten-year-old William gets separated from his 
-                                    parents while traveling through the galaxy. 
-                                </p>
-                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
-                                
-                            </div>
-                            <div class="movie-item">
-                                <h3 class="movie-heading">Plural blood clot</h3>
-                                <p class="movie-poster">
-                                    <img src="./image/img_8.png" alt="plural blood clot"/>
-                                </p>
-                                <p class="movie-desc">
-                                    Taeyoung, who runs a discotheque with his fist, 
-                                    is a young man who lives in good health with 
-                                    Inhye, who runs a bakery, and his brother Jun-seok, who is his brother. 
-                                </p>
-                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
-                                
-                            </div>
+                            </c:forEach>
+                            
                         </div>
-                </section>--%>
-                
-                <form action="/ViewMainServlet" method="GET">
-                    <table align="center">
-                        <c:forEach var="display" items="${display}">
-                            <tr>
-                                <td><img src="data:image/jpeg;base64,${display.image}" width="50" height="50"></td>
-                                <td>${display.title}</td>
-                                <td>${display.director}</td>
-                                <td>${display.description}</td>
-                            </tr>
-                        </c:forEach>}
-                    </table>
-                </form>
-                
+                        </form>
+                </section> 
             </main>
             
             <jsp:directive.include file="./inc/footer.jsp" />
