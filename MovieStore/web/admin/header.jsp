@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header class="header main-header">
     <div class="admin-member">
-        Welcome, Admin | <a href="./profile.jsp">Account</a> | <a href="LogoutServlet">Logout</a>
+        Welcome, Admin | <a href="./profile.jsp?type=staff">Account</a> | <a href="LogoutServlet">Logout</a>
     </div>
     <h1 class="logo-heading admin-heading"><a href="staffMain.jsp" class="logo">Movie Store</a> - Admin</h1>
     

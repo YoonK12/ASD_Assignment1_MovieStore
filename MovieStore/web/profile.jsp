@@ -22,6 +22,7 @@
     <body>
         
         <%
+             String type = request.getParameter("type");
              String updated = (String)session.getAttribute("updated");
              String deleteErr = (String)session.getAttribute("deleteErr");
              User user = (User)session.getAttribute("user");
@@ -29,7 +30,8 @@
      
         <div class="container">
             <header class="header main-header">
-                <h1 class="logo-heading"><a href="./index.jsp" class="logo">Movie Store</a></h1>
+               <% if(type==null){ %>
+               <h1 class="logo-heading"><a href="./index.jsp" class="logo">Movie Store</a></h1>
                 <nav>
                     <ul class="nav-category">
                         <li><a href="#">Top 10</a></li>
@@ -39,11 +41,24 @@
                         <li><a href="#">Animations</a></li>
                     </ul>
                 </nav>
+                
+                <% } else {
+                 %>
+                 <h1 class="logo-heading"><a href="./staffMain.jsp" class="logo">Movie Store - Staff</a></h1>
+                <% } %>
                 <div class="member">
                     <ul>
+                        <%if(type==null){ %>
                         <li><a href="./index.jsp">Go Back</a></li>
+                        <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>
+                        
+                        <% } else {
+                        %>
+                        <li><a href="./staffMain.jsp">Go Back</a></li>
+                        <%}%>
+                        
                         <li><a href="LogoutServlet">Logout</a></li>
-                        <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>            
+                                    
                     </ul>
                 </div>
             </header>
@@ -59,9 +74,18 @@
                                     <div class="left-menu">
                                         <nav>
                                             <ul>
+                                                <%if(type==null){ %>
                                                 <li><a href="./profile.jsp">My details</a></li>
                                                 <li><a href="./edit.jsp">Edit profile</a></li>
                                                 <li><a href="#myorder">My order</a></li>
+                                                
+                                                <% } else {
+                                                %>
+                                                <li><a href="./profile.jsp?type=staff">My details</a></li>
+                                                <li><a href="./edit.jsp?type=staff">Edit profile</a></li>
+                                                <%}%>
+                                                
+                                                
                                             </ul>
 
                                         </nav>
@@ -96,9 +120,16 @@
                                                  </tr>
                                                  <tr>
                                                      <th colspan="2">
-                                                       <a href="./edit.jsp">Edit profile</a> 
+                                                        <%if(type==null){ %>
+                                                        <a href="./edit.jsp">Edit profile</a>
+                                                        <a href="DeleteAccServlet?userId=<%=user.getId()%>">Delete my account</a>
+                                                        <% } else {
+                                                        %>
+                                                        <a href="./edit.jsp?type=staff">Edit profile</a>
+                                                        
+                                                        <% } %>
                                                        <a href="UserRecordsServlet?userId=<%=user.getId()%>">Logs history</a></td>
-                                                       <a href="DeleteAccServlet?userId=<%=user.getId()%>">Delete my account</a> 
+                                                     
                                                      </th>
                                                  </tr>
                                                 </tbody>
