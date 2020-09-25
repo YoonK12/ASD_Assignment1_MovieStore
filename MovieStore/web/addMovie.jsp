@@ -65,7 +65,7 @@
                     </div>
                 </form>
             </section>
->>>>>>> Stashed changes
+
         </main>
         <jsp:directive.include file="admin/footer.jsp" />
     </body>

@@ -63,10 +63,10 @@ public class deleteMovieServlet extends HttpServlet {
                 session.setAttribute("existMovieErr", "No movie is in database");
             }
             
-            ArrayList<Movie> display = movieManager.fetchMovie();
+//            ArrayList<Movie> display = movieManager.fetchMovie();
             
-            request.setAttribute("display", display);
-            request.getRequestDispatcher("staffMain.jsp").include(request, response);
+//            request.setAttribute("display", display);
+//            request.getRequestDispatcher("staffMain.jsp").include(request, response);
             
         } catch (SQLException | NullPointerException ex) {
             ex.printStackTrace();

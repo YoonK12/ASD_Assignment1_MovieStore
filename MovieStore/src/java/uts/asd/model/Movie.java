@@ -15,12 +15,12 @@ public class Movie {
     private String title;
     private String director;
     private String description;
-    private byte[] image;
+    private String image;
     private String price;
     private String released_date;
     private String category;
 
-    public Movie(int movieID, String title, String director, String description, byte[] image, String price, String released_date, String category) {
+    public Movie(int movieID, String title, String director, String description, String image, String price, String released_date, String category) {
         this.movieID = movieID;
         this.title = title;
         this.director = director;
@@ -63,11 +63,11 @@ public class Movie {
         this.description = description;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

@@ -1,0 +1,111 @@
+/*
+    Document   : checkout.css
+    Created on : Sep 19, 2020, 12:01:00 AM
+    Author     : Jack Wu
+*/
+.container{
+    padding: 1.5rem 0;
+}
+
+.container h1{
+    font-size: 2.3rem;
+}
+.container h2{
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #e50914;
+}
+.container h3{
+    font-size: 1rem;
+}
+
+h1{
+    margin-left: 1rem;
+    color: white;
+}
+.main-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.checkout-container{
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    width: 70%;
+}
+.cart-container{
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    width: 20%
+}
+.checkout-form{
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-information{
+    width: 45%;
+}
+
+.billing-information{
+    width: 45%;
+}
+
+label{
+    margin-bottom: 10px;
+    display: block;
+}
+label > span{
+    color: red;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+input[type=text], input[type=submit],select {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type=submit]{
+  background-color: #e50914;
+  color: white;
+  font-weight: bold;
+}
+
+.checkout-list{
+    display: flex;
+    flex-flow: column;
+}
+
+.checkout-list > .checkout-item, .total{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.checkout-item > p, .total > p{
+    font-size: 1rem;
+}
+
+hr{
+    margin-bottom: 1rem;
+    color: #e50914;
+}
+
+.checkout-item > .name, .total > .total-label{
+    font-weight: bold;
+    margin-right: 0.3rem;
+}
+
+.total > .total-label{
+    font-size: 1.2rem;
+    color: #e50914;
+}

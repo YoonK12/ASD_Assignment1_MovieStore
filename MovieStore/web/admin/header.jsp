@@ -15,7 +15,7 @@
         <ul class="nav-category">
             <li><a href="#">User</a></li>
             <li><a href="#">Categories</a></li>
-            <li><a href="#">Movies</a></li>
+            <li><a href="ViewMovieServlet">Movies</a></li>
             <li><a href="#">Customers</a></li>
             <li><a href="#">Reviews</a></li>
             <li><a href="#">Orders</a></li>
