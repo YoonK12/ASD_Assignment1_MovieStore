@@ -48,6 +48,10 @@
         <servlet-name>CheckoutServlet</servlet-name>
         <servlet-class>uts.model.controller.CheckoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteAccServlet</servlet-name>
+        <servlet-class>uts.model.controller.DeleteAccServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>CheckoutServlet</servlet-name>
         <url-pattern>/CheckoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccServlet</servlet-name>
+        <url-pattern>/DeleteAccServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

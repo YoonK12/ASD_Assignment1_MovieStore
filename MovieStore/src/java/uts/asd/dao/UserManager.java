@@ -211,8 +211,11 @@ public class UserManager {
      
 //delete User by id
     public void deleteUserById(int id) throws SQLException {
-     st.executeUpdate("DELETE FROM MS.USERS WHERE userId='"+ id +"'");
-    
+    String query = "DELETE FROM MS.USERS WHERE userId=?";
+        
+    PreparedStatement ps = conn.prepareStatement(query); 
+    ps.setInt(1, id);
+    ps.executeUpdate();
     }
 //delete User by email
     public void deleteUserByEmail(String email) throws SQLException {

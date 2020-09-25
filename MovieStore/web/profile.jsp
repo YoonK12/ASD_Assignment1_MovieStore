@@ -98,6 +98,7 @@
                                                      <th colspan="2">
                                                        <a href="./edit.jsp">Edit profile</a> 
                                                        <a href="UserRecordsServlet?userId=<%=user.getId()%>">Logs history</a></td>
+                                                       <a href="DeleteAccServlet?userId=<%=user.getId()%>">Delete my account</a> 
                                                      </th>
                                                  </tr>
                                                 </tbody>
