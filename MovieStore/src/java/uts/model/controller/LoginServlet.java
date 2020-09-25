@@ -9,6 +9,7 @@ package uts.model.controller;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -44,6 +45,7 @@ public class LoginServlet extends HttpServlet{
         validator.clear(session);
         
         UserManager manager = (UserManager) session.getAttribute("manager");
+        DBMovie movieManager = (DBMovie) session.getAttribute("movieManager");
         
         //Users db manager
         try {      
@@ -59,6 +61,8 @@ public class LoginServlet extends HttpServlet{
                 int userId = user.getId();
                 //String usertype = user.getUsertype();
                 manager.addUserLog(userId, "Login");
+                ArrayList<Movie> display = movieManager.fetchMovie();
+                request.setAttribute("display", display);
                 request.getRequestDispatcher("index.jsp").include(request,response);
                 }
                 //if staff
@@ -69,6 +73,8 @@ public class LoginServlet extends HttpServlet{
                 int userId = user.getId();
                 //String usertype = user.getUsertype();
                 manager.addUserLog(userId, "Login");
+                ArrayList<Movie> display = movieManager.fetchMovie();
+                request.setAttribute("display", display);
                 request.getRequestDispatcher("staffMain.jsp").include(request,response);
                 
                 }
