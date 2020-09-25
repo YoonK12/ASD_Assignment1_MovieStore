@@ -34,7 +34,7 @@ public class CheckoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Get List of orders here
-        
+         System.out.println("[DEBUG]: Get method has been called");
     }
 
     /**
@@ -55,8 +55,7 @@ public class CheckoutServlet extends HttpServlet {
          if (user == null){
               request.getRequestDispatcher("login.jsp").include(request,response);
          }
-         user.getId();
-         System.out.println(user.getId());
+         System.out.println((user == null));
          //Get form data
          String fname = request.getParameter("fname");
          String lname = request.getParameter("lname");
@@ -84,18 +83,17 @@ public class CheckoutServlet extends HttpServlet {
                  session.setAttribute("cardErr", "");
              }
              //Validate expire error
-             if(expMonth.matches("^(0?[1-9]|1[012])$")){
+             if(!expMonth.matches("^(0?[1-9]|1[012])$")){
                  session.setAttribute("monthErr", "*Must be an integer between 1 and 12");
              }else{
                  session.setAttribute("monthErr", "");
              }
-             expYear = "2000";
-             if(expYear.matches("\\d{4}")){
+             if(!expYear.matches("\\d{4}")){
                  session.setAttribute("yearErr", "*Must be an 4 digit number");
              }else{
-                 session.setAttribute("monthErr", "");
+                 session.setAttribute("yearErr", "");
              }
-             if(cvv.matches("\\d{3}")){
+             if(!cvv.matches("\\d{3}")){
                  session.setAttribute("cvvErr", "*Must be a 3 digit number");
              }else{
                  session.setAttribute("cvvErr", "");
@@ -116,6 +114,8 @@ public class CheckoutServlet extends HttpServlet {
          try{
              //Get Order
              // Put details into user order 
+             // set order status to done
+             
          } catch(NullPointerException ex){
              
          }
