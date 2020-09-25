@@ -4,8 +4,12 @@
     Author     : Heeseong Jeon
 --%>
 
+<%@page import="uts.asd.model.Movie"%>
 <%@page import="uts.asd.model.User"%>
+<%@page import="uts.asd.dao.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,6 +20,9 @@
         <link rel="stylesheet" href="./css/style.css" type="text/css"/>
     </head>
     <body>
+        <%
+            Movie movie = (Movie) session.getAttribute("display");
+        %>
 <!--        <div class="container bg-image">-->
      
         <div class="container">
@@ -23,7 +30,7 @@
             <jsp:directive.include file="./inc/header.jsp" />
             
             <main class="main-content main-movie">
-                <section class="movie-list">
+                <%--<section class="movie-list">
                     
                         <div class ="group group1">
                             <div class="movie-item">
@@ -126,7 +133,21 @@
                                 
                             </div>
                         </div>
-                </section>
+                </section>--%>
+                
+                <form action="/ViewMainServlet" method="GET">
+                    <table align="center">
+                        <c:forEach var="display" items="${display}">
+                            <tr>
+                                <td><img src="data:image/jpeg;base64,${display.image}" width="50" height="50"></td>
+                                <td>${display.title}</td>
+                                <td>${display.director}</td>
+                                <td>${display.description}</td>
+                            </tr>
+                        </c:forEach>}
+                    </table>
+                </form>
+                
             </main>
             
             <jsp:directive.include file="./inc/footer.jsp" />
