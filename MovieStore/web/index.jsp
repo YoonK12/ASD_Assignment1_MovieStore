@@ -43,7 +43,7 @@
                                 </p>
                                 <p class="movie-desc">$ ${display.price}</p>
                                 <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
-                                <p class="add-item"><button href="#">Add to Cart</button></p>
+                                <p class="add-item"><a class="btn-add-cart" href='${pageContext.request.contextPath}/cart.jsp' role="button">Add to Cart</a></p>
                             </div>
                             </c:forEach>
                             
