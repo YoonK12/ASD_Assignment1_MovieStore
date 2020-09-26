@@ -763,7 +763,7 @@ a:link, a:visited{
 }
 .admin-content .view-table-form table tr td{
     font-size: 1.1rem;
-    font-weight: thin;
+    font-weight: 400;
     border-right: 1px dashed #aaa;
     border-bottom: 1px dashed #aaa;
     padding: 3px 0;
@@ -792,4 +792,42 @@ a:link, a:visited{
 }
 .btn-movie-edit, .btn-movie-delete{
     vertical-align: middle;
+}
+.admin-content .view-table-form table tr td input.inp-quantity,
+.admin-content .view-table-form table tr td a{
+    vertical-align: middle;
+}
+.admin-content .view-table-form table tr td input.inp-quantity{
+        height: 2rem;
+    width: 70px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.admin-content .view-table-form table tr td{
+    height: 5rem;
+}
+.admin-content .view-table-form table tr td:last-child{
+    text-align: center;
+}
+.admin-content .view-table-form table tr td a{
+    display: inline-block;
+    height: 2.5rem;
+    padding: 0 1rem;
+    line-height: 2.5rem;
+    border-radius: 2px;
+    border: 1px solid #900;
+    color: #900;
+    margin-right: .5rem;
+    text-transform: uppercase;
+}
+.admin-content .view-table-form table tr td a.btn-go-order{
+    display: inline-block;
+    height: 2.5rem;
+    padding: 0 1rem;
+    line-height: 2.5rem;
+    border-radius: 2px;
+    background-color: #ffd700;
+    color: #181818;
+    border: 1px solid #ffd700;
 }
