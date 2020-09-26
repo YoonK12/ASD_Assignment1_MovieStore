@@ -41,7 +41,7 @@ public class DBMovie {
                 int searchMovieID = rs.getInt(1);
                 String searchMovieDescription = rs.getString(4);
                 Blob searchMovieImage = rs.getBlob(5);
-                String searchMoviePrice = rs.getString(6);
+                float searchMoviePrice = rs.getFloat(6);
                 String searchMovieReleased_Date = rs.getString(7);
                 String category = rs.getString(8);
             }
@@ -61,7 +61,7 @@ public class DBMovie {
                String searchMovieDirector = rs.getString(3);
                String searchMovieDescription = rs.getString(4);
                Blob searchMovieImage = rs.getBlob(5);
-               String searchMoviePrice = rs.getString(6);
+               float searchMoviePrice = rs.getFloat(6);
                String searchMovieReleased_Date = rs.getString(7);
                String searchCategory = rs.getString(8);
                
@@ -106,7 +106,7 @@ public class DBMovie {
 //          String searchMovieImage = strOut.toString();
 //          Blob searchMovieImage = rs.getBlob(5);
 //          byte byteArray[] = searchMovieImage. getBytes(1, (int) searchMovieImage.length());
-          String searchMoviePrice = rs.getString(6);
+          float searchMoviePrice = rs.getFloat(6);
           String searchReleasedDate = rs.getString(7);
           String searchMovieCategory = rs.getString(8);
           
@@ -144,7 +144,7 @@ public class DBMovie {
             inputStream.close();
             outputStream.close();
 
-          String searchMoviePrice = rs.getString(6);
+          float searchMoviePrice = rs.getFloat(6);
           String searchReleasedDate = rs.getString(7);
           String searchMovieCategory = rs.getString(8);
           
