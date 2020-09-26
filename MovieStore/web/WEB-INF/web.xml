@@ -48,6 +48,14 @@
         <servlet-name>CheckoutServlet</servlet-name>
         <servlet-class>uts.model.controller.CheckoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>uts.model.controller.CartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewMovieDetailServlet</servlet-name>
+        <servlet-class>uts.model.controller.ViewMovieDetailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -95,6 +103,14 @@
     <servlet-mapping>
         <servlet-name>CheckoutServlet</servlet-name>
         <url-pattern>/CheckoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/CartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewMovieDetailServlet</servlet-name>
+        <url-pattern>/ViewMovieDetailServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
