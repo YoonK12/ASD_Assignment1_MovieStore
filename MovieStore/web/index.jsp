@@ -22,6 +22,7 @@
     <body>
         <%
             Movie movie = (Movie) session.getAttribute("display");
+            request.getAttribute("display");
         %>
 <!--        <div class="container bg-image">-->
      
@@ -42,7 +43,7 @@
                                     <img src="data:image/jpeg;base64,${display.image}">
                                 </p>
                                 <p class="movie-desc">$ ${display.price}</p>
-                                <p class="more"><a href="./movieDetail.jsp">See more..</a></p>
+                                <p class="more"><a href="./movieDetail.jsp?movieID=${display.movieID}">See more..</a></p>
                                 <p class="add-item"><a class="btn-add-cart" href='${pageContext.request.contextPath}/cart.jsp' role="button">Add to Cart</a></p>
                             </div>
                             </c:forEach>
