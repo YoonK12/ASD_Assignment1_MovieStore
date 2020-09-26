@@ -54,13 +54,14 @@
                                             <p class="release-date" name="movieReleasedDate">${movie.released_date}</p>
                                             <p class="director" name="movieDirector">${movie.director}</p>
                                             <p class="price" name="moviePrice">$ ${movie.price}</p>
-                                            <p class="movie-quantity">
-                                                <input type="text" value="1" name="quantity"/>
-                                            </p>
                                         </div>
+                                            
+                                        <form action="ViewMovieDetailServlet" method="POST">  
                                         <div>
-                                            <a class="btn-add-cart" href='${pageContext.request.contextPath}/cart?method=addToCart&movieID=${display.movieID}' role="button">Add to Cart</a>
+                                            <% session.setAttribute("addedMovie", movie); %>
+                                            <button class="btn-add-cart" role="button">Add to Cart</button>
                                         </div>
+                                        </form>
 
                                     </div>
                                 </div>
