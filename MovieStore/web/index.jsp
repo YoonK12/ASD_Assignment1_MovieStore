@@ -44,6 +44,8 @@
                                 </p>
                                 <p class="movie-desc">$ ${display.price}</p>
                                 <p class="more"><a href="./movieDetail.jsp?movieID=${display.movieID}">See more..</a></p>
+                                
+                                <% session.setAttribute("addedMovie", movie); %>
                                 <p class="add-item"><a class="btn-add-cart" href='${pageContext.request.contextPath}/cart.jsp' role="button">Add to Cart</a></p>
                             </div>
                             </c:forEach>

@@ -27,8 +27,8 @@
     <%
         int movieID = Integer.parseInt(request.getParameter("movieID"));
         DBMovie movieManager = (DBMovie) session.getAttribute("movieManager");
-        Movie product = movieManager.fetchMovieWithID(movieID);
-        session.setAttribute("product", product);
+        Movie movie = movieManager.fetchMovieWithID(movieID);
+        session.setAttribute("movie", movie);
     %>
     <body>
         <div class="container">
@@ -43,17 +43,17 @@
                             <div class="layout-2col movie-detail">
                                 <div class="left-menu">
                                     <p class="movie-detail-img">
-                                        <img src="data:image/jpeg;base64,${product.image}">
+                                        <img src="data:image/jpeg;base64,${movie.image}">
                                     </p>
                                 </div>
                                 <div class="right-cont">
                                     <div id="mydetails" class="right-cont-detail">
                                         <div>
-                                            <h4 class="movie-title">${product.title}</h4>
-                                            <p class="category">${product.category}</p>
-                                            <p class="release-date">${product.released_date}</p>
-                                            <p class="director">${product.director}</p>
-                                            <p class="price">$ ${product.price}</p>
+                                            <h4 class="movie-title" name="movieTitle">${movie.title}</h4>
+                                            <p class="category" name="movieCategory">${movie.category}</p>
+                                            <p class="release-date" name="movieReleasedDate">${movie.released_date}</p>
+                                            <p class="director" name="movieDirector">${movie.director}</p>
+                                            <p class="price" name="moviePrice">$ ${movie.price}</p>
                                             <p class="movie-quantity">
                                                 <input type="text" value="1" name="quantity"/>
                                             </p>
@@ -67,7 +67,7 @@
                             </div>
                             <div class="layout-1col">
                                 <h4>Description</h4>
-                                <p>${product.description}</p>
+                                <p>${movie.description}</p>
                             </div>
                         </div>
                     </div>
