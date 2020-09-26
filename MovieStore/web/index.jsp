@@ -22,7 +22,6 @@
     <body>
         <%
             Movie movie = (Movie) session.getAttribute("display");
-            request.getAttribute("display");
         %>
 <!--        <div class="container bg-image">-->
      
@@ -35,18 +34,17 @@
                     <form action="/ViewMainServlet" method="GET">
                         <div class ="group group1">
                             
-                                <c:forEach var="display" items="${display}">
+                            <c:forEach var="display" items="${display}">
                             <div class="movie-item">
-                                
-                                <h3 class="movie-heading">${display.title}</h3>
+                                <h3 class="movie-heading" name="movieTitle">${display.title}</h3>
                                 <p class="movie-poster">
                                     <img src="data:image/jpeg;base64,${display.image}">
                                 </p>
-                                <p class="movie-desc">$ ${display.price}</p>
+                                <p class="movie-price">$ ${display.price}</p>
                                 <p class="more"><a href="./movieDetail.jsp?movieID=${display.movieID}">See more..</a></p>
-                                
+
                                 <% session.setAttribute("addedMovie", movie); %>
-                                <p class="add-item"><a class="btn-add-cart" href='${pageContext.request.contextPath}/cart.jsp' role="button">Add to Cart</a></p>
+                                <p class="add-item"><button class="btn-add-cart" role="button">Add to Cart</button></p>
                             </div>
                             </c:forEach>
                             
