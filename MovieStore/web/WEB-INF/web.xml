@@ -56,6 +56,10 @@
         <servlet-name>ViewMovieDetailServlet</servlet-name>
         <servlet-class>uts.model.controller.ViewMovieDetailServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteAccServlet</servlet-name>
+        <servlet-class>uts.model.controller.DeleteAccServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>ViewMovieDetailServlet</servlet-name>
         <url-pattern>/ViewMovieDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccServlet</servlet-name>
+        <url-pattern>/DeleteAccServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

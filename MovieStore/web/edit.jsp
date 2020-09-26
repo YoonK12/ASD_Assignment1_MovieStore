@@ -17,12 +17,14 @@
     </head>
     <body>
         <%
+            String type = request.getParameter("type");
             User user = (User)session.getAttribute("user");
             String exceptionErr = (String) session.getAttribute("exceptionErr");
         %>
         <div class="container">
             <header class="header main-header">
-                <h1 class="logo-heading"><a href="./index.jsp" class="logo">Movie Store</a></h1>
+                <%if(type==null){ %>
+                 <h1 class="logo-heading"><a href="./index.jsp" class="logo">Movie Store</a></h1>
                 <nav>
                     <ul class="nav-category">
                         <li><a href="#">Top 10</a></li>
@@ -32,11 +34,23 @@
                         <li><a href="#">Animations</a></li>
                     </ul>
                 </nav>
+                
+                <% } else {
+                         %>
+               <h1 class="logo-heading"><a href="./staffMain.jsp" class="logo">Movie Store - Staff</a></h1>
+                <% } %>
                 <div class="member">
                     <ul>
+                        <%if(type==null){ %>
+                        
                         <li><a href="./index.jsp">Go Back</a></li>
+                        <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>
+                        <% } else {
+                         %>
+                        <li><a href="./staffMain.jsp">Go Back</a></li>
+                         <% } %>
                         <li><a href="LogoutServlet">Logout</a></li>
-                        <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>            
+                                    
                     </ul>
                 </div>
             </header>
@@ -48,18 +62,31 @@
                                 <div class="layout-2col">
                                     <div class="left-menu">
                                         <nav>
-                                            <ul>
-                                                <li><a href="./profile.jsp">My details</a></li>
+                                             <ul>
+                                                <%if(type==null){ %>
+                                                 <li><a href="./profile.jsp">My details</a></li>
                                                 <li><a href="./edit.jsp">Edit profile</a></li>
                                                 <li><a href="#myorder">My order</a></li>
-
+                                                <% } else {
+                                                %>
+                                               <li><a href="./profile.jsp?type=staff">My details</a></li>
+                                               <li><a href="./edit.jsp?type=staff">Edit profile</a></li>
+                                                <% } %>
+                                             
                                             </ul>
 
                                         </nav>
                                     </div>
                                     <div class="right-cont">
                                         <div id="mydetails" class="right-cont-detail">
-                                            <form action="<%=request.getContextPath()%>/EditServlet?Id=<%=user.getId()%>&func=default" method="post">
+                                            <%if(type==null){ %>
+                                            <form action="<%=request.getContextPath()%>/EditServlet?Id=<%=user.getId()%>&func=default" method="POST">
+                                                
+                                                <% } else {
+                                                %>
+                                                
+                                            <form action="<%=request.getContextPath()%>/EditServlet?Id=<%=user.getId()%>&func=default&type=staff" method="POST">
+                                               <% } %> 
                                                 <p sytle= "color:red;"><span><%=(exceptionErr!= null? exceptionErr:"")%></span></p>
                                                 <table>
                                                     <tr>
@@ -89,7 +116,13 @@
                                                     <tr>
                                                         <th colspan="2"> 
                                                             <input type="submit" value="Update" class="btn-update">
+                                                            <%if(type==null){ %>
                                                             <a href="changePW.jsp">Change my password</a>
+                                                            
+                                                            <% } else {
+                                                            %>
+                                                            <a href="changePW.jsp?type=staff">Change my password</a>
+                                                            <% } %>
                                                         </th>
                                                     </tr>
                                                 </table>

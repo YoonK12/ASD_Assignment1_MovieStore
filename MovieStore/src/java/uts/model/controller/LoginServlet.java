@@ -67,7 +67,7 @@ public class LoginServlet extends HttpServlet{
                 }
                 //if staff
                 else if (user.getUsertype().equals("Staff")) {
-                session.setAttribute("staff",user);           
+                session.setAttribute("user",user);           
                 // user's active
                 user.setActive(true);
                 int userId = user.getId();
