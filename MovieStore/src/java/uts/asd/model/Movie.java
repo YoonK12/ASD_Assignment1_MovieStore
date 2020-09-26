@@ -16,11 +16,11 @@ public class Movie {
     private String director;
     private String description;
     private String image;
-    private String price;
+    float price;
     private String released_date;
     private String category;
 
-    public Movie(int movieID, String title, String director, String description, String image, String price, String released_date, String category) {
+    public Movie(int movieID, String title, String director, String description, String image, float price, String released_date, String category) {
         this.movieID = movieID;
         this.title = title;
         this.director = director;
@@ -71,11 +71,11 @@ public class Movie {
         this.image = image;
     }
 
-    public String getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

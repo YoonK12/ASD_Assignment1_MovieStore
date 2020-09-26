@@ -16,6 +16,7 @@
     </head>
     <body>
         <%
+            String type = request.getParameter("type");
             User user = (User)session.getAttribute("user");
             String matchErr = (String) session.getAttribute("matchErr");
             String exceptionErr = (String) session.getAttribute("exceptionErr");
@@ -23,7 +24,8 @@
         %>
         <div class="container">
             <header class="header main-header">
-                <h1 class="logo-heading"><a href="./index.jsp" class="logo">Movie Store</a></h1>
+               <%if(type==null){ %>
+                 <h1 class="logo-heading"><a href="./index.jsp" class="logo">Movie Store</a></h1>
                 <nav>
                     <ul class="nav-category">
                         <li><a href="#">Top 10</a></li>
@@ -33,11 +35,23 @@
                         <li><a href="#">Animations</a></li>
                     </ul>
                 </nav>
+                
+                <% } else {
+                         %>
+               <h1 class="logo-heading"><a href="./staffMain.jsp" class="logo">Movie Store - Staff</a></h1>
+                <% } %>
                 <div class="member">
                     <ul>
+                        <%if(type==null){ %>
+                        
                         <li><a href="./index.jsp">Go Back</a></li>
+                        <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>
+                        <% } else {
+                         %>
+                        <li><a href="./staffMain.jsp">Go Back</a></li>
+                         <% } %>
                         <li><a href="LogoutServlet">Logout</a></li>
-                        <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>            
+                                    
                     </ul>
                 </div>
             </header>
@@ -50,18 +64,31 @@
                                 <div class="layout-2col">
                                     <div class="left-menu">
                                         <nav>
-                                            <ul>
+                                           <ul>
+                                               <%if(type==null){ %>
                                                 <li><a href="./profile.jsp">My details</a></li>
                                                 <li><a href="./edit.jsp">Edit profile</a></li>
                                                 <li><a href="#myorder">My order</a></li>
-
+                                                <% } else {
+                                                %>
+                                               <li><a href="./profile.jsp?type=staff">My details</a></li>
+                                               <li><a href="./edit.jsp?type=staff">Edit profile</a></li>
+                                                <% } %>
+                                             
                                             </ul>
 
                                         </nav>
                                     </div>
                                     <div class="right-cont">
                                         <div id="mydetails" class="right-cont-detail">
-                                            <form action="<%=request.getContextPath()%>/EditServlet?Id=<%=user.getId()%>&func=changePW" method="POST">
+                                             <%if(type==null){ %>
+                                            <form action="<%=request.getContextPath()%>/EditServlet?Id=<%=user.getId()%>&func=pw" method="POST">
+                                                
+                                                <% } else {
+                                                %>
+                                                
+                                            <form action="<%=request.getContextPath()%>/EditServlet?Id=<%=user.getId()%>&func=pw&type=staff" method="POST">
+                                               <% } %> 
                                                 <p sytle= "color:red;"><span><%=(exceptionErr!= null? exceptionErr:"")%></span></p>
                                                 <p sytle= "color:red;"><span><%=(matchErr!= null? matchErr:"")%></span></p>
                                                 <table>

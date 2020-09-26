@@ -9,9 +9,9 @@
  */
 
 CREATE TABLE ORDER_DETAIL (
-  orderID int(11) DEFAULT NULL,
-  movieID int(11) DEFAULT NULL,
-  quantity int(11) NOT NULL,
+  orderID INT DEFAULT NULL,
+  movieID INT DEFAULT NULL,
+  quantity INT NOT NULL,
   subtotal float NOT NULL,
   orderDate date not null,
   CONSTRAINT FK_MOVIE FOREIGN KEY (movieID) REFERENCES MOVIE (movieID), 

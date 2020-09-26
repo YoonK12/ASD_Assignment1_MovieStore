@@ -43,7 +43,7 @@
 
             <li><a href="./profile.jsp">Account</a></li>
             <li><a href="LogoutServlet">Logout</a></li>
-            <li><button type="button" class="btn-go-cart" onclick="location.href='cart.jsp';">Cart</button></li>
+            <li><a class="btn-go-cart"  href="${pageContext.request.contextPath}/cart.jsp">Cart</a></li>
             <% }%>
         </ul>
 

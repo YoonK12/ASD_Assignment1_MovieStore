@@ -31,6 +31,7 @@ public class EditServlet extends HttpServlet {
         UserManager manager = (UserManager)session.getAttribute("manager");
         
         String func = request.getParameter("func");
+        String type = request.getParameter("type");
         
         if(func.equals("default")){
          //fields
@@ -53,20 +54,33 @@ public class EditServlet extends HttpServlet {
                 //add log 
                 manager.addUserLog(userId, "Info changed");
                 User updatedUser = manager.findUserById(userId);
-                 session.setAttribute("user", updatedUser);
+                session.setAttribute("user", updatedUser);
+                if("staff".equals(type)){
+                request.getRequestDispatcher("./profile.jsp?type=staff").forward(request, response);
                 
+                }
                 request.getRequestDispatcher("./profile.jsp").forward(request, response);
+                
+                
                  }
                  // if there is a same email exist in the database
                  else
                  {
                      session.setAttribute("exceptionErr", "Error while loading your info");
+                     if("staff".equals(type)){
+                     response.sendRedirect("./edit.jsp?type=staff");
+                     }
                      response.sendRedirect("./edit.jsp");
+                     
                  }
             } catch (SQLException ex) {
                 // exception message if adding customer fails
                 session.setAttribute("exceptionErr", "Registration failed");
+                if("staff".equals(type)){
+                     response.sendRedirect("./edit.jsp?type=staff");
+                     }
                 response.sendRedirect("./edit.jsp");
+                     
             }   
         }
         
@@ -82,12 +96,19 @@ public class EditServlet extends HttpServlet {
             if(!validator.validatePassword(password)){
             
             session.setAttribute("passErr","Error: Password format incorrect");
+            if("staff".equals(type)){
+                response.sendRedirect("./changePW.jsp?type=staff");
+            }
             response.sendRedirect("./changePW.jsp");
+            
             }
             else{
                 if(!password.equals(repassword)){
              
             session.setAttribute("matchErr", "Password confirmation must match password");
+            if("staff".equals(type)){
+                response.sendRedirect("./changePW.jsp?type=staff");
+            }
             response.sendRedirect("./changePW.jsp");
           
             }
@@ -109,12 +130,18 @@ public class EditServlet extends HttpServlet {
                     else
                     {
                      session.setAttribute("exceptionErr", "Error while loading your info");
+                     if("staff".equals(type)){
+                    response.sendRedirect("./changePW.jsp?type=staff");
+                    }
                      request.getRequestDispatcher("./changePW.jsp").include(request, response);
                     }
                     
                     } catch (SQLException ex) {
                     // exception message if failed
                     session.setAttribute("exceptionErr", "Registration failed");
+                    if("staff".equals(type)){
+                    response.sendRedirect("./changePW.jsp?type=staff");
+                    }
                     request.getRequestDispatcher("./changePW.jsp").include(request, response);
                     }     
                 }

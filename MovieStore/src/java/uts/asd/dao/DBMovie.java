@@ -6,15 +6,10 @@
 
 package uts.asd.dao;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.sql.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import uts.asd.model.*;
 
@@ -32,6 +27,7 @@ public class DBMovie {
         st = conn.createStatement();
     }
     
+    
     //find product in database by title
     public Movie findMovie(String title, String director) throws SQLException {
         String fetch = "SELECT * FROM MS.MOVIE WHERE TITLE= '" + title + "' AND DIRECTOR='" + director +"'";
@@ -45,7 +41,7 @@ public class DBMovie {
                 int searchMovieID = rs.getInt(1);
                 String searchMovieDescription = rs.getString(4);
                 Blob searchMovieImage = rs.getBlob(5);
-                String searchMoviePrice = rs.getString(6);
+                float searchMoviePrice = rs.getFloat(6);
                 String searchMovieReleased_Date = rs.getString(7);
                 String category = rs.getString(8);
             }
@@ -65,7 +61,7 @@ public class DBMovie {
                String searchMovieDirector = rs.getString(3);
                String searchMovieDescription = rs.getString(4);
                Blob searchMovieImage = rs.getBlob(5);
-               String searchMoviePrice = rs.getString(6);
+               float searchMoviePrice = rs.getFloat(6);
                String searchMovieReleased_Date = rs.getString(7);
                String searchCategory = rs.getString(8);
                
@@ -110,12 +106,50 @@ public class DBMovie {
 //          String searchMovieImage = strOut.toString();
 //          Blob searchMovieImage = rs.getBlob(5);
 //          byte byteArray[] = searchMovieImage. getBytes(1, (int) searchMovieImage.length());
-          String searchMoviePrice = rs.getString(6);
+          float searchMoviePrice = rs.getFloat(6);
           String searchReleasedDate = rs.getString(7);
           String searchMovieCategory = rs.getString(8);
           
           
           temp.add(new Movie(searchMovieID, searchMovieTitle, searchMovieDirector, searchMovieDescription, base64Image, searchMoviePrice, searchReleasedDate, searchMovieCategory));
+          
+      }
+      
+      return temp;
+  }
+  
+  public Movie fetchMovieWithID(int movieID) throws SQLException, IOException {
+      String fetch = "SELECT * FROM MS.MOVIE WHERE movieID = " + movieID;
+      ResultSet rs = st.executeQuery(fetch);
+      Movie temp = null;
+      
+      while (rs.next()) {
+          int searchMovieID = rs.getInt(1);
+          String searchMovieTitle = rs.getString(2);
+          String searchMovieDirector = rs.getString(3);
+          String searchMovieDescription = rs.getString(4);
+          Blob blob = rs.getBlob(5);
+
+            InputStream inputStream = blob.getBinaryStream();
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            byte[] buffer = new byte[4096];
+            int bytesRead = -1;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                      outputStream.write(buffer, 0, bytesRead);                  
+                  }
+            byte[] imageBytes = outputStream.toByteArray();
+                  String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+
+                 
+            inputStream.close();
+            outputStream.close();
+
+          float searchMoviePrice = rs.getFloat(6);
+          String searchReleasedDate = rs.getString(7);
+          String searchMovieCategory = rs.getString(8);
+          
+          
+          temp = new Movie(searchMovieID, searchMovieTitle, searchMovieDirector, searchMovieDescription, base64Image, searchMoviePrice, searchReleasedDate, searchMovieCategory);
           
       }
       

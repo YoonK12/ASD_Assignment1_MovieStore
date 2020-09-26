@@ -21,6 +21,7 @@
         String emailErr = (String) session.getAttribute("emailErr");
         String passErr = (String) session.getAttribute("passErr");
         String registerSuccess = (String)session.getAttribute("registerSuccess");
+        String deleteMsg = (String)session.getAttribute("deleteMsg");
         %>
         <div class="container form-container">
             <header class="header form-header">
@@ -31,11 +32,12 @@
                         <div class ="group group1">
                             <div class="form">
                                 <p sytle= "color:red;"><%=(registerSuccess != null? registerSuccess:"")%></p>
-                                
+                                <p sytle= "color:red;"><%=(deleteMsg != null? deleteMsg:"")%></p>
                                 
                                 <form action="<%=request.getContextPath()%>/LoginServlet" method="post">
                                     <h3 class="form-heading">Welcome to Movie Store</h3>
                                     <p class="info-error"><%=(existErr != null? existErr: "")%></p>
+                                   
                                     <fieldset border=0>
                                         <input type="text" placeholder="<%=(emailErr != null ? emailErr:"Enter the email") %>" name="email" size="30" required >
                                         <input type="password" placeholder="<%=(passErr != null ? passErr:"Enter the password") %>" name="password" size="30" required>
