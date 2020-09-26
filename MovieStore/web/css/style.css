@@ -110,7 +110,10 @@ a:link, a:visited{
 }
 .nav-category{
     display: flex;
-    justify-content: space-evenly;
+    /*justify-content:space-evenly;*/
+    -webkit-justify-content:space-evenly;
+    -o-justify-content:space-evenly;
+    -moz-justify-content:space-evenly;
 }
 .nav-category li{
 
@@ -265,7 +268,11 @@ a:link, a:visited{
 }
 .movie-heading{
     order:2;
-    margin-bottom: 0.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 1.3rem;
+    text-align: center;
 }
 .movie-poster{
     order: 1;
@@ -277,22 +284,27 @@ a:link, a:visited{
 .movie-poster img{
     width:100%;
 }
-.movie-desc{
+.movie-price{
     order: 3;
-    height: 48px;
     overflow-y: hidden;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+    padding: .5rem;
 }
 .more{
     display: block;
-    order:4;
-    font-size: 1rem;
-    font-weight:bold;
-    color: #900;
-    text-align: right;
-    margin: 5px 0;
+    order: 4;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.6rem;
+    margin-bottom: .3rem;
+    background-color: #ddd;
+    cursor: pointer;
 }
 .more a{
-    color: #900;
+    color: #181818;
 }
 .more:hover a, .more:focus a{
     color: #900;
@@ -318,7 +330,7 @@ a:link, a:visited{
 /* form box of index.jsp*/
 .form{
     padding: 2rem;
-    margin-top: 6rem 0 0;
+    margin-top: .6rem;
     background-color: rgba(255,255,255,0.5);
     width: 30rem;
     height: 30rem;
