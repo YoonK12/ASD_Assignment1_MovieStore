@@ -8,17 +8,14 @@
  * Created: 2020. 9. 23
  */
 
-CREATE TABLE MOVIEORDERS (
-  orderID int(11) NOT NULL AUTO_INCREMENT,
-  userID int(11) NOT NULL,
-  order_date datetime NOT NULL,
+CREATE TABLE ORDERS (
+  orderID INT NOT NULL,
+  order_date date NOT NULL,
   shipping_address varchar(256) NOT NULL,
   recipient_name varchar(30) NOT NULL,
   recipient_phone varchar(15) NOT NULL,
   payment_method varchar(20) NOT NULL,
   total float NOT NULL,
   status varchar(20) NOT NULL,
-  PRIMARY KEY (orderID),
-  CONSTRAINT FK_USERS FOREIGN KEY (userID) 
-REFERENCES USERS (userID)
+  PRIMARY KEY (orderID)
 );
