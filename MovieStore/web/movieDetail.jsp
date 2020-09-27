@@ -4,6 +4,7 @@
     Author     : heeseong
 --%>
 
+<<<<<<< Updated upstream
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.sql.Connection"%>
@@ -15,6 +16,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
         
+=======
+<%@page import="uts.asd.model.Movie"%>
+<%@page import="uts.asd.model.User"%>
+<%@page import="uts.asd.dao.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html>
     <head>
