@@ -97,8 +97,8 @@ public class UpdateMovieServlet extends HttpServlet {
             } else{
                 request.setAttribute("Message", "Your record has updated successfully");
                  Movie updatedMovie = movieManager.findMovieID(movieID);
-                 session.setAttribute("display",updatedMovie);
-                request.getRequestDispatcher("editMovie.jsp").include(request, response);
+                 session.setAttribute("movie",updatedMovie);
+                request.getRequestDispatcher("editMovie.jsp").forward(request, response);
             }
         
         }catch(Exception exe){
