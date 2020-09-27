@@ -35,7 +35,7 @@ public class EditMovieServlet extends HttpServlet {
         
         try {
             if(movieManager != null){
-                Movie movie = movieManager.findMovieID(movieID);
+                Movie movie = movieManager.updateMovieID(movieID);
                 session.setAttribute("movie", movie);
                 request.getRequestDispatcher("editMovie.jsp").include(request, response);
             } 

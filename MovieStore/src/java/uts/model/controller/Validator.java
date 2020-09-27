@@ -28,11 +28,6 @@ public class Validator implements Serializable {
    private String passwordPattern = "^(?=.*\\d)(?=.*[a-zA-Z])(?!.*[\\W_\\x7B-\\xFF]).{6,15}$"; 
    private String phonePattern = "0([0-9]+)";
 
-   private String productNamePattern = "^[a-zA-Z0-9 ]*$";
-   private String productTypePattern = "^[a-zA-Z0-9 ]*$";
-   private String productPricePattern = "^-?\\d*\\.\\d{2}$";
-   private String productDescriptionPattern = "^[a-zA-Z0-9 ]*$";
-   private String productQuantityPattern = "[0-9]+";
    
    private String orderIdPattern = "[0-9]+";
    private String orderDatePattern = "[0-9]{4}[-][0-9]{1,2}[-][0-9]{1,2}";   
