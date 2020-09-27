@@ -46,6 +46,8 @@ public class ViewMovieServlet extends HttpServlet {
             String category = request.getParameter("category");  
             DBMovie movieManager = (DBMovie) session.getAttribute("movieManager");
             
+     
+            
             try {
 //                Class.forName("org.apache.derby.jdbc.ClientDriver");
 //                Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/MSdb","ms","admin");    
@@ -60,12 +62,14 @@ public class ViewMovieServlet extends HttpServlet {
 //                }
 //                response.setContentType("image");
 //                OutputStream os = response.getOutputStream();
-                
+                //Movie movie = movieManager.findMovieID(movieID);
                 ArrayList<Movie> display = movieManager.fetchMovie();
 //                System.out.println(display.size());
                 if (display.size() == 0){
+                    //session.setAttribute("movie",movie);
                     request.getRequestDispatcher("staffMain.jsp").include(request, response);
                 } else {
+                    //session.setAttribute("movie",movie);
                     request.setAttribute("display", display);
                     request.getRequestDispatcher("staffMovieList.jsp").include(request, response);
                 }
