@@ -60,6 +60,14 @@
         <servlet-name>DeleteAccServlet</servlet-name>
         <servlet-class>uts.model.controller.DeleteAccServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateMovieServlet</servlet-name>
+        <servlet-class>uts.model.controller.UpdateMovieServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditMovieServlet</servlet-name>
+        <servlet-class>uts.model.controller.EditMovieServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -119,6 +127,14 @@
     <servlet-mapping>
         <servlet-name>DeleteAccServlet</servlet-name>
         <url-pattern>/DeleteAccServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateMovieServlet</servlet-name>
+        <url-pattern>/UpdateMovieServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditMovieServlet</servlet-name>
+        <url-pattern>/EditMovieServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
