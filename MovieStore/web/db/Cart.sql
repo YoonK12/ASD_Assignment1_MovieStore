@@ -9,11 +9,12 @@
  */
 
 create table Cart (
-    cartID varchar(64) primary key,
+    cartID int GENERATED ALWAYS AS IDENTITY NOT NULL,
     movieID int not null,
     orderID int not null,
     totalPrice float,
     quantity integer,
 foreign key (movieID) references MOVIE(movieID),
-foreign key (orderId) references ORDERS(orderId)
+foreign key (orderId) references ORDERS(orderId),
+PRIMARY KEY (cartID)
 );
