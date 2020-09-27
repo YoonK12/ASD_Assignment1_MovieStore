@@ -16,7 +16,7 @@
     </head>
     <body>
         <%
-           Movie movie = (Movie) session.getAttribute("display");
+           Movie movie = (Movie) session.getAttribute("movie");
         %>
         <jsp:directive.include file="admin/header.jsp" />
         <main class="main-content admin-content">
@@ -29,16 +29,16 @@
                     </div>
                     <div>
                         <label for="movieTitle">Movie Title</label>
-                        <input type="text" value="<%=movie.getMovieID()%>" name="title">
+                        <input type="text" value="<%=movie.getTitle()%>" name="title">
                     </div>
                     <div>
                         <label for="type">Director</label>
-                        <input type="text" value="<%=movie.getMovieID()%>" name="director">
+                        <input type="text" value="<%=movie.getDirector()%>" name="director">
                     </div>
 
                     <div>
                         <label for="description">Movie Description</label>
-                        <textarea name="description" rows="10" cols="30"><%=movie.getMovieID()%></textarea>
+                        <textarea name="description" rows="10" cols="30"><%=movie.getDescription()%></textarea>
                         <%--<td><input type="text" placeholder="<%=(productDescriptionErr != null ? productDescriptionErr :  "Enter Description")%>" name="description"></td>--%>
                     </div>
                     <div>
@@ -47,15 +47,15 @@
                     </div>
                     <div>
                         <label for="price">Price</label>
-                        <input type="text" value="<%=movie.getMovieID()%>" name="price">
+                        <input type="text" value="<%=movie.getPrice()%>" name="price">
                     </div>
                     <div>
                         <label for="releasedDate">Released Date</label>
-                        <input type="text" value="<%=movie.getMovieID()%>" name="released_date">
+                        <input type="text" value="<%=movie.getReleased_date()%>" name="released_date">
                     </div>
                     <div>
                         <label for="category">Categories</label>
-                        <input type="text" value="<%=movie.getMovieID()%>" name="category">
+                        <input type="text" value="<%=movie.getCategory()%>" name="category">
                     </div>
                     <div>
                         <input type="submit" value="Submit">
