@@ -33,6 +33,13 @@ CREATE TABLE MOVIE (
   PRIMARY KEY (movieID)
 );
 
+
+CREATE TABLE CATEGORY (
+  category_id int(11) NOT NULL AUTO_INCREMENT,
+   `name` varchar(30) NOT NULL,
+  PRIMARY KEY (category_id)
+);
+
 create table Cart (
     cartID varchar(64) primary key,
     movieID int not null,
