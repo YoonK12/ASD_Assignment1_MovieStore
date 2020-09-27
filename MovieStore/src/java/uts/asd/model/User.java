@@ -31,6 +31,9 @@ public class User implements Serializable {
     private boolean active;
    // ArrayList<String> ID_List = new ArrayList<String>();
     
+    public User(){
+        
+    }
 //Constructor
     public User(int id, String fName, String lName, String password, String email, String mobileNum,String usertype,boolean active) {
         this.id = id;
