@@ -29,9 +29,13 @@
         
             <main class="main-content admin-content">
             <section>
-                <form action="/CartServlet" method="GET" class="view-table-form">
+                <div>
+                    <h2>My Cart</h2>
+                    
+                    <c:if test="${fn:length(items) > 0}">
+                        <form action="/CartServlet" method="GET" class="view-table-form">
                 <table>
-                    <colgroup>
+<!--                    <colgroup>
                         <col width="10%">
                         <col width="10%">
                         <col width="30%">
@@ -39,58 +43,43 @@
                         <col width="20%">
                         <col width="10%">
                         <col width="10%">
-                    </colgroup>
+                    </colgroup>-->
                     <tr>
                         <th>MovieID</th>
                         <th>POSTER</th>
                         <th>title</th>
                         <th>category</th>
-                        <th>quantity</th>
                         <th>price</th>
                         <th>delete</th>
                     </tr>
+                    
+                    <c:forEach var="item" items="${items}">
                     <tr>
-                        <td>1</td>
-                        <td><img src="./image/img_1.png" width="100px"/></td>
-                        <td>Umbokdong</td>
-                        <td>drama</td>
+                        <td>${item.movieID}</td>
+                        <td><img src="data:image/jpeg;base64,${item.image}"></td>
+                        <td>${item.title}</td>
+                        <td>${item.category}</td>
+                        <td>${item.price}</td>
                         <td>
-                            <input type="text" value="1" class="inp-quantity"/>
-                            <a class="btn-movie-edit" role="button" href="EditMovieServlet?movieID=<c:out value='${display.movieID}' />">Edit</a>
-                        </td>
-                        <td>$14.99</td>
-                        <td>
-                            
-                            <a class="btn-movie-delete" role="button" href="deleteMovieServlet?movieID=<c:out value='${display.movieID}' />">Delete</a>
+                            <a href="${pageContext.request.contextPath}/cart?method=deleteCart&id=${item.orderLineID}"
+                               class="btn btn-danger">delete</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><img src="./image/img_2.png" width="100px"/></td>
-                        <td>Adventure</td>
-                        <td>Anime</td>
-                        <td>
-                            <input type="text" value="1" class="inp-quantity"/>
-                            <a class="btn-movie-edit" role="button" href="EditMovieServlet?movieID=<c:out value='${display.movieID}' />">Edit</a>
-                        </td>
-                        <td>$14.99</td>
-                        <td>
-                            
-                            <a class="btn-movie-delete" role="button" href="deleteMovieServlet?movieID=<c:out value='${display.movieID}' />">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th colspan="5" style="text-align: right;padding-right: 1rem;">Total</th>
-                        <td colspan="2">$30</td>
-                    </tr>
-                    <tr>
-                        <td colspan="7">
-                            <a href="index.jsp">go main</a>
-                            <a href="order.jsp"class="btn-go-order">ORDER</a>
-                        </td>
-                    </tr>
+                    </c:forEach>
                 </table>
                 </form>
+                        
+                        <div>
+                            <a href="${pageContext.request.contextPath}/cart?method=order" class="btn-go-order">Order All</a>
+                        </div>
+                    </c:if>
+                    <c:if test="${fn:length(items) <= 0}">
+                        <div class="row justify-content-md-center" style="min-height: 20rem;">
+                            <h4>There is nothing in your cart , try to add more</h4>
+                        </div>
+                    </c:if>
+                </div>
+                
             </section>
             </main>
             

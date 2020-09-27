@@ -34,6 +34,16 @@ public class Movie {
     public Movie(int movieID) {
         this.movieID = movieID;
     }
+
+    public Movie(int movieID, String title, String director, String description, float price, String released_date, String category) {
+        this.movieID = movieID;
+        this.title = title;
+        this.director = director;
+        this.description = description;
+        this.price = price;
+        this.released_date = released_date;
+        this.category = category;
+    }
     
     
 

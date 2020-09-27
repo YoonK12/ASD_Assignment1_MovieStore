@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.*;
+import javax.servlet.http.Part;
 import uts.asd.model.*;
 
 
@@ -70,6 +71,29 @@ public class DBMovie {
             }
         }
         return null;
+    }
+    
+    public Movie updateMovieID(int movieID) throws SQLException {
+        String fetch = "SELECT * FROM MS.MOVIE WHERE movieID = " + movieID;
+        ResultSet rs = st.executeQuery(fetch);
+        
+        while (rs.next()) {
+            int searchMovieID = rs.getInt(1);
+            
+            if (searchMovieID == movieID){
+               String searchMovieTitle = rs.getString(2);
+               String searchMovieDirector = rs.getString(3);
+               String searchMovieDescription = rs.getString(4);
+//               Blob searchMovieImage = rs.getBlob(5);
+               float searchMoviePrice = rs.getFloat(6);
+               String searchMovieReleased_Date = rs.getString(7);
+               String searchCategory = rs.getString(8);
+               
+               return new Movie(searchMovieID, searchMovieTitle, searchMovieDirector, searchMovieDescription, searchMoviePrice,searchMovieReleased_Date, searchCategory);
+        
+            }
+        }
+            return null;
     }
     
   public ArrayList<Movie> fetchMovie() throws SQLException, IOException {
@@ -161,8 +185,16 @@ public class DBMovie {
       st.executeUpdate("DELETE FROM MS.MOVIE where movieID = " + movieID + "");
   }
  
-  public void updateMovie(int movieID, String title, String director, String description, byte[] image, String price, String released_date, String category){
-//      st.executeUpdate("UPDATE MS.MOVIE SET TITLE='" + title + "', DIRECTOR='" + director + "', DESCRIPTION='" + description + "', ");
+  public void updateMovie(int movieID, String title, String director, String description, Part image, String price, String released_date, String category) throws IOException, SQLException{
+            InputStream inputStream = null;
+            
+            if(image != null){
+                long fileSize = image.getSize();
+                String fileContent = image.getContentType();
+                inputStream = image.getInputStream();
+            }
+            
+          st.executeUpdate("UPDATE MS.MOVIE SET TITLE='" + title + "', DIRECTOR='" + director + "', DESCRIPTION='" + description + "', image=" + inputStream + ", price = '"+ price + "', released_date ='" + released_date + "', category ='" +category+ "'");
   }
   
 }

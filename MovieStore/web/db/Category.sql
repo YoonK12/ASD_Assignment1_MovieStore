@@ -1,5 +1,0 @@
-CREATE TABLE CATEGORY (
-  categoryID int GENERATED ALWAYS AS IDENTITY NOT NULL,
-  name varchar(30) NOT NULL,
-  PRIMARY KEY (categoryID)
-) 
