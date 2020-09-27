@@ -51,15 +51,15 @@
                                         <div>
                                             <h4 class="movie-title" name="movieTitle">${movie.title}</h4>
                                             <p class="category" name="movieCategory">${movie.category}</p>
-                                            <p class="release-date" name="movieReleasedDate">${movie.released_date}</p>
-                                            <p class="director" name="movieDirector">${movie.director}</p>
+                                            <p class="release-date" name="movieReleasedDate">Released Date : ${movie.released_date}</p>
+                                            <p class="director" name="movieDirector">Director : ${movie.director}</p>
                                             <p class="price" name="moviePrice">$ ${movie.price}</p>
                                         </div>
                                             
                                         <form action="ViewMovieDetailServlet" method="POST">  
-                                        <div>
-                                            <% session.setAttribute("addedMovie", movie); %>
-                                            <button class="btn-add-cart" role="button">Add to Cart</button>
+                                        <div class="add-cart">
+                                            
+                                            <a class="btn-add-cart" href="cart.jsp?method=addToCart&movieID=${movie.movieID}"role="button">Add to Cart</a>
                                         </div>
                                         </form>
 
