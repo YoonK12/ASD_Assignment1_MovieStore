@@ -2,6 +2,8 @@ package uts.model.controller;
 
 //Logger
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.logging.Level;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpSession;
 //Database
 import uts.asd.model.*;
 import uts.asd.dao.*;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -52,6 +55,7 @@ public class CheckoutServlet extends HttpServlet {
          HttpSession session = request.getSession();
          //get User ID
          User user = (User)session.getAttribute("user");
+         
          if (user == null){
               request.getRequestDispatcher("login.jsp").include(request,response);
          }
@@ -112,12 +116,29 @@ public class CheckoutServlet extends HttpServlet {
            //go to index.jsp for now 
            request.getRequestDispatcher("checkout.jsp").include(request,response);
          try{
-             //Get Order
-             // Put details into user order 
-             // set order status to done
+             //TODO: get order id
+             // Put details into user order
+             String updateQuery = "UPDATE MOVIEORDERS SET shipping_address=?, recepient_name=?, recepient_phone=?,"
+                     + "payment_method=?, status=? WHERE orderID=?"; 
+             Class.forName("org.apache.derby.jdbc.ClientDriver");
+             Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/MSdb","ms","admin");
+             PreparedStatement ps = conn.prepareStatement(updateQuery);
              
-         } catch(NullPointerException ex){
+             ps.setString(1, fullAddress);
+             ps.setString(2, name);
+             ps.setString(3, mobile);
+             ps.setString(4, payMethod);
+             ps.setString(5, "Done");
+             ps.setInt(6, 1); //FIXME: TODO: Get order id from the previous page
              
+             //TODO: uncomment the line bellow me
+             //ps.executeUpdate();
+             
+         } catch(Exception exe){
+             //TODO: make a general error html instead of using the yearErr for a database Error
+              request.setAttribute("yearErr", "Something went wrong in the database. Try again later.");
+              request.getRequestDispatcher("checkout.jsp").include(request, response);
+              exe.printStackTrace();
          }
     }
 }
