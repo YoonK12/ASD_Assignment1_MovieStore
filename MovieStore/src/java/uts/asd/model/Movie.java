@@ -31,6 +31,12 @@ public class Movie {
         this.category = category;
     }
 
+    public Movie(int movieID) {
+        this.movieID = movieID;
+    }
+    
+    
+
     public int getMovieID() {
         return movieID;
     }
