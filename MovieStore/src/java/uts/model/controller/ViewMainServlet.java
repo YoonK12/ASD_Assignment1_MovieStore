@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.asd.dao.DBMovie;
-import uts.asd.model.Cart;
 
 /**
  *
@@ -27,13 +25,7 @@ public class ViewMainServlet extends HttpServlet {
         
         HttpSession session = request.getSession();
         
-        Cart cart = (Cart)session.getAttribute("cart");
-        DBMovie movie = (DBMovie) session.getAttribute("addedMovie");
-        cart.addToCart(movie,1);
-        session.removeAttribute("addedMovie");
-        session.setAttribute("cart", cart);
 
-        response.sendRedirect("cart.jsp"); // Cart page
 
     }
 
