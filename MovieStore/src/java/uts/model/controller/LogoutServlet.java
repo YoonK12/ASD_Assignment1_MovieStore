@@ -32,13 +32,13 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session = request.getSession();
         UserManager manager = (UserManager) session.getAttribute("manager");
         //fields
-        User user = (User) session.getAttribute("user");
-        
+        User sessionUser = (User) session.getAttribute("user");
+         
         try {
             // save logout time into the USERS table
-            manager.addUserLog(user.getId(),"Logout");
+            manager.addUserLog(sessionUser.getId(),"Logout");
             // set user's active status as false
-            user.setActive(false);
+            sessionUser.setActive(false);
              //remove session attribute
             session.removeAttribute("user");
             session.invalidate();

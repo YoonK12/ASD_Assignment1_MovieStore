@@ -4,7 +4,17 @@
     Author     : heeseong
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="uts.asd.model.*"%>
+<%@page import="uts.asd.dao.*"%>
+<%@page import="uts.model.controller.*"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+        
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,6 +24,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css" type="text/css"/>
     </head>
+    <%
+        int movieID = Integer.parseInt(request.getParameter("movieID"));
+        DBMovie movieManager = (DBMovie) session.getAttribute("movieManager");
+        Movie movie = movieManager.fetchMovieWithID(movieID);
+        session.setAttribute("movie", movie);
+    %>
     <body>
         <div class="container">
             
@@ -21,8 +37,40 @@
             
             <main class="main-content main-movie">
                 <section class="movie-list">
-                    <div class ="group group1">
-                        <div>
+                    <div class ="group group2">
+                        <div class="sub-content">
+                            <h3 class="subpage-heading">Movie Detail</h3>
+                            <div class="layout-2col movie-detail">
+                                <div class="left-menu">
+                                    <p class="movie-detail-img">
+                                        <img src="data:image/jpeg;base64,${movie.image}">
+                                    </p>
+                                </div>
+                                <div class="right-cont">
+                                    <div id="mydetails" class="right-cont-detail">
+                                        <div>
+                                            <h4 class="movie-title" name="movieTitle">${movie.title}</h4>
+                                            <p class="category" name="movieCategory">${movie.category}</p>
+                                            <p class="release-date" name="movieReleasedDate">${movie.released_date}</p>
+                                            <p class="director" name="movieDirector">${movie.director}</p>
+                                            <p class="price" name="moviePrice">$ ${movie.price}</p>
+                                        </div>
+                                            
+                                        <form action="ViewMovieDetailServlet" method="POST">  
+                                        <div>
+                                            <% session.setAttribute("addedMovie", movie); %>
+                                            <button class="btn-add-cart" role="button">Add to Cart</button>
+                                        </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layout-1col">
+                                <h4>Description</h4>
+                                <p>${movie.description}</p>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </main>
