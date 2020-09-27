@@ -13,10 +13,10 @@
     
     <nav>
         <ul class="nav-category">
-            <li><a href="./userList.jsp?userType=Customer">Customers Manager</a></li>
-            <li><a href="./userList.jsp?userType=Staff">Staff Manager</a></li>
+            <li><a href="#">User</a></li>
             <li><a href="#">Categories</a></li>
             <li><a href="ViewMovieServlet">Movies</a></li>
+            <li><a href="#">Customers</a></li>
             <li><a href="#">Reviews</a></li>
             <li><a href="#">Orders</a></li>
         </ul>
