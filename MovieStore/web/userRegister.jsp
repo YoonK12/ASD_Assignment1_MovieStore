@@ -47,8 +47,8 @@ table.type11 td { width: 155px; padding: 10px; vertical-align: top; border-botto
                 <c:if test="${result != null}">Edit</c:if>
             </h3>
             <div>
-                <input type="button" id="" name="" value="list" onclick="javascript:history.go(-1);"/>
-                <input type="button" id="" name="" value="${result == null ? 'Register' : 'Edit'}" />
+                <input type="button" class="btn-go-cart" name="" value="list" onclick="javascript:history.go(-1);"/>
+                <input type="button" class="btn-go-cart" name="" value="${result == null ? 'Register' : 'Edit'}" />
             </div>
                 
             <form id="" name="" method="post" action="<%=request.getContextPath()%>/UserServlet"> 
@@ -89,8 +89,8 @@ table.type11 td { width: 155px; padding: 10px; vertical-align: top; border-botto
                 </table>
                             
                 <div>
-                    <input type="button" id="" name="" value="list" onclick="javascript:history.go(-1);"/>
-                    <input type="submit" id="" name="" value="${result == null ? 'Register' : 'Edit'}" />
+                    <input type="button" class="btn-go-cart" name="" value="list" onclick="javascript:history.go(-1);"/>
+                    <input type="submit" class="btn-go-cart" name="" value="${result == null ? 'Register' : 'Edit'}" />
                 </div>
             
             </form>
