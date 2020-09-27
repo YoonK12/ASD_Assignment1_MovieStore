@@ -78,6 +78,18 @@ public class LoginServlet extends HttpServlet{
                 request.getRequestDispatcher("staffMain.jsp").include(request,response);
                 
                 }
+                
+                else if (user.getUsertype().equals("Admin")) {
+                session.setAttribute("user",user);           
+                // user's active
+                user.setActive(true);
+                int userId = user.getId();
+                //String usertype = user.getUsertype();
+                manager.addUserLog(userId, "Login");
+                ArrayList<Movie> display = movieManager.fetchMovie();
+                request.setAttribute("display", display);
+                request.getRequestDispatcher("staffMain.jsp").include(request,response);
+            }
             
                 } else {
                     // if user not found

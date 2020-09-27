@@ -59,3 +59,15 @@ INSERT INTO USERS(fName,lName,password,email,mobileNum,usertype,active)
 ,('Marba','Rob','BA99342bob','marba.rob@uts.edu.au','01234567','Staff',false)
 ,('Josh','Carrot','BA99342bob','josh.carrot@uts.edu.au','01234567','Staff',false)
 ,('Kate','Haskins','BA99342bob','kate.haskins@uts.edu.au','01234567','Staff',false);
+
+INSERT INTO USERS(fName,lName,password,email,mobileNum,usertype,active)
+    VALUES('Emily','Doe','BA99342bob','amily.doe@uts.edu.au','01234567','Admin',false)
+,('my','Strokes','BA99342bob', 'my.strokes@uts.edu.au','01234567','Admin',false)
+,('ron','Carry','BA99342bob','ron.carry@uts.edu.au','01234567','Admin',false)
+,('Jeff','Mil','BA99342bob','mil@uts.edu.au','01234567','Admin',false)
+,('Mie','Smith','BA99342bob','mie@uts.edu.au','01234567','Admin',false)
+,('Sara','Dave','BA99342bob','sara.davine@uts.edu.au','01234567','Admin',false)
+,('Lara','Jo','BA99342bob', 'la.johns@uts.edu.au','01234567','Admin',false)
+,('Maba','Ro','BA99342bob','maba.rob@uts.edu.au','01234567','Admin',false)
+,('Jo','Carrot','BA99342bob','jo.carrot@uts.edu.au','01234567','Admin',false)
+,('Kate','kins','BA99342bob','kate.@uts.edu.au','01234567','Admin',false);
