@@ -33,9 +33,9 @@ public class UpdateMovieServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
 //        Validator validator = new Validator();
-//        int movieID = Integer.parseInt(request.getParameter("movieID"));
+          int movieID = Integer.parseInt(request.getParameter("movieID"));
 //        System.out.println("movieID =" + movieID);
 //        String title = request.getParameter("title");
 //        String director = request.getParameter("director");
@@ -43,7 +43,7 @@ public class UpdateMovieServlet extends HttpServlet {
 //        String price = request.getParameter("price");
 //        String released_date = request.getParameter("released_date");
 //        String category = request.getParameter("category");
-//        DBMovie movieManager = (DBMovie) session.getAttribute("movieManager");
+       DBMovie movieManager = (DBMovie) session.getAttribute("movieManager");
 //        
 //        Movie movie = null;
 //        validator.clear(session);
@@ -90,12 +90,14 @@ public class UpdateMovieServlet extends HttpServlet {
             prepStmt.setString(7, category);
             
             int returCode = prepStmt.executeUpdate();
-            
+            //findMovieID(int movieID)
             if (returCode == 0){
                 request.setAttribute("Message", "Error inserting file");
                 request.getRequestDispatcher("editMovie.jsp").include(request, response);
             } else{
                 request.setAttribute("Message", "Your record has updated successfully");
+                 Movie updatedMovie = movieManager.findMovieID(movieID);
+                 session.setAttribute("movie",updatedMovie);
                 request.getRequestDispatcher("editMovie.jsp").include(request, response);
             }
         

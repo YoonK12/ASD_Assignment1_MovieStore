@@ -22,7 +22,7 @@
         <main class="main-content admin-content">
             <h1>Edit Movie Information:</h1>
             <section class="movie-list admin-section">
-                <form method="post" action="UpdateMovieServlet" enctype="multipart/form-data" class="admin-form">
+                <form method="post" action="UpdateMovieServlet?movieID=${movie.movieID}" enctype="multipart/form-data" class="admin-form">
                     <div>
                         <label for="movieID">Movie ID</label>
                         <input type="text" value="${movie.movieID}" name="movieID">
