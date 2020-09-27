@@ -26,6 +26,14 @@
         <title>Movie Store Admin</title>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
+        <style>
+        table.type11 { border-collapse: separate; border-spacing: 1px; text-align: center; line-height: 1.5; margin: 20px 10px;}
+        table.type11 th { width: 155px; padding: 10px; font-weight: bold; vertical-align: top; color: #fff; background: #ce4869 ;}
+        table.type11 td { width: 155px; padding: 10px; vertical-align: top; border-bottom: 1px solid #ccc; background: #eee;}
+        
+
+
+        </style>
     </head>
     <body>
         <jsp:directive.include file="admin/header.jsp" />
@@ -34,14 +42,14 @@
             <div>
                 <input type="button" id="" name="" value="add" onclick="javasciprt:location.href='./userRegister.jsp?userType=${userType}'"/>
             </div>
-            <table border="1" style="width:100%">
+            <table class="type11" style="width:100%">
                 <thead>
                     <tr>
-                        <td>fName</td>
-                        <td>lName</td>
-                        <td>email</td>
-                        <td>mobileNum</td>
-                        <td>active</td>
+                        <th scope="cols">fName</th>
+                        <th scope="cols">lName</th>
+                        <th scope="cols">email</th>
+                        <th scope="cols">mobileNum</th>
+                        <th scope="cols">active</th>
                     </tr>
                 </thead>
                 <tbody>
