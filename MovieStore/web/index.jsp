@@ -10,6 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,8 +30,26 @@
             
             <jsp:directive.include file="./inc/header.jsp" />
             
-            <main class="main-content main-movie">
-                <section class="movie-list">
+                            <style>
+                        #bg{
+                                background: url(./image/bg.jpg) no-repeat;
+                                background-size: contain;
+                                height: 37rem;
+                                position: relative;
+                                padding: 0;
+                        }
+                        #main-bg{
+                                background-color: rgba(255,255,255,.5);
+                                padding: 2rem;
+                                max-height: 44rem;
+                                                    }
+                    </style>
+                    
+            <main class="main-content main-movie" >
+                <section class="movie-list" >
+                    
+                    <c:if test="${fn:length(display) > 0}">
+                        
                     <form action="/ViewMainServlet" method="GET">
                         <div class ="group group1">
                             
@@ -50,6 +69,12 @@
                             
                         </div>
                         </form>
+                        </c:if>
+                    <c:if test="${fn:length(display) <= 0}">
+                        <div id="main-bg">
+                            <div id="bg"></div>
+                        </div>
+                    </c:if>
                 </section> 
             </main>
             
