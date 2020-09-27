@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
     </head>
     <body>
-        <jsp:directive.include file="admin/header.jsp" />
+        <jsp:directive.include file="admin/headerStaff.jsp" />
         <main class="main-content admin-content">
             <section>
                 <h2>Administrator Dashboard</h2>
