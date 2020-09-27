@@ -66,6 +66,7 @@ public class DBMovie {
                String searchCategory = rs.getString(8);
                
 //               return new Movie(searchMovieID, searchMovieTitle, searchMovieDirector, searchMovieDescription, searchMovieImage, searchMoviePrice,searchMovieReleased_Date, searchCategory);
+               return new Movie(searchMovieID);
             }
         }
         return null;
