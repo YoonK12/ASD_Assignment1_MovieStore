@@ -29,6 +29,9 @@
         <title>Movie Store Admin</title>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
+         table.type11 { border-collapse: separate; border-spacing: 1px; text-align: center; line-height: 1.5; margin: 20px 10px;}
+        table.type11 th { width: 155px; padding: 10px; font-weight: bold; vertical-align: top; color: #fff; background: #ce4869 ;}
+        table.type11 td { width: 155px; padding: 10px; vertical-align: top; border-bottom: 1p
     </head>
     <body>
         <jsp:directive.include file="admin/header.jsp" />
@@ -36,11 +39,11 @@
             <h3 class="subpage-heading">${userType} Detail</h3>
             <div>
                 
-                <input type="button" id="" name="" value="delete" onclick="javasciprt:location.href='<%=request.getContextPath()%>/UserServlet?id=${result.id}'"/>
-                <input type="button" id="" name="" value="list" onclick="javascript:history.go(-1);"/>
-                <input type="button" id="" name="" value="edit" onclick="javasciprt:location.href='./userRegister.jsp?id=${result.id}&userType=${userType}'"/>
+                <input type="button" class="btn-go-cart" name="" value="delete" onclick="javasciprt:location.href='<%=request.getContextPath()%>/UserServlet?id=${result.id}'"/>
+                <input type="button" class="btn-go-cart" name="" value="list" onclick="javascript:history.go(-1);"/>
+                <input type="button" class="btn-go-cart" name="" value="edit" onclick="javasciprt:location.href='./userRegister.jsp?id=${result.id}&userType=${userType}'"/>
             </div>
-            <table border="1" style="width:100%">
+            <table class="type11" style="width:100%">
                 <tbody>
                     <tr>
                         <td>fName</td>
@@ -65,9 +68,9 @@
                 </tbody>
             </table>
             <div>
-                <input type="button" id="" name="" value="delete" onclick="javasciprt:location.href='<%=request.getContextPath()%>/UserServlet?id=${result.id}&userType=${userType}'"/>
-                <input type="button" id="" name="" value="list" onclick="javascript:history.go(-1);"/>
-                <input type="button" id="" name="" value="edit" />
+                <input type="button" class="btn-go-cart" name="" value="delete" onclick="javasciprt:location.href='<%=request.getContextPath()%>/UserServlet?id=${result.id}&userType=${userType}'"/>
+                <input type="button" class="btn-go-cart" name="" value="list" onclick="javascript:history.go(-1);"/>
+                <input type="button" class="btn-go-cart" name="" value="edit" />
             </div>
         </main>
         
